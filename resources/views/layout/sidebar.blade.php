@@ -86,16 +86,27 @@
     <div class="menu-block customscroll">
         <div class="sidebar-menu">
             <ul id="accordion-menu">
-                <li class="dropdown">
+                <a href={{route("index.index")}} class="dropdown-toggle no-arrow">
+                    <span class="micon dw dw-house-1"></span><span class="mtext">Dashboard</span>
+                </a>
+                <a href={{route("absensi.absensi")}} class="dropdown-toggle no-arrow">
+                    <span class="micon dw dw-library"></span><span class="mtext">Data Absensi</span>
+                </a>
+                <li>
+                    <a href="user.html" class="dropdown-toggle no-arrow @yield('menu_user')">
+                        <span class="micon fa fa-users"></span><span class="mtext">Data User</span>
+                    </a>
+                </li>
+                {{-- <li class="dropdown">
                     <a href="javascript:;" class="dropdown-toggle">
                         <span class="micon dw dw-house-1"></span><span class="mtext">Home</span>
                     </a>
                     <ul class="submenu">
-                        <li><a href="index.html">Dashboard style 1</a></li>
+                        <li><a href={{route("index.index")}}>Dashboard style 1</a></li>
                         <li><a href="index2.html">Dashboard style 2</a></li>
                     </ul>
-                </li>
-                <li class="dropdown">
+                </li> --}}
+                {{-- <li class="dropdown">
                     <a href="javascript:;" class="dropdown-toggle">
                         <span class="micon dw dw-edit2"></span><span class="mtext">Forms</span>
                     </a>
@@ -261,13 +272,13 @@
                         <li><a href="color-settings.html">Color Settings</a></li>
                         <li><a href="third-party-plugins.html">Third Party Plugins</a></li>
                     </ul>
-                </li>
-                <li>
+                </li> --}}
+                {{-- <li>
                     <a href="https://dropways.github.io/deskapp-free-single-page-website-template/" target="_blank" class="dropdown-toggle no-arrow">
                         <span class="micon dw dw-paper-plane1"></span>
                         <span class="mtext">Landing Page <img src="{{asset('assets/images/coming-soon.png')}}" alt="" width="25"></span>
                     </a>
-                </li>
+                </li> --}}
             </ul>
         </div>
     </div>

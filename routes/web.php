@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AbsensiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index.index');
-});
+// Route::get('/', function () {
+//     return view('index.index');
+Route::get('/', [HomeController::class, 'index'])->name('index.index');
+Route::get('/absensi', [AbsensiController::class, 'index'])->name('absensi.absensi');
