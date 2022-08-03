@@ -18,4 +18,7 @@ use App\Http\Controllers\AbsensiController;
 // Route::get('/', function () {
 //     return view('index.index');
 Route::get('/', [HomeController::class, 'index'])->name('index.index');
-Route::get('/absensi', [AbsensiController::class, 'index'])->name('absensi.absensi');
+Route::get('/dataabsensi', [AbsensiController::class, 'index'])->name('absensi.absensi');
+Route::post('/dataabsensi', [AbsensiController::class, 'store'])->name('absensi.store');
+Route::delete('/dataabsensi/{id}', [AbsensiController::class, 'destroy'])->name('absensi.destroy');
+Route::put('/dataabsensi/{id}', [AbsensiController::class, 'update'])->name('Absensi.update');
