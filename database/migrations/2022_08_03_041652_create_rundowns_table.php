@@ -13,7 +13,7 @@ class CreateRundownsTable extends Migration
      */
     public function up()
     {
-        Schema::create('rundwons', function (Blueprint $table) {
+        Schema::create('rundowns', function (Blueprint $table) {
             $table->id();
             $table->string('nama_acara')->nullable();
             $table->string('lokasi')->nullable();
