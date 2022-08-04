@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AbsensiController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\CalenderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,3 +28,8 @@ Route::get('/admin/user/', [UserController::class, 'index'])->name('admin.user')
 Route::post('/admin/user/', [UserController::class, 'store'])->name('user.store');
 Route::delete('/admin/user/{id}', [UserController::class, 'destroy'])->name('user.destroy');
 Route::put('/admin/user/{id}', [UserController::class, 'update'])->name('user.update');
+Route::get('/calender', [CalenderController::class, 'index'])->name('calender.calender');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

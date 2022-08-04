@@ -6,16 +6,21 @@
                     <span class="nav-text">Dashboard</span>
                 </a>
             </li>
+            <li><a class="ai-icon" href="{{ route('calender.calender') }}" aria-expanded="false">
+                    <i class="flaticon-381-networking"></i>
+                    <span class="nav-text">Calender</span>
+                </a>
+            </li>
             <li><a class="ai-icon" href="{{ route('absensi.absensi') }}" aria-expanded="false">
-                <i class="flaticon-381-network"></i>
-                <span class="nav-text">Data Absensi</span>
-            </a>
-        </li>
-        <li><a class="ai-icon" href="{{ route('admin.user') }}" aria-expanded="false">
-            <i class="micon fa fa-users"></i>
-            <span class="nav-text">Data User</span>
-        </a>
-    </li>
+                    <i class="flaticon-381-network"></i>
+                    <span class="nav-text">Data Absensi</span>
+                </a>
+            </li>
+            <li><a class="ai-icon" href="{{ route('admin.user') }}" aria-expanded="false">
+                    <i class="micon fa fa-users"></i>
+                    <span class="nav-text">Data User</span>
+                </a>
+            </li>
             {{-- <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
                     <i class="flaticon-381-television"></i>
                     <span class="nav-text">Apps</span>
@@ -141,9 +146,9 @@
                 </ul>
             </li>
         </ul> --}}
-        <div class="copyright">
-            <p>Tixia Ticketing Codeigniter Admin Dashboard <br />© 2022 All Rights Reserved</p>
-            <p class="op5">Made with <span class="heart"></span> by DexignZone</p>
-        </div>
+            <div class="copyright">
+                <p>Tixia Ticketing Codeigniter Admin Dashboard <br />© 2022 All Rights Reserved</p>
+                <p class="op5">Made with <span class="heart"></span> by DexignZone</p>
+            </div>
     </div>
 </div>
