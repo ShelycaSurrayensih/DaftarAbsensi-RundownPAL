@@ -11,7 +11,7 @@
                 <span class="nav-text">Data Absensi</span>
             </a>
         </li>
-        <li><a class="ai-icon" href="table_bootstrap.html" aria-expanded="false">
+        <li><a class="ai-icon" href="{{ route('admin.user') }}" aria-expanded="false">
             <i class="micon fa fa-users"></i>
             <span class="nav-text">Data User</span>
         </a>

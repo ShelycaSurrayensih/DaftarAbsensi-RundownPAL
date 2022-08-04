@@ -93,20 +93,18 @@
 			<div class="col-12">
 				<div class="card">
                     <div class="col-md-40 col-sm-12 text-right" style="text-align: right">
-                        <button type="button" class="btn btn-primary mb-2" data-bs-toggle="modal" data-bs-target="#addModal">Add Data</button>
+                        <button type="button" class="btn btn-primary mb-2" data-bs-toggle="modal" data-bs-target="#addModaluser">Add Data</button>
                     </div>
-                    @include('absensi.addabsensi')
+                    @include('admin.adduser')
 					<div class="card-body">
 						<div class="table-responsive">
 							<table id="example3" class="display" style="min-width: 845px">
 								<thead>
 									<tr>
 										<th>No</th>
-										<th>Nama</th>
-										<th>Jabatan</th>
-										<th>Instansi</th>
-										<th>Nomer Hp</th>
-										<th>Tanda Tangan</th>
+                                        <th>Nama</th>
+                                        <th>Email</th>
+                                        <th>Password</th>
 										<th>Action</th>
 									</tr>
 								</thead>
@@ -116,9 +114,9 @@
 <!--**********************************
 	Content body end
 ***********************************-->
-                    @foreach($absensi as $a)
+                    @foreach($datauser as $d)`
                     <!--start modal edit-->
-                    <div class="modal fade" id="editModal{{ $a->id }}" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal fade" id="editModaluser{{ $d->id }}" tabindex="-1" role="dialog" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header no-bd">
@@ -132,7 +130,7 @@
                                 </div>
                                 <div class="modal-body">
                                     <p class="small">Edit Data ID {{ $loop->iteration }}</p>
-                                    <form action="{{ route('Absensi.update', $a->id) }}"
+                                    <form action="{{ route('user.update', $d->id) }}"
                                         method="POST" enctype="multipart/form-data">
                                         @csrf
                                         @method('PUT')
@@ -140,33 +138,20 @@
                                             <div class="col-sm-12">
                                                 <div class="form-group form-group-default">
                                                     <label>Nama</label>
-                                                    <input id="nama" type="text" name="nama" value="{{ $a->nama }}" class="form-control" placeholder="Masukkan Nama">
+                                                    <input id="name" type="text" name="name" value="{{ $d->name }}" class="form-control" placeholder="Masukkan Nama">
                                                 </div>
                                             </div>
                                             <div class="col-sm-12">
                                                 <div class="form-group form-group-default">
-                                                    <label>Jabatan</label>
-                                                    <input id="jabatan" type="text" name="jabatan" value="{{ $a->jabatan }}" class="form-control" placeholder="Masukkan Jabatan">
+                                                    <label>Email</label>
+                                                    <input id="email" type="text" name="email" value="{{ $d->email }}" class="form-control" placeholder="Masukkan email">
                                                 </div>
                                             </div>
                                             <div class="col-sm-12">
                                                 <div class="form-group form-group-default">
-                                                    <label>Instansi</label>
-                                                    <input id="instansi" type="text" name="instansi" value="{{ $a->instansi }}" class="form-control" placeholder="Masukkan Instansi">
+                                                    <label>Password</label>
+                                                    <input id="passwword" type="text" name="password" value="{{ $d->password }}" class="form-control" placeholder="Masukkan passwword">
                                                 </div>
-                                            </div>
-                                            <div class="col-sm-12">
-                                                <div class="form-group form-group-default">
-                                                    <label>No Hp</label>
-                                                    <input id="telp" type="text" name="telp" value="{{ $a->telp }}" class="form-control" placeholder="Masukkan No Hp">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="form-group form-group-default">
-                                                    <label>Tanda Tangan</label>
-                                                    <input type="file" name="tandatangan" class="form-control" placeholder="Masukkan Tanda Tangan">
-                                                </div>
-                                                <img src="{{asset('images/'.$a->gambar)}}"  width="100px" alt="">
                                             </div>
                                         </div>
                                         <div class="modal-footer no-bd">
@@ -181,7 +166,7 @@
                     <!--End Modal Edit-->
 
                     <!-- Modal Detail Data -->
-                    <div class="modal fade" id="detailModal{{ $a->id }}" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal fade" id="detailModaluser{{ $d->id }}" tabindex="-1" role="dialog" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header no-bd">
@@ -198,32 +183,19 @@
                                         <div class="col-sm-12">
                                             <div class="form-group form-group-default">
                                                 <label>Nama</label>
-                                                {{ $a->nama }}
+                                                {{ $d->name }}
                                             </div>
                                         </div>
                                         <div class="col-sm-12">
                                             <div class="form-group form-group-default">
-                                                <label>Jabatan</label>
-                                                {{ $a->jabatan }}
+                                                <label>Email</label>
+                                                {{ $d->email }}
                                             </div>
                                         </div>
                                         <div class="col-sm-12">
                                             <div class="form-group form-group-default">
-                                                <label>Instansi</label>
-                                                {{ $a->instansi }}
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-12">
-                                            <div class="form-group form-group-default">
-                                                <label>No Hp</label>
-                                                {{ $a->telp }}
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group form-group-default">
-                                                <label>Tanda Tangan</label>
-                                                {{ $a->tandatangan }} <br>
-                                                <img src="{{asset('images/'.$a->tandatangan)}}"  width="100px" alt="">
+                                                <label>Password</label>
+                                                {{ $d->password }}
                                             </div>
                                         </div>
                                     </div>
@@ -237,15 +209,13 @@
                     <!--End Modal Detail-->
                     <tr>
                         <td class="text-center">{{ $loop->iteration }}</td>
-                        <td class="text-center">{{ $a->nama }}</td>
-                        <td class="text-center">{{ $a->jabatan}}</td>
-                        <td class="text-center">{{ $a->instansi}}</td>
-                        <td class="text-center">{{ $a->telp}}</td>
-                        <td class="text-center"><img src="{{asset('images/'.$a->tandatangan) }}" width="100px"></td>
+                        <td class="text-center">{{ $d->name }}</td>
+                        <td class="text-center">{{ $d->email }}</td>
+                        <td class="text-center">{{ $d->password }}</td>
                         <td class="text-center">
-                            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editModal{{ $a->id }}"><i class="fa fa-edit"></i></button>
-                            <button class="btn btn-info" data-bs-toggle="modal" data-bs-target="#detailModal{{ $a->id }}"><i class="fa fa-edit"></i></button>
-                            <form action="{{ route('absensi.destroy', $a->id) }}" method="POST" class="d-inline">
+                            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editModaluser{{ $d->id }}"><i class="fa fa-edit"></i></button>
+                            <button class="btn btn-info" data-bs-toggle="modal" data-bs-target="#detailModaluser{{ $d->id }}"><i class="fa fa-edit"></i></button>
+                            <form action="{{ route('user.destroy', $d->id) }}" method="POST" class="d-inline">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger" onclick="return confirm('Apa anda yakin menghapus data tersebut?')"><i class="fa fa-trash"></i></a>
