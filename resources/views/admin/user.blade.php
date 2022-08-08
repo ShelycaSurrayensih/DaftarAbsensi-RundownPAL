@@ -111,9 +111,9 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($absensi as $a)
+                                @foreach ($datauser as $du)
                                     <!--start modal edit-->
-                                    <div class="modal fade" id="editModal{{ $a->id }}" tabindex="-1" role="dialog"
+                                    <div class="modal fade" id="editModal{{ $du->id }}" tabindex="-1" role="dialog"
                                         aria-hidden="true">
                                         <div class="modal-dialog" role="document">
                                             <div class="modal-content">
@@ -128,7 +128,7 @@
                                                 </div>
                                                 <div class="modal-body">
                                                     <p class="small">Edit Data ID {{ $loop->iteration }}</p>
-                                                    <form action="{{ route('Absensi.update', $a->id) }}" method="POST"
+                                                    <form action="{{ route('Absensi.update', $du->id) }}" method="POST"
                                                         enctype="multipart/form-data">
                                                         @csrf
                                                         @method('PUT')
@@ -137,7 +137,7 @@
                                                                 <div class="form-group form-group-default">
                                                                     <label>Nama</label>
                                                                     <input id="nama" type="text" name="nama"
-                                                                        value="{{ $a->nama }}" class="form-control"
+                                                                        value="{{ $du->nama }}" class="form-control"
                                                                         placeholder="Masukkan Nama">
                                                                 </div>
                                                             </div>
@@ -145,7 +145,7 @@
                                                                 <div class="form-group form-group-default">
                                                                     <label>Jabatan</label>
                                                                     <input id="jabatan" type="text" name="jabatan"
-                                                                        value="{{ $a->jabatan }}" class="form-control"
+                                                                        value="{{ $du->jabatan }}" class="form-control"
                                                                         placeholder="Masukkan Jabatan">
                                                                 </div>
                                                             </div>
@@ -153,7 +153,7 @@
                                                                 <div class="form-group form-group-default">
                                                                     <label>Instansi</label>
                                                                     <input id="instansi" type="text" name="instansi"
-                                                                        value="{{ $a->instansi }}" class="form-control"
+                                                                        value="{{ $du->instansi }}" class="form-control"
                                                                         placeholder="Masukkan Instansi">
                                                                 </div>
                                                             </div>
@@ -161,7 +161,7 @@
                                                                 <div class="form-group form-group-default">
                                                                     <label>No Hp</label>
                                                                     <input id="telp" type="text" name="telp"
-                                                                        value="{{ $a->telp }}" class="form-control"
+                                                                        value="{{ $du->telp }}" class="form-control"
                                                                         placeholder="Masukkan No Hp">
                                                                 </div>
                                                             </div>
@@ -172,7 +172,7 @@
                                                                         class="form-control"
                                                                         placeholder="Masukkan Tanda Tangan">
                                                                 </div>
-                                                                <img src="{{ asset('images/' . $a->gambar) }}"
+                                                                <img src="{{ asset('images/' . $du->gambar) }}"
                                                                     width="100px" alt="">
                                                             </div>
                                                         </div>
@@ -190,7 +190,7 @@
                                     <!--End Modal Edit-->
 
                                     <!-- Modal Detail Data -->
-                                    <div class="modal fade" id="detailModal{{ $a->id }}" tabindex="-1"
+                                    <div class="modal fade" id="detailModal{{ $du->id }}" tabindex="-1"
                                         role="dialog" aria-hidden="true">
                                         <div class="modal-dialog" role="document">
                                             <div class="modal-content">
@@ -208,32 +208,32 @@
                                                         <div class="col-sm-12">
                                                             <div class="form-group form-group-default">
                                                                 <label>Nama</label>
-                                                                {{ $a->nama }}
+                                                                {{ $du->nama }}
                                                             </div>
                                                         </div>
                                                         <div class="col-sm-12">
                                                             <div class="form-group form-group-default">
                                                                 <label>Jabatan</label>
-                                                                {{ $a->jabatan }}
+                                                                {{ $du->jabatan }}
                                                             </div>
                                                         </div>
                                                         <div class="col-sm-12">
                                                             <div class="form-group form-group-default">
                                                                 <label>Instansi</label>
-                                                                {{ $a->instansi }}
+                                                                {{ $du->instansi }}
                                                             </div>
                                                         </div>
                                                         <div class="col-sm-12">
                                                             <div class="form-group form-group-default">
                                                                 <label>No Hp</label>
-                                                                {{ $a->telp }}
+                                                                {{ $du->telp }}
                                                             </div>
                                                         </div>
                                                         <div class="col-md-6">
                                                             <div class="form-group form-group-default">
                                                                 <label>Tanda Tangan</label>
-                                                                {{ $a->tandatangan }} <br>
-                                                                <img src="{{ asset('images/' . $a->tandatangan) }}"
+                                                                {{ $du->tandatangan }} <br>
+                                                                <img src="{{ asset('images/' . $du->tandatangan) }}"
                                                                     width="100px" alt="">
                                                             </div>
                                                         </div>
@@ -249,20 +249,20 @@
                                     <!--End Modal Detail-->
                                     <tr>
                                         <td class="text-center">{{ $loop->iteration }}</td>
-                                        <td class="text-center">{{ $a->nama }}</td>
-                                        <td class="text-center">{{ $a->jabatan }}</td>
-                                        <td class="text-center">{{ $a->instansi }}</td>
-                                        <td class="text-center">{{ $a->telp }}</td>
-                                        <td class="text-center"><img src="{{ asset('images/' . $a->tandatangan) }}"
+                                        <td class="text-center">{{ $du->nama }}</td>
+                                        <td class="text-center">{{ $du->jabatan }}</td>
+                                        <td class="text-center">{{ $du->instansi }}</td>
+                                        <td class="text-center">{{ $du->telp }}</td>
+                                        <td class="text-center"><img src="{{ asset('images/' . $du->tandatangan) }}"
                                                 width="100px"></td>
                                         <td class="text-center">
                                             <button class="btn btn-primary" data-bs-toggle="modal"
-                                                data-bs-target="#editModal{{ $a->id }}"><i
+                                                data-bs-target="#editModal{{ $du->id }}"><i
                                                     class="fa fa-edit"></i></button>
                                             <button class="btn btn-info" data-bs-toggle="modal"
-                                                data-bs-target="#detailModal{{ $a->id }}"><i
+                                                data-bs-target="#detailModal{{ $du->id }}"><i
                                                     class="fa fa-edit"></i></button>
-                                            <form action="{{ route('absensi.destroy', $a->id) }}" method="POST"
+                                            <form action="{{ route('absensi.destroy', $du->id) }}" method="POST"
                                                 class="d-inline">
                                                 @csrf
                                                 @method('DELETE')
