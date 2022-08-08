@@ -1,4 +1,7 @@
 @extends('layout.master')
+@section('judul')
+Calendar
+@endsection
 @section('content')
 
 <div class="event-sidebar dz-scroll " id="eventSidebar">

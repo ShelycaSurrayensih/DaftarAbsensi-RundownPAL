@@ -1,4 +1,7 @@
 @extends('layout.rundownLay')
+@section('judul')
+Table Rundown
+@endsection
 @section('content')
 
 <div class="content-body">

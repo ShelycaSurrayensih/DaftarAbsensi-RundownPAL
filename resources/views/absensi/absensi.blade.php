@@ -1,4 +1,7 @@
 @extends('layout.master')
+@section('judul')
+Table Absensi
+@endsection
 @section('content')
 <div class="event-sidebar dz-scroll " id="eventSidebar">
 	<div class="card shadow-none rounded-0 bg-transparent h-auto mb-0">

@@ -1,4 +1,7 @@
 @extends('layout.master')
+@section('judul')
+Dasboard
+@endsection
 @section('content')
         <div class="event-sidebar dz-scroll active" id="eventSidebar">
             <div class="card shadow-none rounded-0 bg-transparent h-auto mb-0">
