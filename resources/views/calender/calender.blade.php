@@ -1,192 +1,238 @@
 @extends('layout.master')
-@section('judul')
-Calendar
-@endsection
 @section('content')
+    <div class="event-sidebar dz-scroll " id="eventSidebar">
+        <div class="card shadow-none rounded-0 bg-transparent h-auto mb-0">
+            <div class="card-body text-center event-calender pb-2">
+                <input type='text' class="form-control d-none" id='datetimepicker1' />
+            </div>
+        </div>
+        <div class="card shadow-none rounded-0 bg-transparent h-auto">
+            <div class="card-header border-0 pb-0">
+                <h4 class="text-black">Upcoming Events</h4>
+            </div>
+            <div class="card-body">
+                <div class="media mb-5 align-items-center event-list">
+                    <div class="p-3 text-center rounded me-3 date-bx bgl-primary">
+                        <h2 class="mb-0 text-black">3</h2>
+                        <h5 class="mb-1 text-black">Wed</h5>
+                    </div>
+                    <div class="media-body px-0">
+                        <h6 class="mt-0 mb-3 fs-14"><a class="text-black" href="events.html">Live Concert Choir Charity
+                                Event 2020</a></h6>
+                        <ul class="fs-14 list-inline mb-2 d-flex justify-content-between">
+                            <li>Ticket Sold</li>
+                            <li>561/650</li>
+                        </ul>
+                        <div class="progress mb-0" style="height:4px; width:100%;">
+                            <div class="progress-bar bg-warning progress-animated" style="width:85%; height:8px;"
+                                role="progressbar">
+                                <span class="sr-only">60% Complete</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="media mb-5 align-items-center event-list">
+                    <div class="p-3 text-center rounded me-3 date-bx bgl-primary">
+                        <h2 class="mb-0 text-black">16</h2>
+                        <h5 class="mb-1 text-black">Tue</h5>
+                    </div>
+                    <div class="media-body px-0">
+                        <h6 class="mt-0 mb-3 fs-14"><a class="text-black" href="events.html">Beautiful Fireworks Show In The
+                                New Year Night</a></h6>
+                        <ul class="fs-14 list-inline mb-2 d-flex justify-content-between">
+                            <li>Ticket Sold</li>
+                            <li>431/650</li>
+                        </ul>
+                        <div class="progress mb-0" style="height:4px; width:100%;">
+                            <div class="progress-bar bg-warning progress-animated" style="width:50%; height:8px;"
+                                role="progressbar">
+                                <span class="sr-only">60% Complete</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="media mb-0 align-items-center event-list">
+                    <div class="p-3 text-center rounded me-3 date-bx bgl-success">
+                        <h2 class="mb-0 text-black">28</h2>
+                        <h5 class="mb-1 text-black">Fri</h5>
+                    </div>
+                    <div class="media-body px-0">
+                        <h6 class="mt-0 mb-3 fs-14"><a class="text-black" href="events.html">The Story Of Danau Toba
+                                (Musical Drama)</a></h6>
+                        <ul class="fs-14 list-inline mb-2 d-flex justify-content-between">
+                            <li>Ticket Sold</li>
+                            <li>650/650</li>
+                        </ul>
+                        <div class="progress mb-0" style="height:4px; width:100%;">
+                            <div class="progress-bar bg-success progress-animated" style="width:100%; height:8px;"
+                                role="progressbar">
+                                <span class="sr-only">60% Complete</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer justify-content-between border-0 d-flex fs-14">
+                <span>5 events more</span>
+                <a href="javascript:void(0);" class="text-primary">View more <i
+                        class="las la-long-arrow-alt-right scale5 ms-2"></i></a>
+            </div>
+        </div>
+        <div class="card shadow-none rounded-0 bg-transparent h-auto mb-0">
+            <div class="card-body text-center event-calender">
+                <a href="javascript:void(0);" class="btn btn-primary btn-rounded btn shadow">
+                    + New Event
+                </a>
+            </div>
+        </div>
+    </div>
 
-<div class="event-sidebar dz-scroll " id="eventSidebar">
-	<div class="card shadow-none rounded-0 bg-transparent h-auto mb-0">
-		<div class="card-body text-center event-calender pb-2">
-			<input type='text' class="form-control d-none" id='datetimepicker1' />
-		</div>
-	</div>
-	<div class="card shadow-none rounded-0 bg-transparent h-auto">
-		<div class="card-header border-0 pb-0">
-			<h4 class="text-black">Upcoming Events</h4>
-		</div>
-		<div class="card-body">
-			<div class="media mb-5 align-items-center event-list">
-				<div class="p-3 text-center rounded me-3 date-bx bgl-primary">
-					<h2 class="mb-0 text-black">3</h2>
-					<h5 class="mb-1 text-black">Wed</h5>
-				</div>
-				<div class="media-body px-0">
-					<h6 class="mt-0 mb-3 fs-14"><a class="text-black" href="events.html">Live Concert Choir Charity Event 2020</a></h6>
-					<ul class="fs-14 list-inline mb-2 d-flex justify-content-between">
-						<li>Ticket Sold</li>
-						<li>561/650</li>
-					</ul>
-					<div class="progress mb-0" style="height:4px; width:100%;">
-						<div class="progress-bar bg-warning progress-animated" style="width:85%; height:8px;" role="progressbar">
-							<span class="sr-only">60% Complete</span>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="media mb-5 align-items-center event-list">
-				<div class="p-3 text-center rounded me-3 date-bx bgl-primary">
-					<h2 class="mb-0 text-black">16</h2>
-					<h5 class="mb-1 text-black">Tue</h5>
-				</div>
-				<div class="media-body px-0">
-					<h6 class="mt-0 mb-3 fs-14"><a class="text-black" href="events.html">Beautiful Fireworks Show In The New Year Night</a></h6>
-					<ul class="fs-14 list-inline mb-2 d-flex justify-content-between">
-						<li>Ticket Sold</li>
-						<li>431/650</li>
-					</ul>
-					<div class="progress mb-0" style="height:4px; width:100%;">
-						<div class="progress-bar bg-warning progress-animated" style="width:50%; height:8px;" role="progressbar">
-							<span class="sr-only">60% Complete</span>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="media mb-0 align-items-center event-list">
-				<div class="p-3 text-center rounded me-3 date-bx bgl-success">
-					<h2 class="mb-0 text-black">28</h2>
-					<h5 class="mb-1 text-black">Fri</h5>
-				</div>
-				<div class="media-body px-0">
-					<h6 class="mt-0 mb-3 fs-14"><a class="text-black" href="events.html">The Story Of Danau Toba (Musical Drama)</a></h6>
-					<ul class="fs-14 list-inline mb-2 d-flex justify-content-between">
-						<li>Ticket Sold</li>
-						<li>650/650</li>
-					</ul>
-					<div class="progress mb-0" style="height:4px; width:100%;">
-						<div class="progress-bar bg-success progress-animated" style="width:100%; height:8px;" role="progressbar">
-							<span class="sr-only">60% Complete</span>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="card-footer justify-content-between border-0 d-flex fs-14">
-			<span>5 events more</span>
-			<a href="javascript:void(0);" class="text-primary">View more <i class="las la-long-arrow-alt-right scale5 ms-2"></i></a>
-		</div>
-	</div>
-	<div class="card shadow-none rounded-0 bg-transparent h-auto mb-0">
-		<div class="card-body text-center event-calender">
-			<a href="javascript:void(0);" class="btn btn-primary btn-rounded btn shadow">
-				+ New Event
-			</a>
-		</div>
-	</div>
-</div>
+    <div class="content-body">
+        <div class="container-fluid">
 
-<div class="content-body">
-	<div class="container-fluid">
+            <div class="row page-titles">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item active"><a href="javascript:void(0)">App</a></li>
+                    <li class="breadcrumb-item"><a href="javascript:void(0)">Calendar</a></li>
+                </ol>
+            </div>
+            <!-- row -->
 
-		<div class="row page-titles">
-			<ol class="breadcrumb">
-				<li class="breadcrumb-item active"><a href="javascript:void(0)">App</a></li>
-				<li class="breadcrumb-item"><a href="javascript:void(0)">Calendar</a></li>
-			</ol>
-		</div>
-		<!-- row -->
+            <div class="row">
+                <div class="col-xl-3 col-xxl-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="alert alert-warning" role="alert">
+                                <h4>Form Kegiatan</h4>
+                            </div>
 
-		<div class="row">
-			<div class="col-xl-3 col-xxl-4">
-				<div class="card">
-					<div class="card-body">
-						<h4 class="card-intro-title">Calendar</h4>
+                            <div class="card">
+                                <form action="proses.php" method="POST">
+                                    <div class="card-body">
+                                        <div class="form-group">
+                                            <div class="form-label">Keterangan Kegiatan</div>
+                                            <textarea name="kegiatan" class="form-control" id="kegiatan" cols="30" rows="2"></textarea>
+                                        </div>
+                                        <div class="form-group mt-4">
+                                            <div class="form-label">Tgl Mulai</div>
+                                            <input type="datetime-local" class="form-control" name="mulai" id="mulai">
+                                        </div>
+                                        <div class="form-group mt-4">
+                                            <div class="form-label">Tgl Selesai</div>
+                                            <input type="datetime-local" class="form-control" name="selesai"
+                                                id="selesai">
+                                        </div>
+                                        <div class="form-group mt-4">
+                                            <button type="submit" class="btn btn-success">Simpan</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-9 col-xxl-8">
+                    <div class="card">
+                        <div class="card-body">
+                            <div id="calendar" class="app-fullcalendar"></div>
+                        </div>
+                    </div>
+                </div>
+                <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+                <script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.8.0/main.js'></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
+                    integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ=="
+                    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+                <script>
+                    document.addEventListener('DOMContentLoaded', function() {
+                        var calendarEl = document.getElementById('calendar');
+                        var calendar = new FullCalendar.Calendar(calendarEl, {
+                            initialView: 'dayGridMonth',
+                            events: [
+                                <?php
+									//melakukan koneksi ke database
+									$koneksi    = mysqli_connect('localhost', 'root', '', 'latihan');
+									//mengambil data dari tabel jadwal
+									$data       = mysqli_query($koneksi,'select * from jadwal');
+									//melakukan looping
+									while($d = mysqli_fetch_array($data)){
+								?>
+								{
+									title: '<?php echo $d['kegiatan']; ?>', //menampilkan title dari tabel
+									start: '<?php echo $d['mulai']; ?>', //menampilkan tgl mulai dari tabel
+									end: '<?php echo $d['selesai']; ?>' //menampilkan tgl selesai dari tabel
+								},
+								<?php } ?>
+                            ],
+                            selectOverlap: function(event) {
+                                return event.rendering === 'background';
+                            }
+                        });
 
-						<div class="">
-							<div id="external-events" class="my-3">
-								<p>Drag and drop your event or click in the calendar</p>
-								<div class="external-event btn-primary light" data-class="bg-primary"><i class="fa fa-move"></i><span>New Theme Release</span></div>
-								<div class="external-event btn-warning light" data-class="bg-warning"><i class="fa fa-move"></i>My Event
-								</div>
-								<div class="external-event btn-danger light" data-class="bg-danger"><i class="fa fa-move"></i>Meet manager</div>
-								<div class="external-event btn-info light" data-class="bg-info"><i class="fa fa-move"></i>Create New theme</div>
-								<div class="external-event btn-dark light" data-class="bg-dark"><i class="fa fa-move"></i>Project Launch</div>
-								<div class="external-event btn-secondary light" data-class="bg-secondary"><i class="fa fa-move"></i>Meeting</div>
-							</div>
-							<!-- checkbox -->
-							<div class="checkbox form-check checkbox-event custom-checkbox pt-3 pb-5">
-								<input type="checkbox" class="form-check-input" id="drop-remove">
-								<label class="form-check-label" for="drop-remove">Remove After Drop</label>
-							</div>
-							<a href="javascript:void()" data-bs-toggle="modal" data-bs-target="#add-category" class="btn btn-primary btn-event w-100">
-								<span class="align-middle"><i class="ti-plus"></i></span> Create New
-							</a>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col-xl-9 col-xxl-8">
-				<div class="card">
-					<div class="card-body">
-						<div id="calendar" class="app-fullcalendar"></div>
-					</div>
-				</div>
-			</div>
-			<!-- BEGIN MODAL -->
-			<div class="modal fade none-border" id="event-modal">
-				<div class="modal-dialog">
-					<div class="modal-content">
-						<div class="modal-header">
-							<h4 class="modal-title"><strong>Add New Event</strong></h4>
-						</div>
-						<div class="modal-body"></div>
-						<div class="modal-footer">
-							<button type="button" class="btn btn-default waves-effect" data-bs-dismiss="modal">Close</button>
-							<button type="button" class="btn btn-success save-event waves-effect waves-light">Create
-								event</button>
+                        calendar.render();
+                    });
+                </script>
+                <!-- BEGIN MODAL -->
+                <div class="modal fade none-border" id="event-modal">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title"><strong>Add New Event</strong></h4>
+                            </div>
+                            <div class="modal-body"></div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default waves-effect"
+                                    data-bs-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-success save-event waves-effect waves-light">Create
+                                    event</button>
 
-							<button type="button" class="btn btn-danger delete-event waves-effect waves-light" data-bs-toggle="modal">Delete</button>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- Modal Add Category -->
-			<div class="modal fade none-border" id="add-category">
-				<div class="modal-dialog">
-					<div class="modal-content">
-						<div class="modal-header">
-							<h4 class="modal-title"><strong>Add a category</strong></h4>
-						</div>
-						<div class="modal-body">
-							<form>
-								<div class="row">
-									<div class="col-md-6">
-										<label class="control-label form-label">Category Name</label>
-										<input class="form-control form-white" placeholder="Enter name" type="text" name="category-name">
-									</div>
-									<div class="col-md-6">
-										<label class="control-label form-label">Choose Category Color</label>
-										<select class="form-control form-white" data-placeholder="Choose a color..." name="category-color">
-											<option value="success">Success</option>
-											<option value="danger">Danger</option>
-											<option value="info">Info</option>
-											<option value="pink">Pink</option>
-											<option value="primary">Primary</option>
-											<option value="warning">Warning</option>
-										</select>
-									</div>
-								</div>
-							</form>
-						</div>
-						<div class="modal-footer">
-							<button type="button" class="btn btn-default waves-effect" data-bs-dismiss="modal">Close</button>
-							<button type="button" class="btn btn-danger waves-effect waves-light save-category" data-bs-toggle="modal">Save</button>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+                                <button type="button" class="btn btn-danger delete-event waves-effect waves-light"
+                                    data-bs-toggle="modal">Delete</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Modal Add Category -->
+                <div class="modal fade none-border" id="add-category">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title"><strong>Add a category</strong></h4>
+                            </div>
+                            <div class="modal-body">
+                                <form>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label class="control-label form-label">Category Name</label>
+                                            <input class="form-control form-white" placeholder="Enter name"
+                                                type="text" name="category-name">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="control-label form-label">Choose Category Color</label>
+                                            <select class="form-control form-white" data-placeholder="Choose a color..."
+                                                name="category-color">
+                                                <option value="success">Success</option>
+                                                <option value="danger">Danger</option>
+                                                <option value="info">Info</option>
+                                                <option value="pink">Pink</option>
+                                                <option value="primary">Primary</option>
+                                                <option value="warning">Warning</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default waves-effect"
+                                    data-bs-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-danger waves-effect waves-light save-category"
+                                    data-bs-toggle="modal">Save</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-	</div>
-</div>
-
+        </div>
+    </div>
 @endsection
