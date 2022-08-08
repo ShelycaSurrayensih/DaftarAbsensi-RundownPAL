@@ -6,6 +6,7 @@ use App\Http\Controllers\AbsensiController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CalenderController;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\RundownController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,6 +31,7 @@ Route::post('/admin/user/', [UserController::class, 'store'])->name('user.store'
 Route::delete('/admin/user/{id}', [UserController::class, 'destroy'])->name('user.destroy');
 Route::put('/admin/user/{id}', [UserController::class, 'update'])->name('user.update');
 Route::get('/calender', [CalenderController::class, 'index'])->name('calender.calender');
+Route::get('/rundown', [RundownController::class, 'index'])->name('rundown.rundown');
 
 Auth::routes();
 

@@ -11,6 +11,11 @@
                     <span class="nav-text">Calender</span>
                 </a>
             </li>
+            <li><a class="ai-icon" href="{{ route('rundown.rundown') }}" aria-expanded="false">
+                <i class="flaticon-381-networking"></i>
+                <span class="nav-text">Rundown</span>
+            </a>
+        </li>
             <li><a class="ai-icon" href="{{ route('absensi.absensi') }}" aria-expanded="false">
                     <i class="flaticon-381-network"></i>
                     <span class="nav-text">Data Absensi</span>
