@@ -1,4 +1,7 @@
 @extends('layout.master')
+@section('judul')
+    Calender
+@endsection
 @section('content')
     <div class="event-sidebar dz-scroll " id="eventSidebar">
         <div class="card shadow-none rounded-0 bg-transparent h-auto mb-0">
@@ -107,11 +110,13 @@
                             </div>
 
                             <div class="card">
-                                <form action="proses.php" method="POST">
+                                <form action="{{ route('calender.store') }}" method="POST" enctype="multipart/form-data">
+                                    @csrf
                                     <div class="card-body">
                                         <div class="form-group">
                                             <div class="form-label">Nama Kegiatan</div>
-                                            <input type="text" class="form-control" id="kegiatan" cols="30" rows="2"></input>
+                                            <input type="text" class="form-control" id="kegiatan" cols="30"
+                                                rows="2"></input>
                                         </div>
                                         <div class="form-group">
                                             <div class="form-label">Keterangan Kegiatan</div>
@@ -119,7 +124,8 @@
                                         </div>
                                         <div class="form-group mt-4">
                                             <div class="form-label">Tanggal Mulai</div>
-                                            <input type="datetime-local" class="form-control" name="mulai" id="mulai">
+                                            <input type="datetime-local" class="form-control" name="mulai"
+                                                id="mulai">
                                         </div>
                                         <div class="form-group mt-4">
                                             <div class="form-label">Tanggal Selesai</div>
