@@ -110,15 +110,19 @@
                                 <form action="proses.php" method="POST">
                                     <div class="card-body">
                                         <div class="form-group">
+                                            <div class="form-label">Nama Kegiatan</div>
+                                            <input type="text" class="form-control" id="kegiatan" cols="30" rows="2"></input>
+                                        </div>
+                                        <div class="form-group">
                                             <div class="form-label">Keterangan Kegiatan</div>
                                             <textarea name="kegiatan" class="form-control" id="kegiatan" cols="30" rows="2"></textarea>
                                         </div>
                                         <div class="form-group mt-4">
-                                            <div class="form-label">Tgl Mulai</div>
+                                            <div class="form-label">Tanggal Mulai</div>
                                             <input type="datetime-local" class="form-control" name="mulai" id="mulai">
                                         </div>
                                         <div class="form-group mt-4">
-                                            <div class="form-label">Tgl Selesai</div>
+                                            <div class="form-label">Tanggal Selesai</div>
                                             <input type="datetime-local" class="form-control" name="selesai"
                                                 id="selesai">
                                         </div>
@@ -148,22 +152,7 @@
                         var calendarEl = document.getElementById('calendar');
                         var calendar = new FullCalendar.Calendar(calendarEl, {
                             initialView: 'dayGridMonth',
-                            events: [
-                                <?php
-									//melakukan koneksi ke database
-									$koneksi    = mysqli_connect('localhost', 'root', '', 'latihan');
-									//mengambil data dari tabel jadwal
-									$data       = mysqli_query($koneksi,'select * from jadwal');
-									//melakukan looping
-									while($d = mysqli_fetch_array($data)){
-								?>
-								{
-									title: '<?php echo $d['kegiatan']; ?>', //menampilkan title dari tabel
-									start: '<?php echo $d['mulai']; ?>', //menampilkan tgl mulai dari tabel
-									end: '<?php echo $d['selesai']; ?>' //menampilkan tgl selesai dari tabel
-								},
-								<?php } ?>
-                            ],
+                            events: [],
                             selectOverlap: function(event) {
                                 return event.rendering === 'background';
                             }
