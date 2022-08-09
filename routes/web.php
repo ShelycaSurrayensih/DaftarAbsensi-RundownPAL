@@ -31,6 +31,7 @@ Route::post('/admin/user/', [UserController::class, 'store'])->name('user.store'
 Route::delete('/admin/user/{id}', [UserController::class, 'destroy'])->name('user.destroy');
 Route::put('/admin/user/{id}', [UserController::class, 'update'])->name('user.update');
 Route::get('/calender', [CalenderController::class, 'index'])->name('calender.calender');
+Route::post('/calender', [CalenderController::class, 'store'])->name('calender.store');
 Route::get('/rundown', [RundownController::class, 'index'])->name('rundown.rundown');
 
 Auth::routes();

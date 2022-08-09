@@ -110,32 +110,30 @@
                             </div>
 
                             <div class="card">
-                                <form action="{{ route('calender.store') }}" method="POST" enctype="multipart/form-data">
+                                <form action="{{route('calender.store')}}" method="POST" enctype="multipart/form-data">
                                     @csrf
                                     <div class="card-body">
                                         <div class="form-group">
                                             <div class="form-label">Nama Kegiatan</div>
-                                            <input type="text" class="form-control" id="kegiatan" cols="30"
-                                                rows="2"></input>
+                                            <input type="text" id="name" name="name" class="form-control" cols = "30" rows = "2">
                                         </div>
                                         <div class="form-group">
                                             <div class="form-label">Keterangan Kegiatan</div>
-                                            <textarea name="kegiatan" class="form-control" id="kegiatan" cols="30" rows="2"></textarea>
+                                            <textarea type="text" class="form-control" name="description" id="description" cols="30" rows="2"></textarea>
                                         </div>
                                         <div class="form-group mt-4">
                                             <div class="form-label">Tanggal Mulai</div>
-                                            <input type="datetime-local" class="form-control" name="mulai"
-                                                id="mulai">
+                                            <input type="datetime-local" class="form-control" name="start_date" id="start_date">
                                         </div>
                                         <div class="form-group mt-4">
                                             <div class="form-label">Tanggal Selesai</div>
-                                            <input type="datetime-local" class="form-control" name="selesai"
-                                                id="selesai">
+                                            <input type="datetime-local" class="form-control" name="close_date" id="close_date">
                                         </div>
                                         <div class="form-group mt-4">
                                             <button type="submit" class="btn btn-success">Simpan</button>
                                         </div>
                                     </div>
+
                                 </form>
                             </div>
                         </div>
@@ -150,9 +148,7 @@
                 </div>
                 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
                 <script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.8.0/main.js'></script>
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
-                    integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ=="
-                    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
                 <script>
                     document.addEventListener('DOMContentLoaded', function() {
                         var calendarEl = document.getElementById('calendar');

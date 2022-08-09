@@ -13,14 +13,16 @@ class CalenderController extends Controller
         return view('calender.calender', compact('calender'));
     }
 
-    public function create()
-    {
-        return view('calender.create');
-    }
-
     public function store(Request $request)
     {
-        Calender::create($request->all());
-        return redirect()->route('calender.calender');
+        $request->validate([
+            'name' => 'required',
+            'description' => 'required',
+            'start_date' => 'required',
+            'close_date' => 'required',
+        ]);
+        $input = $request->all();
+        Calender::create($input);
+        return redirect()->route('calender.calender')->with('success', 'Data Berhasil Ditambahkan');
     }
 }

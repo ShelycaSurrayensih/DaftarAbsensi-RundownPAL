@@ -14,4 +14,8 @@ class Calender extends Model
         'start_date',
         'close_date'
     ];
+
+    public static function index(){
+        return Calender::all();
+    }
 }
