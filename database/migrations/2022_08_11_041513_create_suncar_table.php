@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAbsensisTable extends Migration
+class CreateSuncarTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,12 @@ class CreateAbsensisTable extends Migration
      */
     public function up()
     {
-        Schema::create('absensis', function (Blueprint $table) {
-            $table->increments('idAbsensi');
-            $table->string('nama', 100);
-			$table->string('jabatan', 20);
-            $table->string('instansi', 100);
-			$table->string('telp', 20);
-            $table->string('tandatangan',50);
+        Schema::create('suncar', function (Blueprint $table) {
+            $table->increments('idSuncar');
+            $table->string('acara', 100);
+            $table->string('pj', 50);
+            $table->time('waktuMulai');
+            $table->time('waktuSelesai');
             $table->unsignedBigInteger('idRundowns');
             $table->foreign('idRundowns')->references('idRundowns')->on('rundowns');
             $table->timestamps();
@@ -33,6 +32,6 @@ class CreateAbsensisTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('absensis');
+        Schema::dropIfExists('suncar');
     }
 }

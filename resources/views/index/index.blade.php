@@ -1,6 +1,6 @@
 @extends('layout.master')
 @section('judul')
-Dasboard
+Dashboard
 @endsection
 @section('content')
         <div class="event-sidebar dz-scroll active" id="eventSidebar">
