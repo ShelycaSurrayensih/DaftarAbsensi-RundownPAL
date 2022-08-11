@@ -13,7 +13,7 @@ class Rundown extends Model
     protected $fillable = [
         'namaAcara',
         'lokasi',
-        'lokasi',
+        'tanggal',
         'waktuMulai',
         'waktuSelesai',
     ];

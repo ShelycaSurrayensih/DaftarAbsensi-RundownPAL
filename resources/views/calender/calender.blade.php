@@ -118,16 +118,20 @@
                                             <input type="text" id="name" name="name" class="form-control" cols = "30" rows = "2">
                                         </div>
                                         <div class="form-group">
-                                            <div class="form-label">Keterangan Kegiatan</div>
-                                            <textarea type="text" class="form-control" name="description" id="description" cols="30" rows="2"></textarea>
+                                            <div class="form-label">Lokasi Kegiatan</div>
+                                            <input type="text" id="name" name="name" class="form-control" cols = "30" rows = "2">
                                         </div>
                                         <div class="form-group mt-4">
-                                            <div class="form-label">Tanggal Mulai</div>
-                                            <input type="datetime-local" class="form-control" name="start_date" id="start_date">
+                                            <div class="form-label">Tanggal Kegiatan</div>
+                                            <input type="datetime-local" class="form-control" name="tanggal" id="tanggal">
                                         </div>
                                         <div class="form-group mt-4">
-                                            <div class="form-label">Tanggal Selesai</div>
-                                            <input type="datetime-local" class="form-control" name="close_date" id="close_date">
+                                            <div class="form-label">Waktu Mulai</div>
+                                            <input type="time" class="form-control" name="waktuMulai" id="waktuMulai">
+                                        </div>
+                                        <div class="form-group mt-4">
+                                            <div class="form-label">Waktu Selesai</div>
+                                            <input type="time" class="form-control" name="waktuSelesai" id="waktuSelesai">
                                         </div>
                                         <div class="form-group mt-4">
                                             <button type="submit" class="btn btn-success">Simpan</button>
