@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Rundown;
 
 class Absensi extends Model
 {
@@ -23,6 +24,6 @@ class Absensi extends Model
     //     return Absensi::all();
     // }
     public function rundowns(){
-        return $this->hasOne(Rundown::class, 'idRundowns', 'idRundowns');
+        return $this->belongsTo(Rundown::class, 'idRundowns');
     }
 }

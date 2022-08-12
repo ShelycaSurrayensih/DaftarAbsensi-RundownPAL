@@ -42,4 +42,7 @@ Route::group(['middleware'=>'auth'], function(){
     Route::get('/calender', [CalenderController::class, 'index'])->name('calender.calender');
     Route::post('/calender', [CalenderController::class, 'store'])->name('calender.store');
     Route::get('/rundown', [RundownController::class, 'index'])->name('rundown.rundown');
+    Route::post('/rundown', [RundownController::class, 'store'])->name('rundown.store');
+    Route::delete('/rundown/{id}', [RundownController::class, 'destroy'])->name('rundown.destroy');
+    Route::put('/rundown/{id}', [RundownController::class, 'update'])->name('rundown.update');
 });

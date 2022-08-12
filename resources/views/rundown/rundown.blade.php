@@ -95,21 +95,23 @@ Table Rundown
 		</div>
 			<div class="col-12">
 				<div class="card">
+                    
                     <div class="col-md-40 col-sm-12 text-right" style="text-align: right">
-                        <button type="button" class="btn btn-primary mb-2" data-bs-toggle="modal" data-bs-target="#addModal">Add Data</button>
+                        <button type="button" class="btn btn-primary mb-2" data-bs-toggle="modal" data-bs-target="#addModalrundown">Add Data</button>
                     </div>
-                    @include('absensi.addabsensi')
+                    @include('rundown.addrundown')
 					<div class="card-body">
 						<div class="table-responsive">
 							<table id="example3" class="display" style="min-width: 845px">
 								<thead>
 									<tr>
 										<th>No</th>
-										<th>Nama</th>
-										<th>Jabatan</th>
-										<th>Instansi</th>
-										<th>Nomer Hp</th>
-										<th>Tanda Tangan</th>
+                                        <th>Kode Rundown</th>
+										<th>Nama Acara </th>
+										<th>Lokasi</th>
+										<th>Tanggal</th>
+										<th>Waktu Mulai</th>
+										<th>Waktu Selesai</th>
 										<th>Action</th>
 									</tr>
 								</thead>
@@ -119,9 +121,9 @@ Table Rundown
 <!--**********************************
 	Content body end
 ***********************************-->
-                    @foreach($absensi as $a)
+                    @foreach($rundown as $r)
                     <!--start modal edit-->
-                    <div class="modal fade" id="editModal{{ $a->id }}" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal fade" id="editModalrundown{{ $r->idRundowns }}" tabindex="-1" role="dialog" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header no-bd">
@@ -135,45 +137,49 @@ Table Rundown
                                 </div>
                                 <div class="modal-body">
                                     <p class="small">Edit Data ID {{ $loop->iteration }}</p>
-                                    <form action="{{ route('Absensi.update', $a->id) }}"
+                                    <form action="{{ route('rundown.update', $r->idRundowns) }}"
                                         method="POST" enctype="multipart/form-data">
                                         @csrf
                                         @method('PUT')
                                         <div class="row">
                                             <div class="col-sm-12">
                                                 <div class="form-group form-group-default">
-                                                    <label>Nama</label>
-                                                    <input id="nama" type="text" name="nama" value="{{ $a->nama }}" class="form-control" placeholder="Masukkan Nama">
+                                                    <label>Kode Rundown</label>
+                                                    <input id="kodeRundowns" type="text" name="kodeRundowns" value="{{ $r->kodeRundowns }}" class="form-control" placeholder="Masukkan Kode">
                                                 </div>
                                             </div>
                                             <div class="col-sm-12">
                                                 <div class="form-group form-group-default">
-                                                    <label>Jabatan</label>
-                                                    <input id="jabatan" type="text" name="jabatan" value="{{ $a->jabatan }}" class="form-control" placeholder="Masukkan Jabatan">
+                                                    <label>Nama Acara</label>
+                                                    <input id="namaAcara" type="text" name="namaAcara" value="{{ $r->namaAcara }}" class="form-control" placeholder="Masukkan Nama Acara">
                                                 </div>
                                             </div>
                                             <div class="col-sm-12">
                                                 <div class="form-group form-group-default">
-                                                    <label>Instansi</label>
-                                                    <input id="instansi" type="text" name="instansi" value="{{ $a->instansi }}" class="form-control" placeholder="Masukkan Instansi">
+                                                    <label>Lokasi</label>
+                                                    <input id="lokasi" type="text" name="lokasi" value="{{ $r->lokasi }}" class="form-control" placeholder="Masukkan Lokasi">
                                                 </div>
                                             </div>
                                             <div class="col-sm-12">
                                                 <div class="form-group form-group-default">
-                                                    <label>No Hp</label>
-                                                    <input id="telp" type="text" name="telp" value="{{ $a->telp }}" class="form-control" placeholder="Masukkan No Hp">
+                                                    <label>Tanggal</label>
+                                                    <input id="tanggal" type="date" name="tanggal" value="{{ $r->tanggal}}" class="form-control" placeholder="">
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="form-group form-group-default">
+                                                    <label>Waktu Mulai</label>
+                                                    <input id="waktuMulai" type="time" name="waktuMulai" value="{{ $r->waktuMulai }}" class="form-control" placeholder="Masukkan Waktu Mulai">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group form-group-default">
-                                                    <label>Tanda Tangan</label>
-                                                    <input type="file" name="tandatangan" class="form-control" placeholder="Masukkan Tanda Tangan">
+                                                    <label>Waktu Selesai</label>
+                                                    <input id="waktuSelesai" type="time" name="waktuSelesai" value="{{ $r->waktuSelesai }}" class="form-control" placeholder="Masukkan Waktu Selesai">
                                                 </div>
-                                                <img src="{{asset('images/'.$a->gambar)}}"  width="100px" alt="">
-                                            </div>
                                         </div>
                                         <div class="modal-footer no-bd">
-                                            <button type="submit" id="addModal" class="btn btn-primary">Save</button>
+                                            <button type="submit" id="addModalrundown" class="btn btn-primary">Save</button>
                                             <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">Close</button>
                                         </div>
                                     </form>
@@ -183,8 +189,8 @@ Table Rundown
                     </div>
                     <!--End Modal Edit-->
 
-                    <!-- Modal Detail Data -->
-                    <div class="modal fade" id="detailModal{{ $a->id }}" tabindex="-1" role="dialog" aria-hidden="true">
+                   {{-- Modal Detail Data  --}}
+                   <div class="modal fade" id="detailModalrundown{{ $r->idRundowns }}" tabindex="-1" role="dialog" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header no-bd">
@@ -200,33 +206,38 @@ Table Rundown
                                     <div class="row">
                                         <div class="col-sm-12">
                                             <div class="form-group form-group-default">
-                                                <label>Nama</label>
-                                                {{ $a->nama }}
+                                                <label>Kode Rundowns</label>
+                                                {{ $r->kodeRundowns }}
                                             </div>
                                         </div>
                                         <div class="col-sm-12">
                                             <div class="form-group form-group-default">
-                                                <label>Jabatan</label>
-                                                {{ $a->jabatan }}
+                                                <label>Nama Acara</label>
+                                                {{ $r->namaAcara }}
                                             </div>
                                         </div>
                                         <div class="col-sm-12">
                                             <div class="form-group form-group-default">
-                                                <label>Instansi</label>
-                                                {{ $a->instansi }}
+                                                <label>Lokasi</label>
+                                                {{ $r->lokasi }}
                                             </div>
                                         </div>
                                         <div class="col-sm-12">
                                             <div class="form-group form-group-default">
-                                                <label>No Hp</label>
-                                                {{ $a->telp }}
+                                                <label>Tanggal</label>
+                                                {{ $r->tanggal }}
                                             </div>
                                         </div>
-                                        <div class="col-md-6">
+                                        <div class="col-sm-12">
                                             <div class="form-group form-group-default">
-                                                <label>Tanda Tangan</label>
-                                                {{ $a->tandatangan }} <br>
-                                                <img src="{{asset('images/'.$a->tandatangan)}}"  width="100px" alt="">
+                                                <label>Waktu Mulai</label>
+                                                {{ $r->waktuMulai }}
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <div class="form-group form-group-default">
+                                                <label>Waktu Selesai</label>
+                                                {{ $r->waktuSelesai }}
                                             </div>
                                         </div>
                                     </div>
@@ -240,15 +251,16 @@ Table Rundown
                     <!--End Modal Detail-->
                     <tr>
                         <td class="text-center">{{ $loop->iteration }}</td>
-                        <td class="text-center">{{ $a->nama }}</td>
-                        <td class="text-center">{{ $a->jabatan}}</td>
-                        <td class="text-center">{{ $a->instansi}}</td>
-                        <td class="text-center">{{ $a->telp}}</td>
-                        <td class="text-center"><img src="{{asset('images/'.$a->tandatangan) }}" width="100px"></td>
+                        <td class="text-center">{{ $r->kodeRundowns }}</td>
+                        <td class="text-center">{{ $r->namaAcara}}</td>
+                        <td class="text-center">{{ $r->lokasi}}</td>
+                        <td class="text-center">{{ $r->tanggal}}</td>
+                        <td class="text-center">{{ $r->waktuMulai}}</td>
+                        <td class="text-center">{{ $r->waktuSelesai}}</td>
                         <td class="text-center">
-                            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editModal{{ $a->id }}"><i class="fa fa-edit"></i></button>
-                            <button class="btn btn-info" data-bs-toggle="modal" data-bs-target="#detailModal{{ $a->id }}"><i class="fa fa-edit"></i></button>
-                            <form action="{{ route('absensi.destroy', $a->id) }}" method="POST" class="d-inline">
+                            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editModalrundown{{ $r->idRundowns }}"><i class="fa fa-edit"></i></button>
+                            <button class="btn btn-info" data-bs-toggle="modal" data-bs-target="#detailModalrundown{{ $r->idRundowns }}"><i class="fa fa-edit"></i></button>
+                            <form action="{{ route('rundown.destroy', $r->idRundowns) }}" method="POST" class="d-inline">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger" onclick="return confirm('Apa anda yakin menghapus data tersebut?')"><i class="fa fa-trash"></i></a>
