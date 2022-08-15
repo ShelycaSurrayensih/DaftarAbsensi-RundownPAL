@@ -76,17 +76,8 @@ class RundownController extends Controller
          */
         public function update(Request $request, $idRundowns)
         {
-            Rundown::find($idRundowns)->update([
-                'Kode Rundown'=>$request->kodeRundowns,
-                'Nama Acara'=>$request->namaAcara,
-                'Lokasi'=>$request->lokasi,
-                'tanggal'=>$request->tanggal,
-                'Waktu Mulai'=>$request->waktuMulai,
-                'Waktu Selesai'=>$request->waktuSelesai,
-            ]);
-            $input = $request->all();
+            $input = Rundown::where('idRundowns', $idRundowns)->update($request->except('_token'));
 
-            Rundown::find($idRundowns)->update($input);
             return redirect()->route('rundown.rundown')->with('success', 'Data Berhasil Diedit');
         }
 
@@ -98,7 +89,7 @@ class RundownController extends Controller
          */
         public function destroy($idRundowns)
         {
-            Rundown::find($idRundowns)->delete();
+            $input = Rundown::where('idRundowns', $idRundowns)->delete();
             // Alert::success('Success','kategori berhasil dihapus');
             return redirect()->route('rundown.rundown')->with('Success','Data berhasil dihapus');
         }

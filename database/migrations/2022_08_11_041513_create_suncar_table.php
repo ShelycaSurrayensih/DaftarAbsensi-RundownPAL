@@ -15,7 +15,8 @@ class CreateSuncarTable extends Migration
     {
         Schema::create('suncar', function (Blueprint $table) {
             $table->increments('idSuncar');
-            $table->string('acara', 100);
+            $table->string('kodeSuncar');
+            $table->string('namaKegiatan', 100);
             $table->string('pj', 50);
             $table->time('waktuMulai');
             $table->time('waktuSelesai');

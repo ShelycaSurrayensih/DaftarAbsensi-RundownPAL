@@ -15,7 +15,7 @@ class CreateRundownsTable extends Migration
     {
         Schema::create('rundowns', function (Blueprint $table) {
             $table->increments('idRundowns');
-            $table->string('kodeRundowns', 50)->nullable();
+            $table->string('kodeRundowns');
             $table->string('namaAcara');
             $table->string('lokasi');
             $table->date('tanggal');

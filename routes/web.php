@@ -5,8 +5,10 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AbsensiController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CalenderController;
-use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\RundownController;
+use App\Http\Controllers\SuncarController;
+use Illuminate\Support\Facades\Auth;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -44,5 +46,7 @@ Route::group(['middleware'=>'auth'], function(){
     Route::get('/rundown', [RundownController::class, 'index'])->name('rundown.rundown');
     Route::post('/rundown', [RundownController::class, 'store'])->name('rundown.store');
     Route::delete('/rundown/{id}', [RundownController::class, 'destroy'])->name('rundown.destroy');
-    Route::put('/rundown/{id}', [RundownController::class, 'update'])->name('rundown.update');
+    Route::post('/rundown/{id}', [RundownController::class, 'update'])->name('rundown.update');
+    Route::get('/suncar', [SuncarController::class, 'index'])->name('suncar.suncar');
+    Route::post('/suncar', [SuncarController::class, 'store'])->name('suncar.store');
 });

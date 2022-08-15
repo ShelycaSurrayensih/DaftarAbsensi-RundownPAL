@@ -97,19 +97,19 @@ Table Rundown
 				<div class="card">
 
                     <div class="col-md-40 col-sm-12 text-right" style="text-align: right">
-                        <button type="button" class="btn btn-primary mb-2" data-bs-toggle="modal" data-bs-target="#addModalrundown">Add Data</button>
+                        <button type="button" class="btn btn-primary mb-2" data-bs-toggle="modal" data-bs-target="#addModalsuncar">Add Data</button>
                     </div>
-                    @include('rundown.addrundown')
+                    @include('suncar.addsuncar')
 					<div class="card-body">
 						<div class="table-responsive">
 							<table id="example3" class="display" style="min-width: 845px">
 								<thead>
 									<tr>
 										<th>No</th>
-                                        <th>Kode Rundown</th>
-										<th>Nama Acara </th>
-										<th>Lokasi</th>
-										<th>Tanggal</th>
+                                        <th>Kode Suncar</th>
+										<th>Acara </th>
+                                        <th>Kegiatan </th>
+										<th>Pj</th>
 										<th>Waktu Mulai</th>
 										<th>Waktu Selesai</th>
 										<th>Action</th>
@@ -121,8 +121,8 @@ Table Rundown
 <!--**********************************
 	Content body end
 ***********************************-->
-                    @foreach($rundown as $r)
-                    <!--start modal edit-->
+                    @foreach($suncar as $s)
+                    {{-- <!--start modal edit-->
                     <div class="modal fade" id="editModalrundown{{ $r->idRundowns }}" tabindex="-1" role="dialog" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
@@ -140,6 +140,7 @@ Table Rundown
                                     <form action="{{ route('rundown.update', $r->idRundowns) }}"
                                         method="POST" enctype="multipart/form-data">
                                         @csrf
+                                        @method('PUT')
                                         <div class="row">
                                             <div class="col-sm-12">
                                                 <div class="form-group form-group-default">
@@ -189,7 +190,7 @@ Table Rundown
                     <!--End Modal Edit-->
 
                    {{-- Modal Detail Data  --}}
-                   <div class="modal fade" id="detailModalrundown{{ $r->idRundowns }}" tabindex="-1" role="dialog" aria-hidden="true">
+                   {{-- <div class="modal fade" id="detailModalrundown{{ $r->idRundowns }}" tabindex="-1" role="dialog" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header no-bd">
@@ -246,20 +247,19 @@ Table Rundown
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                     <!--End Modal Detail-->
                     <tr>
                         <td class="text-center">{{ $loop->iteration }}</td>
-                        <td class="text-center">{{ $r->kodeRundowns }}</td>
-                        <td class="text-center">{{ $r->namaAcara}}</td>
-                        <td class="text-center">{{ $r->lokasi}}</td>
-                        <td class="text-center">{{ $r->tanggal}}</td>
+                        <td class="text-center">{{ $r->kodeSuncar }}</td>
+                        <td class="text-center">{{ $s->rundowns->namaAcara}}</td>
+                        <td class="text-center">{{ $r->namaKegiatan}}</td>
                         <td class="text-center">{{ $r->waktuMulai}}</td>
                         <td class="text-center">{{ $r->waktuSelesai}}</td>
                         <td class="text-center">
-                            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editModalrundown{{ $r->idRundowns }}"><i class="fa fa-edit"></i></button>
-                            <button class="btn btn-info" data-bs-toggle="modal" data-bs-target="#detailModalrundown{{ $r->idRundowns }}"><i class="fa fa-edit"></i></button>
-                            <form action="{{ route('rundown.destroy', $r->idRundowns) }}" method="POST" class="d-inline">
+                            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editModalsuncar{{ $r->idSuncar }}"><i class="fa fa-edit"></i></button>
+                            <button class="btn btn-info" data-bs-toggle="modal" data-bs-target="#detailModalsuncar{{ $r->idSuncar }}"><i class="fa fa-edit"></i></button>
+                            <form action="{{ route('suncar.destroy', $r->idSuncar) }}" method="POST" class="d-inline">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger" onclick="return confirm('Apa anda yakin menghapus data tersebut?')"><i class="fa fa-trash"></i></a>
