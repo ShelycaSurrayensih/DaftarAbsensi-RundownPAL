@@ -3,14 +3,17 @@
 namespace App\Http\Controllers;
 
 use App\Models\Calender;
+use App\Models\Rundown;
+use App\Models\Suncar;
 use Illuminate\Http\Request;
 
 class CalenderController extends Controller
 {
     public function index()
     {
-        $calender = Calender::all();
-        return view('calender.calender', compact('calender'));
+        $rundowns = Rundown::all();
+        $suncar = Suncar::all();
+        return view('calender.calender', compact('rundowns','suncar'));
     }
 
     public function store(Request $request)

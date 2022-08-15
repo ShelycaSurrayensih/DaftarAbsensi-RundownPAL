@@ -105,6 +105,7 @@ Table Absensi
 								<thead>
 									<tr>
 										<th>No</th>
+										<th>Acara</th>
 										<th>Nama</th>
 										<th>Jabatan</th>
 										<th>Instansi</th>
@@ -121,7 +122,7 @@ Table Absensi
 ***********************************-->
                     @foreach($absensi as $a)
                     <!--start modal edit-->
-                    <div class="modal fade" id="editModal{{ $a->id }}" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal fade" id="editModal{{ $a->idAbsensi }}" tabindex="-1" role="dialog" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header no-bd">
@@ -135,11 +136,21 @@ Table Absensi
                                 </div>
                                 <div class="modal-body">
                                     <p class="small">Edit Data ID {{ $loop->iteration }}</p>
-                                    <form action="{{ route('Absensi.update', $a->id) }}"
+                                    <form action="{{ route('Absensi.update', $a->idAbsensi) }}"
                                         method="POST" enctype="multipart/form-data">
                                         @csrf
                                         @method('PUT')
                                         <div class="row">
+                                            <div class="col-sm-12">
+                                                <div class="form-group form-group-default">
+                                                    <label>Acara</label>
+                                                    <select name="idRundowns" id="idRundowns">
+                                                        @foreach ($rundown as $run)
+                                                        <option value="{{ $run->idRundowns}}">{{ $run->namaAcara}}</option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
+                                            </div>
                                             <div class="col-sm-12">
                                                 <div class="form-group form-group-default">
                                                     <label>Nama</label>
@@ -169,7 +180,7 @@ Table Absensi
                                                     <label>Tanda Tangan</label>
                                                     <input type="file" name="tandatangan" class="form-control" placeholder="Masukkan Tanda Tangan">
                                                 </div>
-                                                <img src="{{asset('images/'.$a->gambar)}}"  width="100px" alt="">
+                                                <img src="{{ asset('public/images/'.$a->tandatangan ) }}" width="100px" alt="">
                                             </div>
                                         </div>
                                         <div class="modal-footer no-bd">
@@ -184,7 +195,7 @@ Table Absensi
                     <!--End Modal Edit-->
 
                     <!-- Modal Detail Data -->
-                    <div class="modal fade" id="detailModal{{ $a->id }}" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal fade" id="detailModal{{ $a->idAbsensi }}" tabindex="-1" role="dialog" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header no-bd">
@@ -198,6 +209,12 @@ Table Absensi
                                 <div class="modal-body">
                                     <p class="small">Detail Data ID {{ $loop->iteration }}</p>
                                     <div class="row">
+                                        <div class="col-sm-12">
+                                            <div class="form-group form-group-default">
+                                                <label>Acara</label>
+                                                {{ $a->idRundowns }}
+                                            </div>
+                                        </div>
                                         <div class="col-sm-12">
                                             <div class="form-group form-group-default">
                                                 <label>Nama</label>
@@ -240,15 +257,16 @@ Table Absensi
                     <!--End Modal Detail-->
                     <tr>
                         <td class="text-center">{{ $loop->iteration }}</td>
+                        <td class="text-center">{{ $a->idRundowns }}</td>
                         <td class="text-center">{{ $a->nama }}</td>
                         <td class="text-center">{{ $a->jabatan}}</td>
                         <td class="text-center">{{ $a->instansi}}</td>
                         <td class="text-center">{{ $a->telp}}</td>
-                        <td class="text-center"><img src="{{asset('images/'.$a->tandatangan) }}" width="100px"></td>
+                        <td class="text-center"><img src="{{asset('storage/'.$a->tandatangan) }}" width="100px"></td>
                         <td class="text-center">
-                            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editModal{{ $a->id }}"><i class="fa fa-edit"></i></button>
-                            <button class="btn btn-info" data-bs-toggle="modal" data-bs-target="#detailModal{{ $a->id }}"><i class="fa fa-edit"></i></button>
-                            <form action="{{ route('absensi.destroy', $a->id) }}" method="POST" class="d-inline">
+                            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editModal{{ $a->idAbsensi }}"><i class="fa fa-edit"></i></button>
+                            <button class="btn btn-info" data-bs-toggle="modal" data-bs-target="#detailModal{{ $a->idAbsensi }}"><i class="fa fa-edit"></i></button>
+                            <form action="{{ route('absensi.destroy', $a->idAbsensi) }}" method="POST" class="d-inline">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger" onclick="return confirm('Apa anda yakin menghapus data tersebut?')"><i class="fa fa-trash"></i></a>

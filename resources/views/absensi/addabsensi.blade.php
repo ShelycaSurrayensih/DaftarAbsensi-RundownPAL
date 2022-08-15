@@ -13,6 +13,16 @@
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="form-group form-group-default">
+                                <label>Acara</label>
+                                <select name="idRundowns" id="idRundowns">
+                                    @foreach ($rundown as $run)
+                                    <option value="{{ $run->idRundowns}}">{{ $run->namaAcara}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="form-group form-group-default">
                                 <label>Nama</label>
                                 <input id="nama" type="text" name="nama" class="form-control" placeholder="Masukkan Nama">
                             </div>

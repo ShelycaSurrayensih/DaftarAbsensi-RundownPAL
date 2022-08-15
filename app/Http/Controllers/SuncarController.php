@@ -16,7 +16,8 @@ class SuncarController extends Controller
     public function index()
     {
         $suncar = Suncar::all();
-        return view('suncar.suncar', compact('suncar'));
+        $rundown = Rundown::all();
+        return view('suncar.suncar', compact('suncar', 'rundown'));
     }
 
     /**
@@ -38,9 +39,9 @@ class SuncarController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'kodeSuncar'=>'required',
+            'idSuncar'=>'required',
             'idRundowns'=>'required',
-            'namaKegiatan'=>'required',
+            'acara'=>'required',
             'pj'=>'required',
             'waktuMulai'=>'required',
             'waktuSelesai'=>'required',
@@ -48,7 +49,7 @@ class SuncarController extends Controller
         $input = $request->all();
         $s = Suncar::create($input);
         return redirect()->route('suncar.suncar')->with('success', 'Data Berhasil Ditambahkan');
-        $r = Rundown::find($request->get('idRundown'));
+        $r = Rundown::find($request->get('idRundowns'));
     }
 
     /**

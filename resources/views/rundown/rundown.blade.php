@@ -144,7 +144,7 @@ Table Rundown
                                             <div class="col-sm-12">
                                                 <div class="form-group form-group-default">
                                                     <label>Kode Rundown</label>
-                                                    <input id="kodeRundowns" type="text" name="kodeRundowns" value="{{ $r->kodeRundowns }}" class="form-control" placeholder="Masukkan Kode">
+                                                    <input id="idRundowns" type="text" name="idRundowns" value="{{ $r->idRundowns }}" class="form-control" placeholder="Masukkan Kode">
                                                 </div>
                                             </div>
                                             <div class="col-sm-12">
@@ -206,7 +206,7 @@ Table Rundown
                                         <div class="col-sm-12">
                                             <div class="form-group form-group-default">
                                                 <label>Kode Rundowns</label>
-                                                {{ $r->kodeRundowns }}
+                                                {{ $r->idRundowns }}
                                             </div>
                                         </div>
                                         <div class="col-sm-12">
@@ -250,7 +250,7 @@ Table Rundown
                     <!--End Modal Detail-->
                     <tr>
                         <td class="text-center">{{ $loop->iteration }}</td>
-                        <td class="text-center">{{ $r->kodeRundowns }}</td>
+                        <td class="text-center">{{ $r->idRundowns }}</td>
                         <td class="text-center">{{ $r->namaAcara}}</td>
                         <td class="text-center">{{ $r->lokasi}}</td>
                         <td class="text-center">{{ $r->tanggal}}</td>

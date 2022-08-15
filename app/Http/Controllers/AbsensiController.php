@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Absensi;
+use App\Models\Rundown;
 use Illuminate\Http\Request;
 
 class AbsensiController extends Controller
@@ -15,7 +16,8 @@ class AbsensiController extends Controller
     public function index()
     {
         $absensi = Absensi::all();
-        return view('absensi.absensi', compact('absensi'));
+        $rundown = Rundown::all();
+        return view('absensi.absensi', compact('absensi','rundown'));
     }
 
     /**
@@ -41,15 +43,26 @@ class AbsensiController extends Controller
             'jabatan'=>'required',
             'instansi'=>'required',
             'telp'=>'required',
+            'idRundowns'=>'required',
             'tandatangan'=>'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
-        $input = $request->all();
-        $data = Absensi::create($input);
         if ($request->hasFile('tandatangan')) {
-            $request->file('tandatangan')->move('images/', $request->file('tandatangan')->getClientOriginalName());
-            $data->tandatangan = $request->file('tandatangan')->getClientOriginalName();
-            $data->save();
+            // $request->file('tandatangan')->move('images/', $request->file('tandatangan')->getClientOriginalName());
+            // $data->tandatangan = $request->file('tandatangan')->getClientOriginalName();
+            // $data->tandatangan = $image_name;
+            // $data->save();
+            $image_name = $request->file('tandatangan')->store('images', 'public');
         }
+        // $input = $request->all();
+        // $data = Absensi::create($input);
+        $absensis = new Absensi;
+        $absensis->nama = $request->get('nama');
+        $absensis->jabatan = $request->get('jabatan');
+        $absensis->instansi = $request->get('instansi');
+        $absensis->telp = $request->get('telp');
+        $absensis->idRundowns = $request->get('idRundowns');
+        $absensis->tandatangan = $image_name;
+        $absensis->save();
         return redirect()->route('absensi.absensi')->with('success', 'Data Berhasil Ditambahkan');
     }
 

@@ -207,7 +207,7 @@ Table Rundown
                                         <div class="col-sm-12">
                                             <div class="form-group form-group-default">
                                                 <label>Kode Rundowns</label>
-                                                {{ $r->kodeRundowns }}
+                                                {{ $r->idRundowns }}
                                             </div>
                                         </div>
                                         <div class="col-sm-12">
@@ -251,15 +251,16 @@ Table Rundown
                     <!--End Modal Detail-->
                     <tr>
                         <td class="text-center">{{ $loop->iteration }}</td>
-                        <td class="text-center">{{ $r->kodeSuncar }}</td>
-                        <td class="text-center">{{ $s->rundowns->namaAcara}}</td>
-                        <td class="text-center">{{ $r->namaKegiatan}}</td>
-                        <td class="text-center">{{ $r->waktuMulai}}</td>
-                        <td class="text-center">{{ $r->waktuSelesai}}</td>
+                        <td class="text-center">{{ $s->idSuncar }}</td>
+                        <td class="text-center">{{ $s->idRundowns}}</td>
+                        <td class="text-center">{{ $s->acara}}</td>
+                        <td class="text-center">{{ $s->pj}}</td>
+                        <td class="text-center">{{ $s->waktuMulai}}</td>
+                        <td class="text-center">{{ $s->waktuSelesai}}</td>
                         <td class="text-center">
-                            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editModalsuncar{{ $r->idSuncar }}"><i class="fa fa-edit"></i></button>
-                            <button class="btn btn-info" data-bs-toggle="modal" data-bs-target="#detailModalsuncar{{ $r->idSuncar }}"><i class="fa fa-edit"></i></button>
-                            <form action="{{ route('suncar.destroy', $r->idSuncar) }}" method="POST" class="d-inline">
+                            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editModalsuncar{{ $s->idSuncar }}"><i class="fa fa-edit"></i></button>
+                            <button class="btn btn-info" data-bs-toggle="modal" data-bs-target="#detailModalsuncar{{ $s->idSuncar }}"><i class="fa fa-edit"></i></button>
+                            <form action="{{ route('suncar.destroy', $s->idSuncar) }}" method="POST" class="d-inline">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger" onclick="return confirm('Apa anda yakin menghapus data tersebut?')"><i class="fa fa-trash"></i></a>
