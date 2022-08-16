@@ -48,6 +48,6 @@ Route::group(['middleware'=>'auth'], function(){
     Route::delete('/rundown/{id}', [RundownController::class, 'destroy'])->name('rundown.destroy');
     Route::post('/rundown/{id}', [RundownController::class, 'update'])->name('rundown.update');
     Route::get('/suncar', [SuncarController::class, 'index'])->name('suncar.suncar');
-    Route::post('/suncar/{id}', [SuncarController::class, 'store'])->name('suncar.store');
-    Route::delete('/suncar/{id}', [SuncarController::class, 'store'])->name('suncar.destroy');
+    Route::post('/suncar', [SuncarController::class, 'store'])->name('suncar.store');
+    Route::delete('/suncar', [SuncarController::class, 'store'])->name('suncar.destroy');
 });

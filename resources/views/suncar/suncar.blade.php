@@ -122,8 +122,8 @@ Table Rundown
 	Content body end
 ***********************************-->
                     @foreach($suncar as $s)
-                    {{-- <!--start modal edit-->
-                    <div class="modal fade" id="editModalrundown{{ $r->idRundowns }}" tabindex="-1" role="dialog" aria-hidden="true">
+                    <!--start modal edit-->
+                    {{-- <div class="modal fade" id="editModalsuncar{{ $s->idSuncar }}" tabindex="-1" role="dialog" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header no-bd">
@@ -137,60 +137,69 @@ Table Rundown
                                 </div>
                                 <div class="modal-body">
                                     <p class="small">Edit Data ID {{ $loop->iteration }}</p>
-                                    <form action="{{ route('rundown.update', $r->idRundowns) }}"
+                                    <form action="{{ route('suncar.update', $r->idSuncar) }}"
                                         method="POST" enctype="multipart/form-data">
                                         @csrf
                                         @method('PUT')
                                         <div class="row">
                                             <div class="col-sm-12">
                                                 <div class="form-group form-group-default">
-                                                    <label>Kode Rundown</label>
-                                                    <input id="kodeRundowns" type="text" name="kodeRundowns" value="{{ $r->kodeRundowns }}" class="form-control" placeholder="Masukkan Kode">
+                                                    <label>Kode Suncar</label>
+                                                    <input id="idSuncar" type="text" name="idSuncar" value="{{ $r->idSuncar }}" class="form-control" placeholder="Masukkan kode">
+                                                </div>
+                                            </div>
+                                            <div class="form row">
+                                                <label for="idRundowns" class="col-sm-12  col-form-label">Acara</label>
+                                                <div class="col-sm-12 col-md-10"> --}}
+                                                    {{-- <div class="input-group">
+                                                        <input id="rundown_namaAcara" type="text" class="form-control" readonly="" required>
+                                                        <input id="idRundowns" type="hidden" name="idRundowns" value="{{ ('idRundowns') }}" required readonly="">
+                                                        <button type="button" class="btn btn-info btn-secondary" data-toggle="modal" data-target="#myModal"><b>Cari Acara </b><span class="fa fa-search"></span></button>
+                                                    </div> --}}
+                                                    {{-- <select name="idRundowns" id="idRundowns">
+                                                        @foreach ($rundown as $run)
+                                                        <option value="{{ $run->idRundowns}}">{{ $run->namaAcara}}</option>
+                                                        @endforeach
+                                                    </select>
                                                 </div>
                                             </div>
                                             <div class="col-sm-12">
                                                 <div class="form-group form-group-default">
-                                                    <label>Nama Acara</label>
-                                                    <input id="namaAcara" type="text" name="namaAcara" value="{{ $r->namaAcara }}" class="form-control" placeholder="Masukkan Nama Acara">
+                                                    <label>Nama Kegiatan</label>
+                                                    <input id="acara" type="text" name="acara" class="form-control" value="{{ $r->acara }}" placeholder="Masukkan Nama Kegiatan">
                                                 </div>
                                             </div>
                                             <div class="col-sm-12">
                                                 <div class="form-group form-group-default">
-                                                    <label>Lokasi</label>
-                                                    <input id="lokasi" type="text" name="lokasi" value="{{ $r->lokasi }}" class="form-control" placeholder="Masukkan Lokasi">
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-12">
-                                                <div class="form-group form-group-default">
-                                                    <label>Tanggal</label>
-                                                    <input id="tanggal" type="date" name="tanggal" value="{{ $r->tanggal}}" class="form-control" placeholder="">
+                                                    <label>PJ</label>
+                                                    <input id="pj" type="text" name="pj" class="form-control" value="{{ $r->pj }}" placeholder="Masukkan pj">
                                                 </div>
                                             </div>
                                             <div class="col-sm-6">
                                                 <div class="form-group form-group-default">
                                                     <label>Waktu Mulai</label>
-                                                    <input id="waktuMulai" type="time" name="waktuMulai" value="{{ $r->waktuMulai }}" class="form-control" placeholder="Masukkan Waktu Mulai">
+                                                    <input id="waktuMulai" type="time" name="waktuMulai" class="form-control" value="{{ $r->waktuMulai }}" placeholder="Masukkan Waktu Mulai">
                                                 </div>
                                             </div>
-                                            <div class="col-md-6">
+                                            <div class="col-sm-6">
                                                 <div class="form-group form-group-default">
                                                     <label>Waktu Selesai</label>
-                                                    <input id="waktuSelesai" type="time" name="waktuSelesai" value="{{ $r->waktuSelesai }}" class="form-control" placeholder="Masukkan Waktu Selesai">
+                                                    <input id="waktuSelesai" type="time" name="waktuSelesai" class="form-control" value="{{ $r->waktuSelesai }}" placeholder="Masukkan Waktu Selesai">
                                                 </div>
-                                        </div>
-                                        <div class="modal-footer no-bd">
-                                            <button type="submit" id="addModalrundown" class="btn btn-primary">Save</button>
-                                            <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">Close</button>
-                                        </div>
+                                            </div>
+                                            <div class="modal-footer no-bd">
+                                                <button type="submit" id="addModal" class="btn btn-primary">Save</button>
+                                                <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">Close</button>
+                                            </div>
                                     </form>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                     <!--End Modal Edit-->
 
-                   {{-- Modal Detail Data  --}}
-                   {{-- <div class="modal fade" id="detailModalrundown{{ $r->idRundowns }}" tabindex="-1" role="dialog" aria-hidden="true">
+                   <!-- Modal Detail Data -->
+                   {{-- <div class="modal fade" id="detailModalrundown{{ $r->idSuncar }}" tabindex="-1" role="dialog" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header no-bd">
@@ -206,26 +215,26 @@ Table Rundown
                                     <div class="row">
                                         <div class="col-sm-12">
                                             <div class="form-group form-group-default">
-                                                <label>Kode Rundowns</label>
-                                                {{ $r->idRundowns }}
+                                                <label>Kode Suncar</label>
+                                                {{ $s->idSuncar }}
                                             </div>
                                         </div>
                                         <div class="col-sm-12">
                                             <div class="form-group form-group-default">
-                                                <label>Nama Acara</label>
-                                                {{ $r->namaAcara }}
+                                                <label>Acara</label>
+                                                <option value="{{ $rundown->idRundowns}}">{{ $rundown->namaAcara}}</option>
                                             </div>
                                         </div>
                                         <div class="col-sm-12">
                                             <div class="form-group form-group-default">
-                                                <label>Lokasi</label>
-                                                {{ $r->lokasi }}
+                                                <label>Nama Kegiatan</label>
+                                                {{ $r->acara }}
                                             </div>
                                         </div>
                                         <div class="col-sm-12">
                                             <div class="form-group form-group-default">
-                                                <label>Tanggal</label>
-                                                {{ $r->tanggal }}
+                                                <label>PJ</label>
+                                                {{ $r->pj }}
                                             </div>
                                         </div>
                                         <div class="col-sm-12">

@@ -69,9 +69,10 @@ class SuncarController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($idSuncar)
     {
-        //
+        $suncar = Suncar::all();
+        return view('suncar.edit', compact('suncar'));
     }
 
     /**
@@ -81,9 +82,11 @@ class SuncarController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $idSuncar)
     {
-        //
+        $input = Suncar::where('idSuncar', $idSuncar)->update($request->except('_token'));
+
+        return redirect()->route('suncar.suncar')->with('success', 'Data Berhasil Diedit');
     }
 
     /**
@@ -92,8 +95,10 @@ class SuncarController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($idSuncar)
     {
-        //
+        $input = Suncar::where('idSuncar', $idSuncar)->delete();
+        // Alert::success('Success','kategori berhasil dihapus');
+        return redirect()->route('suncar.suncar')->with('Success','Data berhasil dihapus');
     }
 }
