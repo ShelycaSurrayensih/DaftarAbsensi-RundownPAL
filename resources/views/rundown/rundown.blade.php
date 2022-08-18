@@ -188,69 +188,69 @@ Table Rundown
                     </div>
                     <!--End Modal Edit-->
 
-                   {{-- Modal Detail Data  --}}
-                   <div class="modal fade" id="detailModalrundown{{ $r->idRundowns }}" tabindex="-1" role="dialog" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header no-bd">
-                                    <h5 class="modal-title">
-                                        <span class="fw-mediumbold">
-                                            Details Data
-                                        </span>
-                                    </h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal">
-                                </div>
-                                <div class="modal-body">
-                                    <p class="small">Detail Data ID {{ $loop->iteration }}</p>
-                                    <div class="row">
-                                        <div class="col-sm-12">
-                                            <div class="form-group form-group-default">
-                                                <label>Kode Rundowns</label>
-                                                {{ $r->idRundowns }}
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-12">
-                                            <div class="form-group form-group-default">
-                                                <label>Nama Acara</label>
-                                                {{ $r->namaAcara }}
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-12">
-                                            <div class="form-group form-group-default">
-                                                <label>Lokasi</label>
-                                                {{ $r->lokasi }}
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-12">
-                                            <div class="form-group form-group-default">
-                                                <label>Tanggal</label>
-                                                {{ $r->tanggal }}
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-12">
-                                            <div class="form-group form-group-default">
-                                                <label>Waktu Mulai</label>
-                                                {{ $r->waktuMulai }}
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-12">
-                                            <div class="form-group form-group-default">
-                                                <label>Waktu Selesai</label>
-                                                {{ $r->waktuSelesai }}
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="modal-footer no-bd">
-                                        <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">Close</button>
-                                    </div>
-                                </div>
-                            </div>
+<!-- Modal Detail Data -->
+<div class="modal fade" id="detailModalrundown{{ $r->idRundowns }}" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header no-bd">
+                <h5 class="modal-title">
+                    <span class="fw-mediumbold">
+                        Details Data
+                    </span>
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal">
+            </div>
+            <div class="modal-body">
+                <p class="small">Detail Data ID {{ $loop->iteration }}</p>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="form-group form-group-default">
+                            <label>Kode Rundowns</label>
+                            {{ $r->idRundowns }}
                         </div>
                     </div>
-                    <!--End Modal Detail-->
+                    <div class="col-sm-12">
+                        <div class="form-group form-group-default">
+                            <label>Nama Acara</label>
+                            {{ $r->namaAcara }}
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="form-group form-group-default">
+                            <label>Lokasi</label>
+                            {{ $r->lokasi }}
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="form-group form-group-default">
+                            <label>Tanggal</label>
+                            {{ $r->tanggal }}
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="form-group form-group-default">
+                            <label>Waktu Mulai</label>
+                            {{ $r->waktuMulai }}
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="form-group form-group-default">
+                            <label>Waktu Selesai</label>
+                            {{ $r->waktuSelesai }}
+                        </div>
+                    </div>
+                {{-- </div> --}}
+                <div class="modal-footer no-bd">
+                    <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--End Modal Detail-->
                     <tr>
                         <td class="text-center">{{ $loop->iteration }}</td>
-                        <td class="text-center">{{ $r->idRundowns }}</td>
+                        <td class="text-center">{{ $r->kodeRundowns }}</td>
                         <td class="text-center">{{ $r->namaAcara}}</td>
                         <td class="text-center">{{ $r->lokasi}}</td>
                         <td class="text-center">{{ $r->tanggal}}</td>

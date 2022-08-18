@@ -14,7 +14,7 @@
                         <div class="col-sm-12">
                             <div class="form-group form-group-default">
                                 <label>Kode Rundowns</label>
-                                <input id="idRundowns" type="text" name="idRundowns" class="form-control" placeholder="Masukkan kode">
+                                <input id="kodeRundowns" type="text" name="kodeRundowns" class="form-control" placeholder="Masukkan kode">
                             </div>
                         </div>
                         <div class="col-sm-12">

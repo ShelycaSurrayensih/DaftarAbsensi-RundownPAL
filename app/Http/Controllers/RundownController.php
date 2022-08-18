@@ -32,7 +32,7 @@ class RundownController extends Controller
         public function store(Request $request)
         {
             $request->validate([
-                'idRundowns'=>'required',
+                'kodeRundowns'=>'required',
                 'namaAcara'=>'required',
                 'lokasi'=>'required',
                 'tanggal'=>'required',
