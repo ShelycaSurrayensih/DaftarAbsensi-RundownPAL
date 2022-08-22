@@ -262,7 +262,7 @@ Table Rundown
                         <td class="text-center">{{ $loop->iteration }}</td>
                         <td class="text-center">{{ $s->idSuncar }}</td>
                         <td class="text-center">{{ $s->idRundowns}}</td>
-                        <td class="text-center">{{ $s->acara}}</td>
+                        <td class="text-center">{{ $s->namaKegiatan}}</td>
                         <td class="text-center">{{ $s->pj}}</td>
                         <td class="text-center">{{ $s->waktuMulai}}</td>
                         <td class="text-center">{{ $s->waktuSelesai}}</td>

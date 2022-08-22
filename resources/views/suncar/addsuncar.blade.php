@@ -14,7 +14,7 @@
                         <div class="col-sm-12">
                             <div class="form-group form-group-default">
                                 <label>Kode Suncar</label>
-                                <input id="idSuncar" type="text" name="idSuncar" class="form-control" placeholder="Masukkan kode">
+                                <input id="kodeSuncar" type="text" name="kodeSuncar" class="form-control" placeholder="Masukkan kode">
                             </div>
                         </div>
                         <div class="form row">
@@ -35,7 +35,7 @@
                         <div class="col-sm-12">
                             <div class="form-group form-group-default">
                                 <label>Nama Kegiatan</label>
-                                <input id="acara" type="text" name="acara" class="form-control" placeholder="Masukkan Nama Kegiatan">
+                                <input id="namaKegiatan" type="text" name="namaKegiatan" class="form-control" placeholder="Masukkan Nama Kegiatan">
                             </div>
                         </div>
                         <div class="col-sm-12">

@@ -23,7 +23,7 @@ class Absensi extends Model
     // {
     //     return Absensi::all();
     // }
-    public function rundowns(){
-        return $this->belongsTo(Rundown::class, 'idRundowns');
+    public function rundown(){
+        return $this->belongsTo('App\Models\Rundown');
     }
 }

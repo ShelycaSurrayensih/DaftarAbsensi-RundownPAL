@@ -14,7 +14,7 @@ class CreateRundownsTable extends Migration
     public function up()
     {
         Schema::create('rundowns', function (Blueprint $table) {
-            $table->increments('idRundowns');
+            $table->id('idRundowns');
             $table->string('kodeRundowns');
             $table->string('namaAcara');
             $table->string('lokasi');

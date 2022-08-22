@@ -25,8 +25,7 @@ class Rundown extends Model
     {
         return $this->hasMany(Suncar::class);
     }
-    public function absensi()
-    {
-        return $this->hasMany(Absensi::class);
+    public function absensi(){
+        return $this->belongsTo('App\Models\Absensi');
     }
 }

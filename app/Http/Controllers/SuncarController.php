@@ -38,18 +38,16 @@ class SuncarController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'idSuncar'=>'required',
-            'idRundowns'=>'required',
-            'acara'=>'required',
-            'pj'=>'required',
-            'waktuMulai'=>'required',
-            'waktuSelesai'=>'required',
-        ]);
-        $input = $request->all();
-        $s = Suncar::create($input);
+        $real = new Suncar;
+        $real->idSuncar = $request->idSuncar;
+        $real->kodeSuncar = $request->kodeSuncar;
+        $real->idRundowns = $request->idRundowns;
+        $real->namaKegiatan = $request->namaKegiatan;
+        $real->pj = $request->pj;
+        $real->waktuMulai = $request->waktuMulai;
+        $real->waktuSelesai = $request->waktuSelesai;
+        $real->save();
         return redirect()->route('suncar.suncar')->with('success', 'Data Berhasil Ditambahkan');
-        $r = Rundown::find($request->get('idRundowns'));
     }
 
     /**
@@ -99,6 +97,6 @@ class SuncarController extends Controller
     {
         $input = Suncar::where('idSuncar', $idSuncar)->delete();
         // Alert::success('Success','kategori berhasil dihapus');
-        return redirect()->route('suncar.suncar')->with('Success','Data berhasil dihapus');
+        return redirect()->route('suncar.suncar')->with('Success', 'Data berhasil dihapus');
     }
 }

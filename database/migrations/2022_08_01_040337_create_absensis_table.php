@@ -21,7 +21,7 @@ class CreateAbsensisTable extends Migration
 			$table->string('telp', 20);
             $table->string('tandatangan',50);
             $table->unsignedBigInteger('idRundowns');
-            $table->foreign('idRundowns')->references('idRundowns')->on('rundowns');
+            $table->foreign('idRundowns')->references('idRundowns')->on('rundowns')->ondelete('cascade');
             $table->timestamps();
         });
     }
