@@ -96,7 +96,7 @@ Table Absensi
 			<div class="col-12">
 				<div class="card">
                     <div class="col-md-40 col-sm-12 text-right" style="text-align: right">
-                        <button type="button" class="btn btn-primary mb-2" data-bs-toggle="modal" data-bs-target="#addModal">Add Data</button>
+                        <button type="button" class="btn btn-primary mb-2" data-bs-toggle="modal" data-bs-target="#addModalabsensi">Add Data</button>
                     </div>
                     @include('absensi.addabsensi')
 					<div class="card-body">
@@ -122,7 +122,7 @@ Table Absensi
 ***********************************-->
                     @foreach($absensi as $a)
                     <!--start modal edit-->
-                    <div class="modal fade" id="editModal{{ $a->idAbsensi }}" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal fade" id="editModalabsensi{{ $a->idAbsensi }}" tabindex="-1" role="dialog" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header no-bd">
@@ -195,7 +195,7 @@ Table Absensi
                     <!--End Modal Edit-->
 
                     <!-- Modal Detail Data -->
-                    <div class="modal fade" id="detailModal{{ $a->idAbsensi }}" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal fade" id="detailModalabsensi{{ $a->idAbsensi }}" tabindex="-1" role="dialog" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header no-bd">
@@ -264,8 +264,8 @@ Table Absensi
                         <td class="text-center">{{ $a->telp}}</td>
                         <td class="text-center"><img src="{{asset('storage/'.$a->tandatangan) }}" width="100px"></td>
                         <td class="text-center">
-                            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editModal{{ $a->idAbsensi }}"><i class="fa fa-edit"></i></button>
-                            <button class="btn btn-info" data-bs-toggle="modal" data-bs-target="#detailModal{{ $a->idAbsensi }}"><i class="fa fa-edit"></i></button>
+                            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editModalabsensi{{ $a->idAbsensi }}"><i class="fa fa-edit"></i></button>
+                            <button class="btn btn-info" data-bs-toggle="modal" data-bs-target="#detailModalabsensi{{ $a->idAbsensi }}"><i class="fa fa-edit"></i></button>
                             <form action="{{ route('absensi.destroy', $a->idAbsensi) }}" method="POST" class="d-inline">
                                 @csrf
                                 @method('DELETE')

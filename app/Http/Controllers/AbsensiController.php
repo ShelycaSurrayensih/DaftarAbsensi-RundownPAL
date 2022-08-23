@@ -39,6 +39,7 @@ class AbsensiController extends Controller
     public function store(Request $request)
     {
         $request->validate([
+            'idRundowns'=>'required',
             'nama'=>'required',
             'jabatan'=>'required',
             'instansi'=>'required',
@@ -55,6 +56,9 @@ class AbsensiController extends Controller
         }
         // $input = $request->all();
         // $data = Absensi::create($input);
+
+        // $rundown = Rundown::where($request->get('idRundowns'));
+
         $absensis = new Absensi;
         $absensis->nama = $request->get('nama');
         $absensis->jabatan = $request->get('jabatan');
@@ -62,6 +66,8 @@ class AbsensiController extends Controller
         $absensis->telp = $request->get('telp');
         $absensis->idRundowns = $request->get('idRundowns');
         $absensis->tandatangan = $image_name;
+        //fungsi eloquent untuk menambah data dengan relasi belongsTo
+        // $absensis->rundown()->associate($input);
         $absensis->save();
         return redirect()->route('absensi.absensi')->with('success', 'Data Berhasil Ditambahkan');
     }
