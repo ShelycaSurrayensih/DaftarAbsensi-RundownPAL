@@ -7,6 +7,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\CalenderController;
 use App\Http\Controllers\RundownController;
 use App\Http\Controllers\SuncarController;
+use App\Http\Controllers\HouseController;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -30,6 +31,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/house', [App\Http\Controllers\HouseController::class, 'index'])->name('house');
 
 Route::group(['middleware'=>'auth'], function(){
     Route::get('/', [HomeController::class, 'index'])->name('index.index');
