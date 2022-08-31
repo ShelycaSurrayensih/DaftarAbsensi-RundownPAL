@@ -86,7 +86,7 @@
         <div class="row">
 
             <div class="image">
-                <img src="images/pal-rs.jpg" alt="">
+                <img src="assets/images/pal-rs.jpg" alt="">
             </div>
 
             <div class="content">
