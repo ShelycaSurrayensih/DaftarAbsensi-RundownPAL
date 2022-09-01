@@ -13,11 +13,12 @@ class SuncarController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
-        $suncar = Suncar::all();
+        $suncar = Suncar::where('idRundowns', $id)->get();
         $rundown = Rundown::all();
-        return view('suncar.suncar', compact('suncar', 'rundown'));
+        // return view('suncar.suncar', compact('suncar', 'rundown'));
+        return view('suncar.suncar', compact('suncar', 'rundown', 'id'));
     }
 
     /**
@@ -36,18 +37,18 @@ class SuncarController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $id)
     {
         $real = new Suncar;
         $real->idSuncar = $request->idSuncar;
         $real->kodeSuncar = $request->kodeSuncar;
-        $real->idRundowns = $request->idRundowns;
+        $real->idRundowns = $id;
         $real->namaKegiatan = $request->namaKegiatan;
         $real->pj = $request->pj;
         $real->waktuMulai = $request->waktuMulai;
         $real->waktuSelesai = $request->waktuSelesai;
         $real->save();
-        return redirect()->route('suncar.suncar')->with('success', 'Data Berhasil Ditambahkan');
+        return redirect()->route('suncar.suncar', $id)->with('success', 'Data Berhasil Ditambahkan');
     }
 
     /**

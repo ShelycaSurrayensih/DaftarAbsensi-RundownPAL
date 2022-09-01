@@ -14,6 +14,7 @@ class Rundown extends Model
     protected $primarykey = 'idRundowns';
     protected $fillable = [
         'idRundowns',
+        'tahun',
         'namaAcara',
         'lokasi',
         'tanggalMulai',

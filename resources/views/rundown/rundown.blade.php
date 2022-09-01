@@ -96,7 +96,7 @@ Table Rundown
 			<div class="col-12">
 				<div class="card">
 
-                    <div class="col-md-40 col-sm-12 text-right" style="text-align: right">
+                    <div class="col-md-40 col-sm-12 text-left" style="text-align: left">
                         <button type="button" class="btn btn-primary mb-2" data-bs-toggle="modal" data-bs-target="#addModalrundown">Add Data</button>
                     </div>
                     @include('rundown.addrundown')
@@ -107,10 +107,12 @@ Table Rundown
 									<tr>
 										<th>No</th>
                                         <th>Kode Rundown</th>
+                                        <th>Tahun</th>
 										<th>Nama Acara </th>
 										<th>Lokasi</th>
 										<th>Tanggal Mulai</th>
                                         <th>Tanggal Selesai</th>
+                                        <th>Suncar</th>
 										<th>Action</th>
 									</tr>
 								</thead>
@@ -149,6 +151,12 @@ Table Rundown
                                             </div>
                                             <div class="col-sm-12">
                                                 <div class="form-group form-group-default">
+                                                    <label>Tahun</label>
+                                                    <input id="tahun" type="text" name="tahun" value="{{ $r->tahun }}" class="form-control" placeholder="Masukkan Tahun">
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-12">
+                                                <div class="form-group form-group-default">
                                                     <label>Nama Acara</label>
                                                     <input id="namaAcara" type="text" name="namaAcara" value="{{ $r->namaAcara }}" class="form-control" placeholder="Masukkan Nama Acara">
                                                 </div>
@@ -170,7 +178,7 @@ Table Rundown
                                                     <label>Tanggal Selesai</label>
                                                     <input id="tanggalSelesai" type="date" name="tanggalSelesai" value="{{ $r->tanggalSelesai }}" class="form-control" placeholder="Masukkan Tanggal Selesai">
                                                 </div>
-                                        </div>
+                                            </div>
                                         <div class="modal-footer no-bd">
                                             <button type="submit" id="addModalrundown" class="btn btn-primary">Save</button>
                                             <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">Close</button>
@@ -203,6 +211,16 @@ Table Rundown
                             <div class="row">
                                 <div class="col-sm-12">
                                     {{ $r->idRundowns }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="form-group form-group-default">
+                            <label>Tahun</label>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    {{ $r->tahun }}
                                 </div>
                             </div>
                         </div>
@@ -260,10 +278,12 @@ Table Rundown
                     <tr>
                         <td class="text-center">{{ $loop->iteration }}</td>
                         <td class="text-center">{{ $r->idRundowns }}</td>
+                        <td class="text-center">{{ $r->tahun }}</td>
                         <td class="text-center">{{ $r->namaAcara}}</td>
                         <td class="text-center">{{ $r->lokasi}}</td>
                         <td class="text-center">{{ $r->tanggalMulai}}</td>
                         <td class="text-center">{{ $r->tanggalSelesai}}</td>
+                        <td class="text-center"><a type="button" class="btn btn-info light" href="{{ route('suncar.suncar', $r->idRundowns) }}">Detail</a></td>
                         <td class="text-center">
                             <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editModalrundown{{ $r->idRundowns }}"><i class="fa fa-edit"></i></button>
                             <button class="btn btn-info" data-bs-toggle="modal" data-bs-target="#detailModalrundown{{ $r->idRundowns }}"><i class="fa fa-edit"></i></button>

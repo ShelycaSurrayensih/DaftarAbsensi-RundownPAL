@@ -19,6 +19,12 @@
                         </div>
                         <div class="col-sm-12">
                             <div class="form-group form-group-default">
+                                <label>Tahun</label>
+                                <input id="tahun" type="text" name="tahun" class="form-control" placeholder="Masukkan Tahun">
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="form-group form-group-default">
                                 <label>Nama Acara</label>
                                 <input id="namaAcara" type="text" name="namaAcara" class="form-control" placeholder="Masukkan Nama Acara">
                             </div>

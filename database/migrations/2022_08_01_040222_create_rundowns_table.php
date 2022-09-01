@@ -15,6 +15,7 @@ class CreateRundownsTable extends Migration
     {
         Schema::create('rundowns', function (Blueprint $table) {
             $table->string('idRundowns', 20)->primary();
+            $table->string('tahun');
             $table->string('namaAcara');
             $table->string('lokasi');
             $table->date('tanggalMulai');

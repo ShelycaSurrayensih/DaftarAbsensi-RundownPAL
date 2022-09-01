@@ -8,28 +8,34 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="{{ route('suncar.store') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('suncar.store', $id) }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-group form-group-default">
+                                <label>Kode Rundown</label>
+                                <input id="idRundowns" type="text" name="idRundowns" class="form-control" value="{{$id}}" disabled>
+                            </div>
+                        </div>
                         <div class="col-sm-12">
                             <div class="form-group form-group-default">
                                 <label>Kode Suncar</label>
                                 <input id="kodeSuncar" type="text" name="kodeSuncar" class="form-control" placeholder="Masukkan kode">
                             </div>
                         </div>
-                        <div class="form row">
+                        {{-- <div class="form row">
                             <label for="idRundowns" class="col-sm-12  col-form-label">Acara</label>
                                 <div class="input-group">
                                     <input id="rundown_namaAcara" type="text" class="form-control" readonly="" required>
                                     <input id="idRundowns" type="hidden" name="idRundowns" value="{{ ('idRundowns') }}" required readonly="">
                                     <button type="button" class="btn btn-info btn-secondary" data-bs-toggle="modal" data-bs-target="#myModal"><b>Cari Acara </b><span class="fa fa-search"></span></button>
                                 </div>
-                                {{-- <select name="idRundowns" id="idRundowns">
+                                <select name="idRundowns" id="idRundowns">
                                     @foreach ($rundown as $run)
                                     <option value="{{ $run->idRundowns}}">{{ $run->namaAcara}}</option>
                                     @endforeach
-                                </select> --}}
-                        </div>
+                                </select>
+                        </div> --}}
                         <div class="col-sm-12">
                             <div class="form-group form-group-default">
                                 <label>Nama Kegiatan</label>
@@ -38,7 +44,7 @@
                         </div>
                         <div class="col-sm-12">
                             <div class="form-group form-group-default">
-                                <label>PJ</label>
+                                <label>Penanggung Jawab</label>
                                 <input id="pj" type="text" name="pj" class="form-control" placeholder="Masukkan pj">
                             </div>
                         </div>

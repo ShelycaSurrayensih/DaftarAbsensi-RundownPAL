@@ -1,6 +1,6 @@
 @extends('layout.master')
 @section('judul')
-Table Rundown
+Table Suncar
 @endsection
 @section('content')
 <div class="event-sidebar dz-scroll " id="eventSidebar">
@@ -107,9 +107,9 @@ Table Rundown
 									<tr>
 										<th>No</th>
                                         <th>Kode Suncar</th>
-										<th>Acara </th>
+										<th>Kode Rundown </th>
                                         <th>Kegiatan </th>
-										<th>Pj</th>
+										<th>Penanggung Jawab</th>
 										<th>Waktu Mulai</th>
 										<th>Waktu Selesai</th>
 										<th>Action</th>
@@ -123,7 +123,7 @@ Table Rundown
 ***********************************-->
                     @foreach($suncar as $s)
                     <!--start modal edit-->
-                    {{-- <div class="modal fade" id="editModalsuncar{{ $s->idSuncar }}" tabindex="-1" role="dialog" aria-hidden="true">
+                     {{-- <div class="modal fade" id="editModalsuncar{{ $s->idSuncar }}" tabindex="-1" role="dialog" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header no-bd">
@@ -137,7 +137,7 @@ Table Rundown
                                 </div>
                                 <div class="modal-body">
                                     <p class="small">Edit Data ID {{ $loop->iteration }}</p>
-                                    <form action="{{ route('suncar.update', $r->idSuncar) }}"
+                                    <form action="{{ route('suncar.update', $s->idSuncar) }}"
                                         method="POST" enctype="multipart/form-data">
                                         @csrf
                                         @method('PUT')
@@ -145,18 +145,18 @@ Table Rundown
                                             <div class="col-sm-12">
                                                 <div class="form-group form-group-default">
                                                     <label>Kode Suncar</label>
-                                                    <input id="idSuncar" type="text" name="idSuncar" value="{{ $r->idSuncar }}" class="form-control" placeholder="Masukkan kode">
+                                                    <input id="idSuncar" type="text" name="idSuncar" value="{{ $s->idSuncar }}" class="form-control" placeholder="Masukkan kode">
                                                 </div>
                                             </div>
                                             <div class="form row">
                                                 <label for="idRundowns" class="col-sm-12  col-form-label">Acara</label>
-                                                <div class="col-sm-12 col-md-10"> --}}
-                                                    {{-- <div class="input-group">
+                                                <div class="col-sm-12 col-md-10">
+                                                    <div class="input-group">
                                                         <input id="rundown_namaAcara" type="text" class="form-control" readonly="" required>
                                                         <input id="idRundowns" type="hidden" name="idRundowns" value="{{ ('idRundowns') }}" required readonly="">
                                                         <button type="button" class="btn btn-info btn-secondary" data-toggle="modal" data-target="#myModal"><b>Cari Acara </b><span class="fa fa-search"></span></button>
-                                                    </div> --}}
-                                                    {{-- <select name="idRundowns" id="idRundowns">
+                                                    </div>
+                                                     <select name="idRundowns" id="idRundowns">
                                                         @foreach ($rundown as $run)
                                                         <option value="{{ $run->idRundowns}}">{{ $run->namaAcara}}</option>
                                                         @endforeach
@@ -166,25 +166,25 @@ Table Rundown
                                             <div class="col-sm-12">
                                                 <div class="form-group form-group-default">
                                                     <label>Nama Kegiatan</label>
-                                                    <input id="acara" type="text" name="acara" class="form-control" value="{{ $r->acara }}" placeholder="Masukkan Nama Kegiatan">
+                                                    <input id="acara" type="text" name="acara" class="form-control" value="{{ $s->acara }}" placeholder="Masukkan Nama Kegiatan">
                                                 </div>
                                             </div>
                                             <div class="col-sm-12">
                                                 <div class="form-group form-group-default">
                                                     <label>PJ</label>
-                                                    <input id="pj" type="text" name="pj" class="form-control" value="{{ $r->pj }}" placeholder="Masukkan pj">
+                                                    <input id="pj" type="text" name="pj" class="form-control" value="{{ $s->pj }}" placeholder="Masukkan pj">
                                                 </div>
                                             </div>
                                             <div class="col-sm-6">
                                                 <div class="form-group form-group-default">
                                                     <label>Waktu Mulai</label>
-                                                    <input id="waktuMulai" type="time" name="waktuMulai" class="form-control" value="{{ $r->waktuMulai }}" placeholder="Masukkan Waktu Mulai">
+                                                    <input id="waktuMulai" type="time" name="waktuMulai" class="form-control" value="{{ $s->waktuMulai }}" placeholder="Masukkan Waktu Mulai">
                                                 </div>
                                             </div>
                                             <div class="col-sm-6">
                                                 <div class="form-group form-group-default">
                                                     <label>Waktu Selesai</label>
-                                                    <input id="waktuSelesai" type="time" name="waktuSelesai" class="form-control" value="{{ $r->waktuSelesai }}" placeholder="Masukkan Waktu Selesai">
+                                                    <input id="waktuSelesai" type="time" name="waktuSelesai" class="form-control" value="{{ $s->waktuSelesai }}" placeholder="Masukkan Waktu Selesai">
                                                 </div>
                                             </div>
                                             <div class="modal-footer no-bd">
@@ -195,11 +195,11 @@ Table Rundown
                                 </div>
                             </div>
                         </div>
-                    </div> --}}
+                    </div>
                     <!--End Modal Edit-->
 
                    <!-- Modal Detail Data -->
-                   {{-- <div class="modal fade" id="detailModalrundown{{ $r->idSuncar }}" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal fade" id="detailModalrundown{{ $s->idSuncar }}" tabindex="-1" role="dialog" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header no-bd">
@@ -228,25 +228,25 @@ Table Rundown
                                         <div class="col-sm-12">
                                             <div class="form-group form-group-default">
                                                 <label>Nama Kegiatan</label>
-                                                {{ $r->acara }}
+                                                {{ $s->acara }}
                                             </div>
                                         </div>
                                         <div class="col-sm-12">
                                             <div class="form-group form-group-default">
                                                 <label>PJ</label>
-                                                {{ $r->pj }}
+                                                {{ $s->pj }}
                                             </div>
                                         </div>
                                         <div class="col-sm-12">
                                             <div class="form-group form-group-default">
                                                 <label>Waktu Mulai</label>
-                                                {{ $r->waktuMulai }}
+                                                {{ $s->waktuMulai }}
                                             </div>
                                         </div>
                                         <div class="col-sm-12">
                                             <div class="form-group form-group-default">
                                                 <label>Waktu Selesai</label>
-                                                {{ $r->waktuSelesai }}
+                                                {{ $s->waktuSelesai }}
                                             </div>
                                         </div>
                                     </div>

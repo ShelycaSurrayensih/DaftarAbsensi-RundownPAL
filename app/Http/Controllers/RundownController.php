@@ -43,6 +43,7 @@ class RundownController extends Controller
         {
             $request->validate([
                 'idRundowns'=>'required',
+                'tahun'=>'required',
                 'namaAcara'=>'required',
                 'lokasi'=>'required',
                 'tanggalMulai'=>'required',
