@@ -14,13 +14,11 @@ class CreateRundownsTable extends Migration
     public function up()
     {
         Schema::create('rundowns', function (Blueprint $table) {
-            $table->id('idRundowns');
-            $table->string('kodeRundowns');
+            $table->string('idRundowns', 20)->primary();
             $table->string('namaAcara');
             $table->string('lokasi');
-            $table->date('tanggal');
-            $table->time('waktuMulai');
-            $table->time('waktuSelesai');
+            $table->date('tanggalMulai');
+            $table->date('tanggalSelesai');
             $table->timestamps();
         });
     }

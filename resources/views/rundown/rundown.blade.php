@@ -109,9 +109,8 @@ Table Rundown
                                         <th>Kode Rundown</th>
 										<th>Nama Acara </th>
 										<th>Lokasi</th>
-										<th>Tanggal</th>
-										<th>Waktu Mulai</th>
-										<th>Waktu Selesai</th>
+										<th>Tanggal Mulai</th>
+                                        <th>Tanggal Selesai</th>
 										<th>Action</th>
 									</tr>
 								</thead>
@@ -144,7 +143,8 @@ Table Rundown
                                             <div class="col-sm-12">
                                                 <div class="form-group form-group-default">
                                                     <label>Kode Rundown</label>
-                                                    <input id="idRundowns" type="text" name="idRundowns" value="{{ $r->idRundowns }}" class="form-control" placeholder="Masukkan Kode">
+                                                    <input id="idRundowns" type="text" name="idRundowns" value="{{ $r->idRundowns }}" class="form-control" placeholder="Masukkan Kode" value="{{$code}}" placeholder readonly="">
+                                                </div>
                                                 </div>
                                             </div>
                                             <div class="col-sm-12">
@@ -159,22 +159,16 @@ Table Rundown
                                                     <input id="lokasi" type="text" name="lokasi" value="{{ $r->lokasi }}" class="form-control" placeholder="Masukkan Lokasi">
                                                 </div>
                                             </div>
-                                            <div class="col-sm-12">
+                                            <div class="col-sm-4">
                                                 <div class="form-group form-group-default">
-                                                    <label>Tanggal</label>
-                                                    <input id="tanggal" type="date" name="tanggal" value="{{ $r->tanggal}}" class="form-control" placeholder="">
+                                                    <label>Tanggal Mulai</label>
+                                                    <input id="tanggalMulai" type="date" name="tanggalMulai" value="{{ $r->tanggalMulai }}" class="form-control" placeholder="Masukkan Tanggal Mulai">
                                                 </div>
                                             </div>
-                                            <div class="col-sm-6">
+                                            <div class="col-md-4">
                                                 <div class="form-group form-group-default">
-                                                    <label>Waktu Mulai</label>
-                                                    <input id="waktuMulai" type="time" name="waktuMulai" value="{{ $r->waktuMulai }}" class="form-control" placeholder="Masukkan Waktu Mulai">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="form-group form-group-default">
-                                                    <label>Waktu Selesai</label>
-                                                    <input id="waktuSelesai" type="time" name="waktuSelesai" value="{{ $r->waktuSelesai }}" class="form-control" placeholder="Masukkan Waktu Selesai">
+                                                    <label>Tanggal Selesai</label>
+                                                    <input id="tanggalSelesai" type="date" name="tanggalSelesai" value="{{ $r->tanggalSelesai }}" class="form-control" placeholder="Masukkan Tanggal Selesai">
                                                 </div>
                                         </div>
                                         <div class="modal-footer no-bd">
@@ -206,39 +200,54 @@ Table Rundown
                     <div class="col-sm-12">
                         <div class="form-group form-group-default">
                             <label>Kode Rundowns</label>
-                            {{ $r->idRundowns }}
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    {{ $r->idRundowns }}
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="col-sm-12">
                         <div class="form-group form-group-default">
                             <label>Nama Acara</label>
-                            {{ $r->namaAcara }}
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    {{ $r->namaAcara }}
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="col-sm-12">
                         <div class="form-group form-group-default">
                             <label>Lokasi</label>
-                            {{ $r->lokasi }}
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    {{ $r->lokasi }}
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="col-sm-12">
                         <div class="form-group form-group-default">
-                            <label>Tanggal</label>
-                            {{ $r->tanggal }}
+                            <label>Tanggal Mulai</label>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    {{ $r->tanggalMulai }}
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="col-sm-12">
                         <div class="form-group form-group-default">
-                            <label>Waktu Mulai</label>
-                            {{ $r->waktuMulai }}
+                            <label>Tanggal Selesai</label>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    {{ $r->tanggalSelesai }}
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-sm-12">
-                        <div class="form-group form-group-default">
-                            <label>Waktu Selesai</label>
-                            {{ $r->waktuSelesai }}
-                        </div>
-                    </div>
+
                 {{-- </div> --}}
                 <div class="modal-footer no-bd">
                     <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">Close</button>
@@ -250,12 +259,11 @@ Table Rundown
 <!--End Modal Detail-->
                     <tr>
                         <td class="text-center">{{ $loop->iteration }}</td>
-                        <td class="text-center">{{ $r->kodeRundowns }}</td>
+                        <td class="text-center">{{ $r->idRundowns }}</td>
                         <td class="text-center">{{ $r->namaAcara}}</td>
                         <td class="text-center">{{ $r->lokasi}}</td>
-                        <td class="text-center">{{ $r->tanggal}}</td>
-                        <td class="text-center">{{ $r->waktuMulai}}</td>
-                        <td class="text-center">{{ $r->waktuSelesai}}</td>
+                        <td class="text-center">{{ $r->tanggalMulai}}</td>
+                        <td class="text-center">{{ $r->tanggalSelesai}}</td>
                         <td class="text-center">
                             <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editModalrundown{{ $r->idRundowns }}"><i class="fa fa-edit"></i></button>
                             <button class="btn btn-info" data-bs-toggle="modal" data-bs-target="#detailModalrundown{{ $r->idRundowns }}"><i class="fa fa-edit"></i></button>

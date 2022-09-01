@@ -20,7 +20,7 @@ class CreateAbsensisTable extends Migration
             $table->string('instansi', 100);
 			$table->string('telp', 20);
             $table->string('tandatangan',200);
-            $table->unsignedBigInteger('idRundowns');
+            $table->string('idRundowns');
             $table->foreign('idRundowns')->references('idRundowns')->on('rundowns')->ondelete('cascade');
             $table->timestamps();
         });

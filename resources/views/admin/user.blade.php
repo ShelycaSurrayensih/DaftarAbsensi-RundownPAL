@@ -199,19 +199,31 @@ Table User
                                         <div class="col-sm-12">
                                             <div class="form-group form-group-default">
                                                 <label>Nama</label>
-                                                {{ $du->name }}
+                                                <div class="row">
+                                                    <div class="col-sm-12">
+                                                        {{ $du->name }}
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="col-sm-12">
                                             <div class="form-group form-group-default">
                                                 <label>Email</label>
-                                                {{ $du->email }}
+                                                <div class="row">
+                                                    <div class="col-sm-12">
+                                                        {{ $du->email }}
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="col-sm-12">
                                             <div class="form-group form-group-default">
                                                 <label>Password</label>
-                                                {{ $du->password }}
+                                                <div class="row">
+                                                    <div class="col-sm-12">
+                                                        {{ $du->password }}
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>

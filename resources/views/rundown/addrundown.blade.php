@@ -14,7 +14,7 @@
                         <div class="col-sm-12">
                             <div class="form-group form-group-default">
                                 <label>Kode Rundowns</label>
-                                <input id="kodeRundowns" type="text" name="kodeRundowns" class="form-control" placeholder="Masukkan kode">
+                                <input id="idRundowns" type="text" name="idRundowns" class="form-control" placeholder="Masukkan kode" value="{{$code}}" placeholder readonly="">
                             </div>
                         </div>
                         <div class="col-sm-12">
@@ -29,22 +29,16 @@
                                 <input id="lokasi" type="text" name="lokasi" class="form-control" placeholder="Masukkan Lokasi">
                             </div>
                         </div>
-                        <div class="col-sm-12">
+                        <div class="col-sm-6">
                             <div class="form-group form-group-default">
-                                <label>Tanggal</label>
-                                <input id="tanggal" type="date" name="tanggal" class="form-control" value="{{ date('Y-m-d', strtotime(Carbon\Carbon::today()->toDateString())) }}" placeholder="">
+                                <label>Tanggal Mulai</label>
+                                <input id="tanggalMulai" type="date" name="tanggalMulai" class="form-control" value="{{ date('Y-m-d', strtotime(Carbon\Carbon::today()->toDateString())) }}" placeholder="">
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group form-group-default">
-                                <label>Waktu Mulai</label>
-                                <input id="waktuMulai" type="time" name="waktuMulai" class="form-control" placeholder="Masukkan Waktu Mulai">
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="form-group form-group-default">
-                                <label>Waktu Selesai</label>
-                                <input id="waktuSelesai" type="time" name="waktuSelesai" class="form-control" placeholder="Masukkan Waktu Selesai">
+                                <label>Tanggal Selesai</label>
+                                <input id="tanggalSelesai" type="date" name="tanggalSelesai" class="form-control" value="{{ date('Y-m-d', strtotime(Carbon\Carbon::today()->toDateString())) }}" placeholder="">
                             </div>
                         </div>
                         <div class="modal-footer no-bd">

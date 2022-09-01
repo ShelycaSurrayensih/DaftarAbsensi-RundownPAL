@@ -15,11 +15,9 @@ class Rundown extends Model
     protected $fillable = [
         'idRundowns',
         'namaAcara',
-        'kodeRundowns',
         'lokasi',
-        'tanggal',
-        'waktuMulai',
-        'waktuSelesai',
+        'tanggalMulai',
+        'tanggalSelesai',
     ];
     public function suncar()
     {

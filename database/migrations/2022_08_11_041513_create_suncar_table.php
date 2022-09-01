@@ -20,7 +20,7 @@ class CreateSuncarTable extends Migration
             $table->string('pj', 50);
             $table->time('waktuMulai');
             $table->time('waktuSelesai');
-            $table->unsignedBigInteger('idRundowns');
+            $table->string('idRundowns');
             $table->foreign('idRundowns')->references('idRundowns')->on('rundowns');
             $table->timestamps();
         });
