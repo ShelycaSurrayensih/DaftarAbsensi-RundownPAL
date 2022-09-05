@@ -17,8 +17,9 @@ class SuncarController extends Controller
     {
         $suncar = Suncar::where('idRundowns', $id)->get();
         $rundown = Rundown::all();
+        $rundownDetail = Rundown::where('idRundowns', $id)->first();
         // return view('suncar.suncar', compact('suncar', 'rundown'));
-        return view('suncar.suncar', compact('suncar', 'rundown', 'id'));
+        return view('suncar.suncar', compact('suncar', 'rundown', 'id', 'rundownDetail'));
     }
 
     /**

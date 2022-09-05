@@ -95,7 +95,14 @@ Table Suncar
 		</div>
 			<div class="col-12">
 				<div class="card">
-
+                    <div><br>
+                        <h4>ID : PAL-{{$rundownDetail->idRundowns}}</h4>
+                        <h4>{{$rundownDetail->tahun}}</h4>
+                        <h4>{{$rundownDetail->namaAcara}}</h4>
+                        <h4>{{$rundownDetail->lokasi}}</h4>
+                        <h4>{{$rundownDetail->tanggalMulai}}</h4>
+                        <h4>{{$rundownDetail->tanggalSelesai}}</h4>
+                    </div><br>
                     <div class="col-md-40 col-sm-12 text-right" style="text-align: right">
                         <button type="button" class="btn btn-primary mb-2" data-bs-toggle="modal" data-bs-target="#addModalsuncar">Add Data</button>
                     </div>

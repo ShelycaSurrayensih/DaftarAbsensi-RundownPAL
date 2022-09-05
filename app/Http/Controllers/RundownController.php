@@ -10,17 +10,18 @@ class RundownController extends Controller
     public function index()
         {
             $num = Rundown::orderBy('idRundowns','desc')->count();
-            $dataCode = Rundown::orderBy('idRundowns','desc')->first();
-            if ($num == 0) {
-                $code = 'PAL01';
-            }
-            else{
-                $c = $dataCode->idRundowns;
-                $code = substr($c, 3)+1;
-                $code = "PAL0".$code;
-            }
+            // $dataCode = Rundown::orderBy('idRundowns','desc')->first();
+            // if ($num == 0) {
+            //     $code = 'PAL01';
+            // }
+            // else{
+            //     $c = $dataCode->idRundowns;
+            //     $code = substr($c, 3)+1;
+            //     $code = "PAL0".$code;
+            // }
+
             $rundown = Rundown::all();
-            return view('rundown.rundown', compact('rundown' , 'code'));
+            return view('rundown.rundown', compact('rundown'));
         }
 
         /**
@@ -42,7 +43,6 @@ class RundownController extends Controller
         public function store(Request $request)
         {
             $request->validate([
-                'idRundowns'=>'required',
                 'tahun'=>'required',
                 'namaAcara'=>'required',
                 'lokasi'=>'required',

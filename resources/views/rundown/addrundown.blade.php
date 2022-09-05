@@ -11,12 +11,13 @@
                 <form action="{{ route('rundown.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="row">
-                        <div class="col-sm-12">
+                        {{-- <div class="col-sm-12">
                             <div class="form-group form-group-default">
                                 <label>Kode Rundowns</label>
-                                <input id="idRundowns" type="text" name="idRundowns" class="form-control" placeholder="Masukkan kode" value="{{$code}}" placeholder readonly="">
+                                <input id="idRundowns" type="text" name="idRundowns" class="form-control" placeholder="Masukkan kode" value="{{ $r->idRundowns }}" placeholder readonly="">
                             </div>
-                        </div>
+                        </div> --}}
+
                         <div class="col-sm-12">
                             <div class="form-group form-group-default">
                                 <label>Tahun</label>

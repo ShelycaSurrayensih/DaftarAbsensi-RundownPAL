@@ -96,7 +96,7 @@ Table Rundown
 			<div class="col-12">
 				<div class="card">
 
-                    <div class="col-md-40 col-sm-12 text-left" style="text-align: left">
+                    <div class="col-md-40 col-sm-12 text-right" style="text-align: right">
                         <button type="button" class="btn btn-primary mb-2" data-bs-toggle="modal" data-bs-target="#addModalrundown">Add Data</button>
                     </div>
                     @include('rundown.addrundown')
@@ -145,7 +145,7 @@ Table Rundown
                                             <div class="col-sm-12">
                                                 <div class="form-group form-group-default">
                                                     <label>Kode Rundown</label>
-                                                    <input id="idRundowns" type="text" name="idRundowns" value="{{ $r->idRundowns }}" class="form-control" placeholder="Masukkan Kode" value="{{$code}}" placeholder readonly="">
+                                                    <input id="idRundowns" type="text" name="idRundowns" value="{{ $r->idRundowns }}" class="form-control" placeholder="Masukkan Kode" placeholder readonly="">
                                                 </div>
                                                 </div>
                                             </div>
@@ -210,7 +210,7 @@ Table Rundown
                             <label>Kode Rundowns</label>
                             <div class="row">
                                 <div class="col-sm-12">
-                                    {{ $r->idRundowns }}
+                                    PAL : {{ $r->idRundowns }}
                                 </div>
                             </div>
                         </div>
@@ -277,7 +277,7 @@ Table Rundown
 <!--End Modal Detail-->
                     <tr>
                         <td class="text-center">{{ $loop->iteration }}</td>
-                        <td class="text-center">{{ $r->idRundowns }}</td>
+                        <td class="text-center">ID : PAL-{{ $r->idRundowns }}</td>
                         <td class="text-center">{{ $r->tahun }}</td>
                         <td class="text-center">{{ $r->namaAcara}}</td>
                         <td class="text-center">{{ $r->lokasi}}</td>
