@@ -67,7 +67,9 @@
         @include('layout.footer')
         <!--********************************** Footer end ***********************************-->
     </div>
-
+    {{-- Alert --}}
+    @include('sweetalert::alert')
+    
     <script src="{{ asset('assets/vendor/global/global.min.js') }}"></script>
     <script src="{{ asset('assets/vendor/bootstrap-select/dist/js/bootstrap-select.min.js') }}"></script>
     <script src="{{ asset('assets/vendor/bootstrap-datetimepicker/js/moment.js') }}"></script>

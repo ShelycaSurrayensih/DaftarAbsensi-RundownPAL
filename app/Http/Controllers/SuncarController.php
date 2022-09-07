@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Rundown;
 use App\Models\Suncar;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class SuncarController extends Controller
 {
@@ -47,7 +48,8 @@ class SuncarController extends Controller
         $real->waktuMulai = $request->waktuMulai;
         $real->waktuSelesai = $request->waktuSelesai;
         $real->save();
-        return redirect()->back()->with('success', 'Data Berhasil Ditambahkan');
+        Alert::success('Succes','Data Suncar Berhasil Ditambahkan');
+        return redirect()->back();
     }
 
     /**
@@ -83,6 +85,7 @@ class SuncarController extends Controller
     public function update(Request $request, $idSuncar)
     {
         $input = Suncar::where('idSuncar', $idSuncar)->update($request->except('_method', '_token'));
+        Alert::success('Success', 'Data Suncar Berhasil Diupdate');
         return redirect()->back();
     }
 
@@ -95,7 +98,7 @@ class SuncarController extends Controller
     public function destroy($idSuncar)
     {
         Suncar::where('idSuncar', $idSuncar)->delete();
-        // Alert::success('Success','kategori berhasil dihapus');
+        Alert::success('Success','Data Suncar berhasil dihapus');
         return redirect()->back();
     }
 }

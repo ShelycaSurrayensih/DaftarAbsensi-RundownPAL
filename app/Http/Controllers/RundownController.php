@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Rundown;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class RundownController extends Controller
 {
@@ -51,7 +52,8 @@ class RundownController extends Controller
             ]);
             $input = $request->all();
             $data = Rundown::create($input);
-            return redirect()->route('rundown.rundown')->with('success', 'Data Berhasil Ditambahkan');
+            Alert::success('Succes','Data Rundown Berhasil Ditambahkan');
+            return redirect()->route('rundown.rundown');
         }
 
         /**
@@ -87,8 +89,8 @@ class RundownController extends Controller
         public function update(Request $request, $idRundowns)
         {
             $input = Rundown::where('idRundowns', $idRundowns)->update($request->except('_token'));
-
-            return redirect()->route('rundown.rundown')->with('success', 'Data Berhasil Diedit');
+            Alert::success('Success', 'Data Rundown Berhasil Diupdate');
+            return redirect()->route('rundown.rundown');
         }
 
         /**
@@ -100,7 +102,7 @@ class RundownController extends Controller
         public function destroy($idRundowns)
         {
             $input = Rundown::where('idRundowns', $idRundowns)->delete();
-            // Alert::success('Success','kategori berhasil dihapus');
-            return redirect()->route('rundown.rundown')->with('Success','Data berhasil dihapus');
+            Alert::success('Success','Data Rundown berhasil dihapus');
+            return redirect()->route('rundown.rundown');
         }
     }

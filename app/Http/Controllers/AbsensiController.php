@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Absensi;
 use App\Models\Rundown;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class AbsensiController extends Controller
 {
@@ -69,7 +70,8 @@ class AbsensiController extends Controller
         //fungsi eloquent untuk menambah data dengan relasi belongsTo
         // $absensis->rundown()->associate($input);
         $absensis->save();
-        return redirect()->route('absensi.absensi')->with('success', 'Data Berhasil Ditambahkan');
+        Alert::success('Succes','Data Absensi Berhasil Ditambahkan');
+        return redirect()->route('absensi.absensi');
     }
 
     /**
@@ -121,7 +123,8 @@ class AbsensiController extends Controller
             unset($input['tandatangan']);
         }
         Absensi::find($id)->update($input);
-        return redirect()->route('absensi.absensi')->with('success', 'Data Berhasil Diedit');
+        Alert::success('Success', 'Data Absensi Berhasil Diupdate');
+        return redirect()->route('absensi.absensi');
     }
 
     /**
@@ -135,7 +138,7 @@ class AbsensiController extends Controller
         $tandatangan = Absensi::find($id);
         unlink("images/".$tandatangan->tandatangan);
         Absensi::find($id)->delete();
-        // Alert::success('Success','kategori berhasil dihapus');
-        return redirect()->route('absensi.absensi')->with('Success','Data berhasil dihapus');
+        Alert::success('Success','Data Absensi berhasil dihapus');
+        return redirect()->route('absensi.absensi');
     }
 }

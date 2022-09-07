@@ -3,6 +3,7 @@
 Table Suncar
 @endsection
 @section('content')
+
 <div class="event-sidebar dz-scroll " id="eventSidebar">
 	<div class="card shadow-none rounded-0 bg-transparent h-auto mb-0">
 		<div class="card-body text-center event-calender pb-2">

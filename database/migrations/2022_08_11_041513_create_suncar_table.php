@@ -20,7 +20,7 @@ class CreateSuncarTable extends Migration
             $table->time('waktuMulai');
             $table->time('waktuSelesai');
             $table->unsignedBigInteger('idRundowns');
-            $table->foreign('idRundowns')->references('idRundowns')->on('rundowns');
+            $table->foreign('idRundowns')->references('idRundowns')->on('rundowns')->onDelete('cascade');
             $table->timestamps();
         });
     }
