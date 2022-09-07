@@ -180,7 +180,7 @@ Table Rundown
                                                 </div>
                                             </div>
                                         <div class="modal-footer no-bd">
-                                            <button type="submit" id="addModalrundown" class="btn btn-primary">Save</button>
+                                            <button type="submit" id="addModal" class="btn btn-primary">Save</button>
                                             <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">Close</button>
                                         </div>
                                     </form>
@@ -210,7 +210,7 @@ Table Rundown
                             <label>Kode Rundowns</label>
                             <div class="row">
                                 <div class="col-sm-12">
-                                    PAL : {{ $r->idRundowns }}
+                                    PAL-{{ $r->idRundowns }}
                                 </div>
                             </div>
                         </div>
@@ -277,7 +277,7 @@ Table Rundown
 <!--End Modal Detail-->
                     <tr>
                         <td class="text-center">{{ $loop->iteration }}</td>
-                        <td class="text-center">ID : PAL-{{ $r->idRundowns }}</td>
+                        <td class="text-center">PAL-{{ $r->idRundowns }}</td>
                         <td class="text-center">{{ $r->tahun }}</td>
                         <td class="text-center">{{ $r->namaAcara}}</td>
                         <td class="text-center">{{ $r->lokasi}}</td>

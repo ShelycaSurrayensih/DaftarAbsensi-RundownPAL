@@ -18,7 +18,6 @@ class SuncarController extends Controller
         $suncar = Suncar::where('idRundowns', $id)->get();
         $rundown = Rundown::all();
         $rundownDetail = Rundown::where('idRundowns', $id)->first();
-        // return view('suncar.suncar', compact('suncar', 'rundown'));
         return view('suncar.suncar', compact('suncar', 'rundown', 'id', 'rundownDetail'));
     }
 
@@ -38,18 +37,17 @@ class SuncarController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, $id)
+    public function store(Request $request)
     {
         $real = new Suncar;
         $real->idSuncar = $request->idSuncar;
-        $real->kodeSuncar = $request->kodeSuncar;
-        $real->idRundowns = $id;
+        $real->idRundowns = $request->idRundowns;
         $real->namaKegiatan = $request->namaKegiatan;
         $real->pj = $request->pj;
         $real->waktuMulai = $request->waktuMulai;
         $real->waktuSelesai = $request->waktuSelesai;
         $real->save();
-        return redirect()->route('suncar.suncar', $id)->with('success', 'Data Berhasil Ditambahkan');
+        return redirect()->back()->with('success', 'Data Berhasil Ditambahkan');
     }
 
     /**
@@ -84,9 +82,8 @@ class SuncarController extends Controller
      */
     public function update(Request $request, $idSuncar)
     {
-        $input = Suncar::where('idSuncar', $idSuncar)->update($request->except('_token'));
-
-        return redirect()->route('suncar.suncar')->with('success', 'Data Berhasil Diedit');
+        $input = Suncar::where('idSuncar', $idSuncar)->update($request->except('_method', '_token'));
+        return redirect()->back();
     }
 
     /**
@@ -97,8 +94,8 @@ class SuncarController extends Controller
      */
     public function destroy($idSuncar)
     {
-        $input = Suncar::where('idSuncar', $idSuncar)->delete();
+        Suncar::where('idSuncar', $idSuncar)->delete();
         // Alert::success('Success','kategori berhasil dihapus');
-        return redirect()->route('suncar.suncar')->with('Success', 'Data berhasil dihapus');
+        return redirect()->back();
     }
 }

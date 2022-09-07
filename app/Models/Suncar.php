@@ -16,7 +16,6 @@ class Suncar extends Model
      * @var array
      */
     protected $fillable = [
-        'kodeSuncar',
         'namaKegiatan',
         'pj',
         'waktuMulai',

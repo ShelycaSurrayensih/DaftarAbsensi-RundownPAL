@@ -96,12 +96,12 @@ Table Suncar
 			<div class="col-12">
 				<div class="card">
                     <div><br>
-                        <h4>ID : PAL-{{$rundownDetail->idRundowns}}</h4>
-                        <h4>{{$rundownDetail->tahun}}</h4>
-                        <h4>{{$rundownDetail->namaAcara}}</h4>
-                        <h4>{{$rundownDetail->lokasi}}</h4>
-                        <h4>{{$rundownDetail->tanggalMulai}}</h4>
-                        <h4>{{$rundownDetail->tanggalSelesai}}</h4>
+                        <h4>Kode Rundowns   : PAL-{{$rundownDetail->idRundowns}}</h4>
+                        <h4>Tahun           : {{$rundownDetail->tahun}}</h4>
+                        <h4>Nama Acara      : {{$rundownDetail->namaAcara}}</h4>
+                        <h4>Lokasi          : {{$rundownDetail->lokasi}}</h4>
+                        <h4>Tanggal Mulai   : {{$rundownDetail->tanggalMulai}}</h4>
+                        <h4>Tanggal Selesai : {{$rundownDetail->tanggalSelesai}}</h4>
                     </div><br>
                     <div class="col-md-40 col-sm-12 text-right" style="text-align: right">
                         <button type="button" class="btn btn-primary mb-2" data-bs-toggle="modal" data-bs-target="#addModalsuncar">Add Data</button>
@@ -113,7 +113,6 @@ Table Suncar
 								<thead>
 									<tr>
 										<th>No</th>
-                                        <th>Kode Suncar</th>
 										<th>Kode Rundown </th>
                                         <th>Kegiatan </th>
 										<th>Penanggung Jawab</th>
@@ -130,7 +129,7 @@ Table Suncar
 ***********************************-->
                     @foreach($suncar as $s)
                     <!--start modal edit-->
-                     {{-- <div class="modal fade" id="editModalsuncar{{ $s->idSuncar }}" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal fade" id="editModalsuncar{{ $s->idSuncar }}" tabindex="-1" role="dialog" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header no-bd">
@@ -151,29 +150,14 @@ Table Suncar
                                         <div class="row">
                                             <div class="col-sm-12">
                                                 <div class="form-group form-group-default">
-                                                    <label>Kode Suncar</label>
-                                                    <input id="idSuncar" type="text" name="idSuncar" value="{{ $s->idSuncar }}" class="form-control" placeholder="Masukkan kode">
-                                                </div>
-                                            </div>
-                                            <div class="form row">
-                                                <label for="idRundowns" class="col-sm-12  col-form-label">Acara</label>
-                                                <div class="col-sm-12 col-md-10">
-                                                    <div class="input-group">
-                                                        <input id="rundown_namaAcara" type="text" class="form-control" readonly="" required>
-                                                        <input id="idRundowns" type="hidden" name="idRundowns" value="{{ ('idRundowns') }}" required readonly="">
-                                                        <button type="button" class="btn btn-info btn-secondary" data-toggle="modal" data-target="#myModal"><b>Cari Acara </b><span class="fa fa-search"></span></button>
-                                                    </div>
-                                                     <select name="idRundowns" id="idRundowns">
-                                                        @foreach ($rundown as $run)
-                                                        <option value="{{ $run->idRundowns}}">{{ $run->namaAcara}}</option>
-                                                        @endforeach
-                                                    </select>
+                                                    <label>Kode Rundowns</label>
+                                                    <input id="idRundowns" type="text" name="idRundowns" value="{{ $s->idRundowns }}" class="form-control" placeholder="Masukkan kode">
                                                 </div>
                                             </div>
                                             <div class="col-sm-12">
                                                 <div class="form-group form-group-default">
                                                     <label>Nama Kegiatan</label>
-                                                    <input id="acara" type="text" name="acara" class="form-control" value="{{ $s->acara }}" placeholder="Masukkan Nama Kegiatan">
+                                                    <input id="namaKegiatan" type="text" name="namaKegiatan" class="form-control" value="{{ $s->namaKegiatan }}" placeholder="Masukkan Nama Kegiatan">
                                                 </div>
                                             </div>
                                             <div class="col-sm-12">
@@ -206,7 +190,7 @@ Table Suncar
                     <!--End Modal Edit-->
 
                    <!-- Modal Detail Data -->
-                    <div class="modal fade" id="detailModalrundown{{ $s->idSuncar }}" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal fade" id="detailModalsuncar{{ $s->idSuncar }}" tabindex="-1" role="dialog" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header no-bd">
@@ -222,20 +206,8 @@ Table Suncar
                                     <div class="row">
                                         <div class="col-sm-12">
                                             <div class="form-group form-group-default">
-                                                <label>Kode Suncar</label>
-                                                {{ $s->idSuncar }}
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-12">
-                                            <div class="form-group form-group-default">
-                                                <label>Acara</label>
-                                                <option value="{{ $rundown->idRundowns}}">{{ $rundown->namaAcara}}</option>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-12">
-                                            <div class="form-group form-group-default">
                                                 <label>Nama Kegiatan</label>
-                                                {{ $s->acara }}
+                                                {{ $s->namaKegiatan }}
                                             </div>
                                         </div>
                                         <div class="col-sm-12">
@@ -263,12 +235,11 @@ Table Suncar
                                 </div>
                             </div>
                         </div>
-                    </div> --}}
+                    </div>
                     <!--End Modal Detail-->
                     <tr>
                         <td class="text-center">{{ $loop->iteration }}</td>
-                        <td class="text-center">{{ $s->kodeSuncar}}</td>
-                        <td class="text-center">{{ $s->idRundowns}}</td>
+                        <td class="text-center">PAL-{{ $s->idRundowns}}</td>
                         <td class="text-center">{{ $s->namaKegiatan}}</td>
                         <td class="text-center">{{ $s->pj}}</td>
                         <td class="text-center">{{ $s->waktuMulai}}</td>
