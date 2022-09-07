@@ -107,6 +107,11 @@ Table Suncar
                     <div class="col-md-40 col-sm-12 text-right" style="text-align: right">
                         <button type="button" class="btn btn-primary mb-2" data-bs-toggle="modal" data-bs-target="#addModalsuncar">Add Data</button>
                     </div>
+                    <div class="col-auto">
+                        <a href="{{ route('suncar.pdf') }}">
+                        <button type="onClick" class="btn btn-success">
+                            <i class="ri-add-circle-line align-middle me-1"></i> Print all</button></a>
+                    </div>
                     @include('suncar.addsuncar')
 					<div class="card-body">
 						<div class="table-responsive">
@@ -205,6 +210,16 @@ Table Suncar
                                 <div class="modal-body">
                                     <p class="small">Detail Data ID {{ $loop->iteration }}</p>
                                     <div class="row">
+                                        <div class="col-sm-12">
+                                            <div class="form-group form-group-default">
+                                                <label>Kode Rundowns</label>
+                                                <div class="row">
+                                                    <div class="col-sm-12">
+                                                        PAL-{{ $s->idRundowns }}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                         <div class="col-sm-12">
                                             <div class="form-group form-group-default">
                                                 <label>Nama Kegiatan</label>

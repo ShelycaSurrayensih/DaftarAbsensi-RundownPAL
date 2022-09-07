@@ -6,6 +6,7 @@ use App\Models\Rundown;
 use App\Models\Suncar;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
+use PDF;
 
 class SuncarController extends Controller
 {
@@ -100,5 +101,13 @@ class SuncarController extends Controller
         Suncar::where('idSuncar', $idSuncar)->delete();
         Alert::success('Success','Data Suncar berhasil dihapus');
         return redirect()->back();
+    }
+
+    //-- PDF Detail --//
+    public function pdf()
+    {
+        $suncar = Suncar::all();
+        $pdf = PDF::loadview('index.pdf', compact('suncar'));
+        return $pdf->stream();
     }
 }
