@@ -57,9 +57,9 @@
 
             font-weight: 400;
             line-height: 1.5;
-            color: #858796;
+            color: #000;
             font-family: Verdana, Geneva, Tahoma, sans-serif;
-            margin-top: 10%;
+            margin-top: 6%;
             /* font-size: 2.4em; */
             line-height: 1.4em;
             font-weight: bold;
@@ -166,7 +166,7 @@
         </div>
     </main>
     <div class="footer">
-        <h4>PT. PAL INDONESIA</h4>
+        <p style="font-weight: bold">PT. PAL INDONESIA</p>
         <p>Kantor Pusat : UJUNG, SURABAYA 60155, PO BOX 1134 INDONESIA</p>
         <p>Telp : +62-31-3292275 (HUNTING) FAX : +62-31-3292530, 3292493, 3292516 Email : headoffice@pal.co.id Web Site
             : http//www.pal.co.id</p>
