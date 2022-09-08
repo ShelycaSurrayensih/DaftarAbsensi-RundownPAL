@@ -22,12 +22,11 @@
             position: relative;
             height: 29.7cm;
             width: 100%;
-            margin: 0 auto;
+            margin: auto;
             color: #001028;
             background: #FFFFFF;
-            font-family: Poppins, sans-serif;
-            font-size: 14px;
-            font-family: Arial;
+            font-size: 13px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
         }
 
         header {
@@ -86,25 +85,32 @@
         }
 
         table {
-            width: 10%;
+            width: 25%;
             margin-top: 5%;
             border-collapse: collapse;
             border-spacing: 0;
+            margin: auto;
         }
 
-        table th,
-        table td {
-            text-align: center;
-            font-family: Verdana, Geneva, Tahoma, sans-serif
+        tr {
+              text-align: center;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
         }
 
         table th {
             padding: 10px 20px;
-            color: #5D6975;
-            border-bottom: 1px solid #858796;
+            color: #000;
+            border-bottom: 1px solid #000;
             white-space: nowrap;
             font-weight: bold;
             border-collapse: collapse;
+        }
+
+        tr{
+            border-bottom: 0.5px #000 solid;
+        }
+        table{
+            border: 0.5px #000 solid
         }
 
         table td {
@@ -147,7 +153,6 @@
                         <th>Penanggung Jawab</th>
                         <th>Waktu Mulai</th>
                         <th>Waktu Selesai</th>
-                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -159,7 +164,7 @@
                             <td>{{ $s->pj }}</td>
                             <td>{{ $s->waktuMulai }}</td>
                             <td>{{ $s->waktuSelesai }}</td>
-                        <tr>
+                        </tr>
                     @endforeach
                 </tbody>
             </table>
