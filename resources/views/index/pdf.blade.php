@@ -142,7 +142,53 @@
         <img src="assets/images/logo-4.png" class="topright">
     </header>
     <h2 style="text-decoration: underline;">SUSUNAN ACARA</h2>
+    <h4>Kode Rundowns   : PAL-{{$rundownDetail->idRundowns}}</h4>
+                            <p>Tahun           : {{$rundownDetail->tahun}}</p>
+                            <p>Nama Acara      : {{$rundownDetail->namaAcara}}</p>
+                            <p>Lokasi          : {{$rundownDetail->lokasi}}</p>
+                            <p>Tanggal Mulai   : {{$rundownDetail->tanggalMulai}}</p>
+                            <p>Tanggal Selesai : {{$rundownDetail->tanggalSelesai}}</p>
     <main>
+        {{-- <div class="col-12">
+            <div class="card">
+                <div class="col-md-40 col-sm-12 text-right" style="text-align: right">
+                    <div style="text-align: left; padding-left: 50px"><br>
+                        <table class="display" style="border: 0px;color: black; font-size: 15pt">
+                            <tr>
+                                <td>Kode Rundown</td>
+                                <td>&nbsp;:</td>
+                                <td>PAL-{{$rundownDetail->idRundowns}}</td>
+                            </tr>
+                            <tr>
+                                <td>Tahun</td>
+                                <td>&nbsp;:</td>
+                                <td>{{$rundownDetail->tahun}}</td>
+                            </tr>
+                            <tr>
+                                <td>Nama Acara</td>
+                                <td>&nbsp;:</td>
+                                <td>{{$rundownDetail->namaAcara}}</td>
+                            </tr>
+                            <tr>
+                                <td>Lokasi</td>
+                                <td>&nbsp;:</td>
+                                <td>{{$rundownDetail->lokasi}}</td>
+                            </tr>
+                            <tr>
+                                <td>Tanggal Mulai</td>
+                                <td>&nbsp;:</td>
+                                <td>{{$rundownDetail->tanggalMulai}}</td>
+                            </tr>
+                            <tr>
+                                <td>Tanggal Selesai</td>
+                                <td>&nbsp;:&nbsp;</td>
+                                <td>{{$rundownDetail->tanggalSelesai}}</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div> --}}
         <div class="table-responsive" style="overflow-x:auto">
             <table class="table">
                 <thead>

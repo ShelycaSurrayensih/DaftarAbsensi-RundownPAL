@@ -137,7 +137,7 @@ Table Suncar
                             <h4>Tanggal Mulai   : {{$rundownDetail->tanggalMulai}}</h4>
                             <h4>Tanggal Selesai : {{$rundownDetail->tanggalSelesai}}</h4> --}}
                         </div><hr style="height:4px;border-width:4;color:rgb(0, 0, 0);background-color:rgb(0, 0, 0)">
-                        <a href="{{ route('suncar.pdf') }}">
+                        <a href="{{ route('suncar.pdf', $rundownDetail->idRundowns) }}">
                             <button type="onClick" class="btn btn-primary mb-2">Print All</button>
                         </a>
                         {{-- <button type="button" class="btn btn-primary mb-2" data-bs-toggle="modal" data-bs-target="#addModalsuncar">Print All</button> --}}
