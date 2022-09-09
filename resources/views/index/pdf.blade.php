@@ -93,7 +93,7 @@
         }
 
         tr {
-              text-align: center;
+            text-align: center;
             font-family: Verdana, Geneva, Tahoma, sans-serif;
         }
 
@@ -106,10 +106,11 @@
             border-collapse: collapse;
         }
 
-        tr{
+        tr {
             border-bottom: 0.5px #000 solid;
         }
-        table{
+
+        table {
             border: 0.5px #000 solid
         }
 
@@ -142,12 +143,12 @@
         <img src="assets/images/logo-4.png" class="topright">
     </header>
     <h2 style="text-decoration: underline;">SUSUNAN ACARA</h2>
-    <h4>Kode Rundowns   : PAL-{{$rundownDetail->idRundowns}}</h4>
-                            <p>Tahun           : {{$rundownDetail->tahun}}</p>
-                            <p>Nama Acara      : {{$rundownDetail->namaAcara}}</p>
-                            <p>Lokasi          : {{$rundownDetail->lokasi}}</p>
-                            <p>Tanggal Mulai   : {{$rundownDetail->tanggalMulai}}</p>
-                            <p>Tanggal Selesai : {{$rundownDetail->tanggalSelesai}}</p>
+    <p>Kode Rundowns : PAL-{{ $rundownDetail->idRundowns }}</p>
+    <p>Tahun : {{ $rundownDetail->tahun }}</p>
+    <p>Nama Acara : {{ $rundownDetail->namaAcara }}</p>
+    <p>Lokasi : {{ $rundownDetail->lokasi }}</p>
+    <p>Tanggal Mulai : {{ $rundownDetail->tanggalMulai }}</p>
+    <p>Tanggal Selesai : {{ $rundownDetail->tanggalSelesai }}</p>
     <main>
         {{-- <div class="col-12">
             <div class="card">
@@ -212,6 +213,16 @@
                             <td>{{ $s->waktuSelesai }}</td>
                         </tr>
                     @endforeach
+                    {{-- @foreach ($rundown as $r)
+                        <tr>
+                            <td>{{ $loop->iteration }}</td>
+                            <td>PAL-{{ $s->idRundowns }}</td>
+                            <td>{{ $s->namaKegiatan }}</td>
+                            <td>{{ $s->pj }}</td>
+                            <td>{{ $s->waktuMulai }}</td>
+                            <td>{{ $s->waktuSelesai }}</td>
+                        </tr>
+                    @endforeach --}}
                 </tbody>
             </table>
         </div>

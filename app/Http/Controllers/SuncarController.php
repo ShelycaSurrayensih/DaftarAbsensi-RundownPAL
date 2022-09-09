@@ -104,10 +104,11 @@ class SuncarController extends Controller
     }
 
     //-- PDF Detail --//
-    public function pdf()
+    public function pdf($id)
     {
         $suncar = Suncar::all();
-        $pdf = PDF::loadview('index.pdf', compact('suncar'));
+        $rundownDetail = Rundown::where('idRundowns', $id)->first();
+        $pdf = PDF::loadview('index.pdf', compact('suncar', 'rundownDetail'));
         return $pdf->stream();
     }
 }
