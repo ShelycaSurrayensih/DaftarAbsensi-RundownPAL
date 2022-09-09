@@ -50,11 +50,11 @@ Route::group(['middleware'=>'auth'], function(){
     Route::post('/rundown', [RundownController::class, 'store'])->name('rundown.store');
     Route::delete('/rundown/{id}', [RundownController::class, 'destroy'])->name('rundown.destroy');
     Route::post('/rundown/{id}', [RundownController::class, 'update'])->name('rundown.update');
-    Route::get('/suncar/{id}', [SuncarController::class, 'index'])->name('suncar.suncar');
     Route::post('/suncar', [SuncarController::class, 'store'])->name('suncar.store');
     Route::delete('/suncar/{id}', [SuncarController::class, 'destroy'])->name('suncar.destroy');
-    Route::get('/suncar/{id}', [SuncarController::class, 'pdf'])->name('suncar.pdf');
+    Route::get('/suncar', [SuncarController::class, 'pdf'])->name('suncar.pdf');
     // Route::put('/suncar/{id}', [SuncarController::class, 'update'])->name('suncar.update');
     Route::post('/suncar/{id}', [SuncarController::class, 'update'])->name('suncar.update');
+    Route::get('/suncar/{id}', [SuncarController::class, 'index'])->name('suncar.suncar');
 
 });
