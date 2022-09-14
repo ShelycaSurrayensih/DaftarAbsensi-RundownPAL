@@ -190,12 +190,11 @@
                 </div>
             </div>
         </div> --}}
-        <div class="table-responsive" style="overflow-x:auto">
+        <div class="table-responsive" style="overflow-x:auto"><br>
             <table class="table">
                 <thead>
                     <tr>
                         <th>No</th>
-                        <th>Kode Rundown </th>
                         <th>Kegiatan </th>
                         <th>Penanggung Jawab</th>
                         <th>Waktu Mulai</th>
@@ -203,26 +202,23 @@
                     </tr>
                 </thead>
                 <tbody>
+                    <?php
+                    $count = 1;
+                    ?>
                     @foreach ($suncar as $s)
-                        <tr>
-                            <td>{{ $loop->iteration }}</td>
-                            <td>PAL-{{ $s->idRundowns }}</td>
-                            <td>{{ $s->namaKegiatan }}</td>
-                            <td>{{ $s->pj }}</td>
-                            <td>{{ $s->waktuMulai }}</td>
-                            <td>{{ $s->waktuSelesai }}</td>
-                        </tr>
+                        @if ($s->idRundowns == $rundownDetail->idRundowns)
+                            <tr>
+                                <td>{{ $count }}</td>
+                                <td>{{ $s->namaKegiatan }}</td>
+                                <td>{{ $s->pj }}</td>
+                                <td>{{ $s->waktuMulai }}</td>
+                                <td>{{ $s->waktuSelesai }}</td>
+                            </tr>
+                            <?php
+                            $count++;
+                            ?>
+                        @endif
                     @endforeach
-                    {{-- @foreach ($rundown as $r)
-                        <tr>
-                            <td>{{ $loop->iteration }}</td>
-                            <td>PAL-{{ $s->idRundowns }}</td>
-                            <td>{{ $s->namaKegiatan }}</td>
-                            <td>{{ $s->pj }}</td>
-                            <td>{{ $s->waktuMulai }}</td>
-                            <td>{{ $s->waktuSelesai }}</td>
-                        </tr>
-                    @endforeach --}}
                 </tbody>
             </table>
         </div>

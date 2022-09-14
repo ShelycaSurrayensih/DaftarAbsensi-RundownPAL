@@ -108,7 +108,8 @@ class SuncarController extends Controller
     {
         $suncar = Suncar::all();
         $rundownDetail = Rundown::where('idRundowns', $id)->first();
-        $pdf = PDF::loadview('index.pdf', compact('suncar', 'rundownDetail'));
+        $rundown = Rundown::all();
+        $pdf = PDF::loadview('index.pdf', compact('suncar', 'rundownDetail', 'rundown'));
         return $pdf->stream();
     }
 }
