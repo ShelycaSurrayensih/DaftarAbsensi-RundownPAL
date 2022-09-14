@@ -78,8 +78,7 @@
             text-align: center;
             margin-top: -15px;
             margin-bottom: 5%;
-            /margin: 0 0 20px 0;/
-            background: url(dimension.png);
+            /margin: 0 0 20px 0;/ background: url(dimension.png);
         }
 
         table {
@@ -98,7 +97,7 @@
 
 
         tr {
-              text-align: center;
+            text-align: center;
             font-family: Verdana, Geneva, Tahoma, sans-serif;
         }
 
@@ -112,12 +111,14 @@
             background-color: #abcdef;
         }
 
-        tr{
+        tr {
             border-bottom: 0.5px #000 solid;
         }
-        table{
+
+        table {
             border: 0.5px #000 solid
         }
+
         table td {
             padding: 10px;
             text-align: center;
@@ -201,36 +202,92 @@
             </div>
         </div> --}}
         <div class="table-responsive" style="overflow-x:auto"><br>
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>No</th>
-                        <th>Kegiatan </th>
-                        <th>Penanggung Jawab</th>
-                        <th>Waktu Mulai</th>
-                        <th>Waktu Selesai</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php
-                    $count = 1;
-                    ?>
-                    @foreach ($suncar as $s)
-                        @if ($s->idRundowns == $rundownDetail->idRundowns)
-                            <tr>
-                                <td>{{ $count }}</td>
-                                <td>{{ $s->namaKegiatan }}</td>
-                                <td>{{ $s->pj }}</td>
-                                <td>{{ $s->waktuMulai }}</td>
-                                <td>{{ $s->waktuSelesai }}</td>
-                            </tr>
+            <?php
+            $tanggalPertama = $suncarFirst->tanggal;
+            $header = 0;
+            ?>
+            @foreach ($suncarKonten as $sk)
+                @if ($sk->tanggal == $tanggalPertama)
+                Tanggal: {{$sk->tanggal}}
+                    <table class="table">
+                        @if ($header == 0)
+                            <thead>
+                                <tr>
+                                    <th>No</th>
+                                    <th>Tanggal</th>
+                                    <th>Kegiatan </th>
+                                    <th>Penanggung Jawab</th>
+                                    <th>Waktu Mulai</th>
+                                    <th>Waktu Selesai</th>
+                                </tr>
+                            </thead>
                             <?php
-                            $count++;
+                            $header = 1;
                             ?>
                         @endif
-                    @endforeach
-                </tbody>
-            </table>
+                        <tbody>
+                            <?php
+                            $count = 1;
+                            ?>
+                            @foreach ($suncar as $s)
+                                @if ($s->idRundowns == $rundownDetail->idRundowns)
+                                    @if ($s->tanggal == $sk->tanggal)
+                                        <tr>
+                                            <td>{{ $count }}</td>
+                                            <td>{{ $s->tanggal }}</td>
+                                            <td>{{ $s->namaKegiatan }}</td>
+                                            <td>{{ $s->pj }}</td>
+                                            <td>{{ $s->waktuMulai }}</td>
+                                            <td>{{ $s->waktuSelesai }}</td>
+                                        </tr>
+                                        <?php
+                                        $count++;
+                                        ?>
+                                    @endif
+                                @endif
+                            @endforeach
+                        </tbody>
+                    </table>
+                @else
+                <br>
+                    <?php
+                    $count = 1;
+                    $tanggalPertama = $sk->tanggal;
+                    ?>
+                    Tanggal: {{$sk->tanggal}}
+                    <table>
+
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Tanggal</th>
+                                <th>Kegiatan </th>
+                                <th>Penanggung Jawab</th>
+                                <th>Waktu Mulai</th>
+                                <th>Waktu Selesai</th>
+                            </tr>
+                        </thead>
+                        @foreach ($suncar as $s)
+                                @if ($s->idRundowns == $rundownDetail->idRundowns)
+                                    @if ($s->tanggal == $sk->tanggal)
+                                        <tr>
+                                            <td>{{ $count }}</td>
+                                            <td>{{ $s->tanggal }}</td>
+                                            <td>{{ $s->namaKegiatan }}</td>
+                                            <td>{{ $s->pj }}</td>
+                                            <td>{{ $s->waktuMulai }}</td>
+                                            <td>{{ $s->waktuSelesai }}</td>
+                                        </tr>
+                                        <?php
+                                        $count++;
+                                        ?>
+                                    @endif
+                                @endif
+                            @endforeach
+                    </table>
+                @endif
+            @endforeach
+
         </div>
     </main>
     <div class="footer">

@@ -17,7 +17,7 @@ class SuncarController extends Controller
      */
     public function index($id)
     {
-        $suncar = Suncar::where('idRundowns', $id)->get();
+        $suncar = Suncar::orderBy('tanggal')->orderBy('waktuMulai')->get();
         $rundown = Rundown::all();
         $rundownDetail = Rundown::where('idRundowns', $id)->first();
         return view('suncar.suncar', compact('suncar', 'rundown', 'id', 'rundownDetail'));
@@ -43,6 +43,7 @@ class SuncarController extends Controller
     {
         $real = new Suncar;
         $real->idSuncar = $request->idSuncar;
+        $real->tanggal = $request->tanggal;
         $real->idRundowns = $request->idRundowns;
         $real->namaKegiatan = $request->namaKegiatan;
         $real->pj = $request->pj;
@@ -106,10 +107,13 @@ class SuncarController extends Controller
     //-- PDF Detail --//
     public function pdf($id)
     {
-        $suncar = Suncar::all();
+        //$suncar = Suncar::all();
+        $suncar = Suncar::orderBy('tanggal')->orderBy('waktuMulai')->get();
         $rundownDetail = Rundown::where('idRundowns', $id)->first();
+        $suncarKonten = Suncar::groupBy('tanggal')->get();
+        $suncarFirst = Suncar::groupBy('tanggal')->first();
         $rundown = Rundown::all();
-        $pdf = PDF::loadview('index.pdf', compact('suncar', 'rundownDetail', 'rundown'));
+        $pdf = PDF::loadview('index.pdf', compact('suncar', 'rundownDetail', 'rundown', 'suncarKonten', 'suncarFirst'));
         return $pdf->stream();
     }
 }

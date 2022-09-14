@@ -151,7 +151,8 @@ Table Suncar
 								<thead>
 									<tr>
 										<th>No</th>
-										<th>Kode Rundown </th>
+                                        <th>Tanggal</th>
+                                        <th>Kode Rundown </th>
                                         <th>Kegiatan </th>
 										<th>Penanggung Jawab</th>
 										<th>Waktu Mulai</th>
@@ -166,6 +167,7 @@ Table Suncar
 	Content body end
 ***********************************-->
                     @foreach($suncar as $s)
+                    @if($s->idRundowns == $rundownDetail->idRundowns)
                     <!--start modal edit-->
                     <div class="modal fade" id="editModalsuncar{{ $s->idSuncar }}" tabindex="-1" role="dialog" aria-hidden="true">
                         <div class="modal-dialog" role="document">
@@ -186,6 +188,12 @@ Table Suncar
                                         @csrf
                                         @method('PUT')
                                         <div class="row">
+                                            <div class="col-sm-12">
+                                                <div class="form-group form-group-default">
+                                                    <label>Tanggal</label>
+                                                    <input id="tanggal" type="text" name="tanggal" class="form-control" value="{{ $s->tanggal }}" placeholder="Masukkan Tanggal">
+                                                </div>
+                                            </div>
                                             <div class="col-sm-12">
                                                 <div class="form-group form-group-default">
                                                     <label>Kode Rundowns</label>
@@ -243,6 +251,12 @@ Table Suncar
                                     <p class="small">Detail Data ID {{ $loop->iteration }}</p>
                                     <div class="row">
                                         <div class="col-sm-12">
+                                            <div class="col-sm-12">
+                                                <div class="form-group form-group-default">
+                                                    <label>Tanggal</label>
+                                                    {{ $s->tanggal }}
+                                                </div>
+                                            </div>
                                             <div class="form-group form-group-default">
                                                 <label>Kode Rundowns</label>
                                                 <div class="row">
@@ -287,6 +301,7 @@ Table Suncar
                     <!--End Modal Detail-->
                     <tr>
                         <td class="text-center">{{ $loop->iteration }}</td>
+                        <td class="text-center">{{ $s->tanggal}}</td>
                         <td class="text-center">PAL-{{ $s->idRundowns}}</td>
                         <td class="text-center">{{ $s->namaKegiatan}}</td>
                         <td class="text-center">{{ $s->pj}}</td>
@@ -302,6 +317,7 @@ Table Suncar
                                                 </form>
                                             </td>
                                         </tr>
+                                        @endif
                                         @endforeach
                                     </tbody>
                                 </table>
