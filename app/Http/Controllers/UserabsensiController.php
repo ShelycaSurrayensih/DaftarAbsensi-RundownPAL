@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Absensi;
 use App\Models\Rundown;
+use App\Models\Absensi;
 use Illuminate\Http\Request;
-use RealRashid\SweetAlert\Facades\Alert;
 
-class AbsensiController extends Controller
+class UserabsensiController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,7 +17,7 @@ class AbsensiController extends Controller
     {
         $absensi = Absensi::all();
         $rundown = Rundown::all();
-        return view('absensi.absensi', compact('absensi','rundown'));
+        return view('absensiUser', compact('absensi','rundown'));
     }
 
     /**
@@ -66,7 +65,6 @@ class AbsensiController extends Controller
         //fungsi eloquent untuk menambah data dengan relasi belongsTo
         // $absensis->rundown()->associate($input);
         $absensis->save();
-        Alert::success('Succes','Data Absensi Berhasil Ditambahkan');
         return redirect()->route('absensi.absensi');
     }
 
@@ -89,8 +87,7 @@ class AbsensiController extends Controller
      */
     public function edit($id)
     {
-        $absensis = Absensi::all();
-        return view('absensi.edit', compact('absensis'));
+        //
     }
 
     /**
@@ -102,25 +99,7 @@ class AbsensiController extends Controller
      */
     public function update(Request $request, $id)
     {
-        Absensi::find($id)->update([
-            'Nama'=>$request->nama,
-            'Jabatan'=>$request->jabatan,
-            'Instansi'=>$request->instansi,
-            'No Hp'=>$request->telp,
-            // 'gambar'=>$request->gambar,
-        ]);
-        $input = $request->all();
-        if ($image = $request->file('tandatangan')) {
-            $destinationPath = 'images/';
-            $profileImage = date('YmdHis').".".$image->getClientOriginalExtension();
-            $image->move($destinationPath, $profileImage);
-            $input['tandatangan'] = "$profileImage";
-        } else {
-            unset($input['tandatangan']);
-        }
-        Absensi::find($id)->update($input);
-        Alert::success('Success', 'Data Absensi Berhasil Diupdate');
-        return redirect()->route('absensi.absensi');
+        //
     }
 
     /**
@@ -131,10 +110,6 @@ class AbsensiController extends Controller
      */
     public function destroy($id)
     {
-        $tandatangan = Absensi::find($id);
-        unlink("images/".$tandatangan->tandatangan);
-        Absensi::find($id)->delete();
-        Alert::success('Success','Data Absensi berhasil dihapus');
-        return redirect()->route('absensi.absensi');
+        //
     }
 }

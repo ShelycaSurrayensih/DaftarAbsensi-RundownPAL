@@ -7,6 +7,8 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\CalenderController;
 use App\Http\Controllers\RundownController;
 use App\Http\Controllers\SuncarController;
+use App\Http\Controllers\SignaturePadController;
+use App\Http\Controllers\UserabsensiController;
 use App\Http\Controllers\HouseController;
 use Illuminate\Support\Facades\Auth;
 
@@ -55,5 +57,8 @@ Route::group(['middleware'=>'auth'], function(){
     Route::post('/suncar/{id}', [SuncarController::class, 'update'])->name('suncar.update');
     Route::get('/suncar/{id}', [SuncarController::class, 'index'])->name('suncar.suncar');
     Route::get('/suncar/pdf/{id}', [SuncarController::class, 'pdf'])->name('suncar.pdf');
-
+    // Route::get('absensi', [SignaturePadController::class, 'index']);
+    // Route::post('absensi', [SignaturePadController::class, 'upload'])->name('signaturepad.upload');
+    Route::get('/absensi', [UserabsensiController::class, 'index'])->name('absensiUser');
+    Route::post('/absensi', [UserabsensiController::class, 'store'])->name('userabsensi.store');
 });
