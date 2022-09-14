@@ -107,10 +107,9 @@ class SuncarController extends Controller
     //-- PDF Detail --//
     public function pdf($id)
     {
-        //$suncar = Suncar::all();
         $suncar = Suncar::orderBy('tanggal')->orderBy('waktuMulai')->get();
         $rundownDetail = Rundown::where('idRundowns', $id)->first();
-        $suncarKonten = Suncar::groupBy('tanggal')->get();
+        $suncarKonten = Suncar::where('idRundowns', $id)->groupBy('tanggal')->get();
         $suncarFirst = Suncar::groupBy('tanggal')->first();
         $rundown = Rundown::all();
         $pdf = PDF::loadview('index.pdf', compact('suncar', 'rundownDetail', 'rundown', 'suncarKonten', 'suncarFirst'));
