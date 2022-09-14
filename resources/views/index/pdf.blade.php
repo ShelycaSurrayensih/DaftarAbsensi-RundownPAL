@@ -25,7 +25,7 @@
             margin: auto;
             color: #001028;
             background: #FFFFFF;
-            font-size: 13px;
+            font-size: 11px;
             font-family: Verdana, Geneva, Tahoma, sans-serif;
         }
 
@@ -54,7 +54,7 @@
 
         h2 {
 
-            font-weight: 400;
+            font-weight: 100;
             line-height: 1.5;
             color: #000;
             font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -76,47 +76,57 @@
             /* line-height: 1.4em; */
             font-weight: normal;
             text-align: center;
-            /margin: 0 0 20px 0;/ background: url(dimension.png);
-        }
-
-        h4 {
-            font-weight: bold;
-            font-size: 14px;
+            margin-top: -15px;
+            margin-bottom: 5%;
+            /margin: 0 0 20px 0;/
+            background: url(dimension.png);
         }
 
         table {
-            width: 25%;
+            width: 100%;
             margin-top: 5%;
             border-collapse: collapse;
             border-spacing: 0;
             margin: auto;
         }
 
+        table1 {
+            width: 100%;
+            border: none;
+        }
+
+
+
         tr {
-            text-align: center;
+              text-align: center;
             font-family: Verdana, Geneva, Tahoma, sans-serif;
         }
 
+
         table th {
-            padding: 10px 20px;
+            padding: 9px 22px;
             color: #000;
-            border-bottom: 1px solid #000;
             white-space: nowrap;
             font-weight: bold;
             border-collapse: collapse;
+            background-color: #abcdef;
         }
 
-        tr {
+        tr{
             border-bottom: 0.5px #000 solid;
         }
-
-        table {
+        table{
             border: 0.5px #000 solid
         }
-
         table td {
             padding: 10px;
             text-align: center;
+        }
+
+        p {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-size: 11px;
+            margin: 0px;
         }
 
         .topright {
