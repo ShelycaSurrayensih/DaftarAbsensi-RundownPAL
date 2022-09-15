@@ -122,12 +122,12 @@ Table Suncar
                                 <tr>
                                     <td>Tanggal Mulai</td>
                                     <td>&nbsp;:</td>
-                                    <td>{{$rundownDetail->tanggalMulai}}</td>
+                                    <td>{{date('d F Y', strtotime($rundownDetail->tanggalMulai))}}</td>
                                 </tr>
                                 <tr>
                                     <td>Tanggal Selesai</td>
                                     <td>&nbsp;:&nbsp;</td>
-                                    <td>{{$rundownDetail->tanggalSelesai}}</td>
+                                    <td>{{date('d F Y', strtotime($rundownDetail->tanggalSelesai))}}</td>
                                 </tr>
                             </table>
                             {{-- <h4>Kode Rundowns   : PAL-{{$rundownDetail->idRundowns}}</h4>
@@ -301,7 +301,7 @@ Table Suncar
                     <!--End Modal Detail-->
                     <tr>
                         <td class="text-center">{{ $loop->iteration }}</td>
-                        <td class="text-center">{{ $s->tanggal}}</td>
+                        <td class="text-center">{{date('d-m-Y', strtotime($s->tanggal))}}</td>
                         <td class="text-center">PAL-{{ $s->idRundowns}}</td>
                         <td class="text-center">{{ $s->namaKegiatan}}</td>
                         <td class="text-center">{{ $s->pj}}</td>

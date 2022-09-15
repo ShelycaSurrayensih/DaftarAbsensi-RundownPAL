@@ -281,8 +281,8 @@ Table Rundown
                         <td class="text-center">{{ $r->tahun }}</td>
                         <td class="text-center">{{ $r->namaAcara}}</td>
                         <td class="text-center">{{ $r->lokasi}}</td>
-                        <td class="text-center">{{ $r->tanggalMulai}}</td>
-                        <td class="text-center">{{ $r->tanggalSelesai}}</td>
+                        <td class="text-center">{{ date('d-m-Y', strtotime($r->tanggalMulai))}}</td>
+                        <td class="text-center">{{ date('d-m-Y', strtotime($r->tanggalSelesai))}}</td>
                         <td class="text-center"><a type="button" class="btn btn-info light" href="{{ route('suncar.suncar', $r->idRundowns) }}">Detail</a></td>
                         <td class="text-center">
                             <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editModalrundown{{ $r->idRundowns }}"><i class="fa fa-edit"></i></button>

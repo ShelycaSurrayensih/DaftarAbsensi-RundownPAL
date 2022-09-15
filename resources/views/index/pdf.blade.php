@@ -158,8 +158,8 @@
     <p>Tahun : {{ $rundownDetail->tahun }}</p>
     <p>Nama Acara : {{ $rundownDetail->namaAcara }}</p>
     <p>Lokasi : {{ $rundownDetail->lokasi }}</p>
-    <p>Tanggal Mulai : {{ $rundownDetail->tanggalMulai }}</p>
-    <p>Tanggal Selesai : {{ $rundownDetail->tanggalSelesai }}</p>
+    <p>Tanggal Mulai : {{ date('d F Y', strtotime($rundownDetail->tanggalMulai)) }}</p>
+    <p>Tanggal Selesai : {{ date('d F Y', strtotime($rundownDetail->tanggalSelesai)) }}</p>
     <main>
         {{-- <div class="col-12">
             <div class="card">
@@ -208,7 +208,7 @@
             ?>
             @foreach ($suncarKonten as $sk)
                 @if ($sk->tanggal == $tanggalPertama)
-                Tanggal: {{$sk->tanggal}}
+                {{-- Tanggal: {{$sk->tanggal}} --}}
                     <table class="table">
                         @if ($header == 0)
                             <thead>
@@ -234,7 +234,7 @@
                                     @if ($s->tanggal == $sk->tanggal)
                                         <tr>
                                             <td>{{ $count }}</td>
-                                            <td>{{ $s->tanggal }}</td>
+                                            <td>{{date('d-m-Y', strtotime ($s->tanggal)) }}</td>
                                             <td>{{ $s->namaKegiatan }}</td>
                                             <td>{{ $s->pj }}</td>
                                             <td>{{ $s->waktuMulai }}</td>
@@ -254,7 +254,7 @@
                     $count = 1;
                     $tanggalPertama = $sk->tanggal;
                     ?>
-                    Tanggal: {{$sk->tanggal}}
+                    {{-- Tanggal: {{$sk->tanggal}} --}}
                     <table>
 
                         <thead>

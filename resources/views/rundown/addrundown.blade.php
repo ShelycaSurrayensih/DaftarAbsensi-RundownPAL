@@ -39,13 +39,13 @@
                         <div class="col-sm-6">
                             <div class="form-group form-group-default">
                                 <label>Tanggal Mulai</label>
-                                <input id="tanggalMulai" type="date" name="tanggalMulai" class="form-control" value="{{ date('Y-m-d', strtotime(Carbon\Carbon::today()->toDateString())) }}" placeholder="">
+                                <input id="tanggalMulai" type="date" name="tanggalMulai" class="form-control" value="{{ date('d-m-y', strtotime(Carbon\Carbon::today()->toDateString())) }}" placeholder="">
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group form-group-default">
                                 <label>Tanggal Selesai</label>
-                                <input id="tanggalSelesai" type="date" name="tanggalSelesai" class="form-control" value="{{ date('Y-m-d', strtotime(Carbon\Carbon::today()->toDateString())) }}" placeholder="">
+                                <input id="tanggalSelesai" type="date" name="tanggalSelesai" class="form-control" value="{{ date('d-m-y', strtotime(Carbon\Carbon::today()->toDateString())) }}" placeholder="">
                             </div>
                         </div>
                         <div class="modal-footer no-bd">
