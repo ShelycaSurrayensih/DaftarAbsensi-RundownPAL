@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Rundown;
+use App\Models\Absensi;
 use Illuminate\Http\Request;
 
 class SignaturePadController extends Controller
@@ -13,7 +15,9 @@ class SignaturePadController extends Controller
      */
     public function index()
     {
-        return view('signaturePad');
+        $absensi = Absensi::all();
+        $rundown = Rundown::all();
+        return view('absensiUser', compact('absensi','rundown'));
     }
 
     /**
@@ -21,9 +25,27 @@ class SignaturePadController extends Controller
      *
      * @return response()
      */
+
     public function upload(Request $request)
     {
-        $folderPath = public_path('upload/');
+        $request->validate([
+            'idRundowns'=>'required',
+            'nama'=>'required',
+            'jabatan'=>'required',
+            'instansi'=>'required',
+            'telp'=>'required',
+            'idRundowns'=>'required',
+            // 'tandatangan'=>'required'
+        ]);
+        $absensis = new Absensi;
+        $absensis->nama = $request->get('nama');
+        $absensis->jabatan = $request->get('jabatan');
+        $absensis->instansi = $request->get('instansi');
+        $absensis->telp = $request->get('telp');
+        $absensis->idRundowns = $request->get('idRundowns');
+        // $absensis->tandatangan = $request->get('tandatangan');
+
+        $folderPath = public_path('images/');
 
         $image_parts = explode(";base64,", $request->signed);
 
