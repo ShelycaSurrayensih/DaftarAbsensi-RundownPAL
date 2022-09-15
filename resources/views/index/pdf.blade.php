@@ -208,7 +208,7 @@
             ?>
             @foreach ($suncarKonten as $sk)
                 @if ($sk->tanggal == $tanggalPertama)
-                {{-- Tanggal: {{$sk->tanggal}} --}}
+                Tanggal: {{date('d-m-Y', strtotime ($sk->tanggal))}}
                     <table class="table">
                         @if ($header == 0)
                             <thead>
@@ -254,7 +254,7 @@
                     $count = 1;
                     $tanggalPertama = $sk->tanggal;
                     ?>
-                    {{-- Tanggal: {{$sk->tanggal}} --}}
+                    Tanggal: {{date('d-m-Y', strtotime ($sk->tanggal))}}
                     <table>
 
                         <thead>
