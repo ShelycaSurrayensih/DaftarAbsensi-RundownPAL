@@ -214,11 +214,10 @@
                             <thead>
                                 <tr>
                                     <th>No</th>
-                                    <th>Tanggal</th>
-                                    <th>Kegiatan </th>
-                                    <th>Penanggung Jawab</th>
                                     <th>Waktu Mulai</th>
                                     <th>Waktu Selesai</th>
+                                    <th>Kegiatan </th>
+                                    <th>Penanggung Jawab</th>
                                 </tr>
                             </thead>
                             <?php
@@ -234,11 +233,10 @@
                                     @if ($s->tanggal == $sk->tanggal)
                                         <tr>
                                             <td>{{ $count }}</td>
-                                            <td>{{date('d-m-Y', strtotime ($s->tanggal)) }}</td>
-                                            <td>{{ $s->namaKegiatan }}</td>
-                                            <td>{{ $s->pj }}</td>
                                             <td>{{ $s->waktuMulai }}</td>
                                             <td>{{ $s->waktuSelesai }}</td>
+                                            <td>{{ $s->namaKegiatan }}</td>
+                                            <td>{{ $s->pj }}</td>
                                         </tr>
                                         <?php
                                         $count++;
@@ -260,11 +258,10 @@
                         <thead>
                             <tr>
                                 <th>No</th>
-                                <th>Tanggal</th>
-                                <th>Kegiatan </th>
-                                <th>Penanggung Jawab</th>
-                                <th>Waktu Mulai</th>
-                                <th>Waktu Selesai</th>
+                                    <th>Waktu Mulai</th>
+                                    <th>Waktu Selesai</th>
+                                    <th>Kegiatan </th>
+                                    <th>Penanggung Jawab</th>
                             </tr>
                         </thead>
                         @foreach ($suncar as $s)
@@ -272,11 +269,10 @@
                                     @if ($s->tanggal == $sk->tanggal)
                                         <tr>
                                             <td>{{ $count }}</td>
-                                            <td>{{ $s->tanggal }}</td>
-                                            <td>{{ $s->namaKegiatan }}</td>
-                                            <td>{{ $s->pj }}</td>
                                             <td>{{ $s->waktuMulai }}</td>
                                             <td>{{ $s->waktuSelesai }}</td>
+                                            <td>{{ $s->namaKegiatan }}</td>
+                                            <td>{{ $s->pj }}</td>
                                         </tr>
                                         <?php
                                         $count++;
