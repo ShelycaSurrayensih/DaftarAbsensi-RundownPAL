@@ -30,7 +30,7 @@
                             <strong>{{ $message }}</strong>
                         </div>
                     @endif
-                    <form method="POST" action="{{ route('userabsensi.store') }}">
+                    <form method="POST" action="{{ route('signaturepad.upload') }}">
                         @csrf
                         {{-- <tr>
                             <td>Kode Rundown</td>
@@ -67,29 +67,29 @@
                                 <input id="telp" type="text" name="telp" class="form-control" placeholder="Masukkan No Hp">
                             </div>
                         </div>
-                        <div class="col-md-12">
-                            <label class="" for="">Tanda Tangan</label>
+                            <div class="col-md-12">
+                                <label class="" for="">Signature:</label>
+                                <br/>
+                                <div id="sig" ></div>
+                                <br/>
+                                <button id="clear" class="btn btn-danger btn-sm">Clear Signature</button>
+                                <textarea id="tandatangan" name="signed" style="display: none"></textarea>
+                            </div>
                             <br/>
-                            <div id="sig" ></div>
-                            <br/>
-                            <button id="clear" class="btn btn-danger btn-sm">Clear Signature</button>
-                            <textarea id="tandatangan" name="tandatangan" style="display: none"></textarea>
-                        </div>
-                        <br/>
-                        <button type="submit" class="btn btn-success">Save</button>
-                    </form>
+                            <button class="btn btn-success">Save</button>
+                        </form>
+                   </div>
                </div>
            </div>
        </div>
-   </div>
-</div>
-<script type="text/javascript">
-    var sig = $('#sig').signature({syncField: '#signature64', syncFormat: 'PNG'});
-    $('#clear').click(function(e) {
-        e.preventDefault();
-        sig.signature('clear');
-        $("#signature64").val('');
-    });
-</script>
-</body>
-</html>
+    </div>
+    <script type="text/javascript">
+        var sig = $('#sig').signature({syncField: '#tandatangan', syncFormat: 'PNG'});
+        $('#clear').click(function(e) {
+            e.preventDefault();
+            sig.signature('clear');
+            $("#tandatangan").val('');
+        });
+    </script>
+    </body>
+    </html>
