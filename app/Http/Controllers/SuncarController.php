@@ -19,21 +19,20 @@ class SuncarController extends Controller
      */
     public function index($id)
     {
-        $visitor_lists = Absensi::orderBy('created_at', 'DESC')->get();
-        $data = Absensi::latest()->paginate(10);
+        $visitor_lists = Suncar::orderBy('created_at', 'DESC')->get();
+        $data = Suncar::latest()->paginate(10);
 
         $datetime = Carbon::now();
-        $current_date = Absensi::whereDate('created_at', Carbon::today())->get(['nama', 'created_at']);
-        $current_week = Absensi::whereBetween('created_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])->get();
-        $current_month = Absensi::whereMonth('created_at', date('m'))
+        $current_date = Suncar::whereDate('created_at', Carbon::today())->get(['namaKegiatan', 'created_at']);
+        $current_week = Suncar::whereBetween('created_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])->get();
+        $current_month = Suncar::whereMonth('created_at', date('m'))
             ->whereYear('created_at', date('Y'))
-            ->get(['nama', 'created_at']);
+            ->get(['namaKegiatan', 'created_at']);
         $suncar = Suncar::orderBy('tanggal')->orderBy('waktuMulai')->get();
         $rundownDetail = Rundown::where('idRundowns', $id)->first();
         $rundown = Rundown::all();
-        return view('rundown.rundown', compact('suncar','id', 'rundownDetail','rundown','visitor_lists', 'data', 'current_date', 'current_week', 'current_month', 'datetime'))
+        return view('suncar.suncar', compact('suncar','id', 'rundownDetail','rundown','visitor_lists', 'data', 'current_date', 'current_week', 'current_month', 'datetime'))
             ->with('i', (request()->input('page', 1) - 1) * 10);
-
     }
 
     /**

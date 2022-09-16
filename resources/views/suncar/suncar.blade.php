@@ -12,7 +12,7 @@ Table Suncar
 	</div>
 	<div class="card shadow-none rounded-0 bg-transparent h-auto">
 		<div class="card-header border-0 pb-0">
-			<h4 class="text-black">Tamu Terkini</h4>
+			<h4 class="text-black">Acara Terkini</h4>
 		</div>
 		@foreach ($data as $g)
         <div class="card-body">
@@ -21,7 +21,7 @@ Table Suncar
                     <h2 class="flaticon-381-user-7"></h2>
                 </div>
                 <div class="media-body px-0">
-                    <h6 class="mt-0 mb-3 fs-14"><a class="text-black">{{ $g->nama }}</a></h6>
+                    <h6 class="mt-0 mb-3 fs-14"><a class="text-black">{{ $g->namaKegiatan}}</a></h6>
                     <ul class="fs-14 list-inline mb-2 d-flex justify-content-between">
                         <li>{{ $g->created_at }}</li>
                     </ul>
