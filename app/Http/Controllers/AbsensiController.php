@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Absensi;
 use App\Models\Rundown;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
 
@@ -16,9 +17,19 @@ class AbsensiController extends Controller
      */
     public function index()
     {
-        $absensi = Absensi::all();
+        $visitor_lists = Absensi::orderBy('created_at', 'DESC')->get();
+        $data = Absensi::latest()->paginate(10);
+
+        $datetime = Carbon::now();
+        $current_date = Absensi::whereDate('created_at', Carbon::today())->get(['nama', 'created_at']);
+        $current_week = Absensi::whereBetween('created_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])->get();
+        $current_month = Absensi::whereMonth('created_at', date('m'))
+            ->whereYear('created_at', date('Y'))
+            ->get(['nama', 'created_at']);
         $rundown = Rundown::all();
-        return view('absensi.absensi', compact('absensi','rundown'));
+        $absensi = Absensi::all();
+        return view('absensi.absensi', compact('absensi','rundown','visitor_lists', 'data', 'current_date', 'current_week', 'current_month', 'datetime'))
+            ->with('i', (request()->input('page', 1) - 1) * 10);
     }
 
     /**
