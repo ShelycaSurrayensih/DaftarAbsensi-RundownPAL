@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Rundown;
 use App\Models\Absensi;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class SignaturePadController extends Controller
 {
@@ -28,26 +29,12 @@ class SignaturePadController extends Controller
 
     public function upload(Request $request)
     {
-        $request->validate([
-            'idRundowns'=>'required',
-            'nama'=>'required',
-            'jabatan'=>'required',
-            'instansi'=>'required',
-            'telp'=>'required',
-            'idRundowns'=>'required',
-            // 'tandatangan'=>'required'
-        ]);
-        $absensis = new Absensi;
-        $absensis->nama = $request->get('nama');
-        $absensis->jabatan = $request->get('jabatan');
-        $absensis->instansi = $request->get('instansi');
-        $absensis->telp = $request->get('telp');
-        $absensis->idRundowns = $request->get('idRundowns');
-        // $absensis->tandatangan = $request->get('tandatangan');
+        $input = $request->all();
+        $data = Absensi::create($input);
 
         $folderPath = public_path('images/');
 
-        $image_parts = explode(";base64,", $request->signed);
+        $image_parts = explode(";base64,", $request->tandatangan);
 
         $image_type_aux = explode("image/", $image_parts[0]);
 
@@ -57,6 +44,9 @@ class SignaturePadController extends Controller
 
         $file = $folderPath . uniqid() . '.'.$image_type;
         file_put_contents($file, $image_base64);
-        return back()->with('success', 'success Full upload signature');
+        Alert::success('Succes','Data Rundown Berhasil Ditambahkan');
+        return redirect()->route('absensi.absensi');
+
     }
 }
+

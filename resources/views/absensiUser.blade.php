@@ -32,17 +32,23 @@
                     @endif
                     <form method="POST" action="{{ route('signaturepad.upload') }}">
                         @csrf
-                        {{-- <tr>
-                            <td>Kode Rundown</td>
-                            <td>&nbsp;:</td>
-                            <td>PAL-{{$rundownDetail->idRundowns}}</td>
-                        </tr> --}}
-                        <div class="col-sm-12">
-                            <div class="form-group form-group-default">
-                                <label>Id Rundown</label>
-                                <input id="nama" type="text" name="idRundowns" class="form-control" placeholder="Masukkan Nama">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group form-group-default">
+                                    <label>Acara</label>
+                                    <select name="idRundowns" id="idRundowns">
+                                        @foreach ($rundown as $run)
+                                        <option value="{{ $run->idRundowns}}">{{ $run->namaAcara}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
                             </div>
-                        </div>
+                        {{-- <div class="col-sm-12">
+                            <div class="form-group form-group-default">
+                                <label>Kode Rundown</label>
+                                <input id="idRundowns" type="text" name="idRundowns" class="form-control" placeholder="Masukkan id"readonly>
+                            </div>
+                        </div> --}}
                         <div class="col-sm-12">
                             <div class="form-group form-group-default">
                                 <label>Nama</label>
@@ -73,7 +79,7 @@
                                 <div id="sig" ></div>
                                 <br/>
                                 <button id="clear" class="btn btn-danger btn-sm">Clear Signature</button>
-                                <textarea id="tandatangan" name="signed" style="display: none"></textarea>
+                                <textarea id="tandatangan" name="tandatangan" style="display: none"></textarea>
                             </div>
                             <br/>
                             <button class="btn btn-success">Save</button>
