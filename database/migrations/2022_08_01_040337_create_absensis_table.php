@@ -15,6 +15,7 @@ class CreateAbsensisTable extends Migration
     {
         Schema::create('absensis', function (Blueprint $table) {
             $table->increments('idAbsensi');
+            $table->date('tanggal');
             $table->string('nama', 100);
 			$table->string('jabatan', 20);
             $table->string('instansi', 100);

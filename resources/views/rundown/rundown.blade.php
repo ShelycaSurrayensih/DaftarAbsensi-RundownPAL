@@ -62,6 +62,7 @@ Table Rundown
 										<th>Tanggal Mulai</th>
                                         <th>Tanggal Selesai</th>
                                         <th>Suncar</th>
+                                        <th>Data Absensi</th>
 										<th>Action</th>
 									</tr>
 								</thead>
@@ -233,6 +234,7 @@ Table Rundown
                         <td class="text-center">{{ date('d-m-Y', strtotime($r->tanggalMulai))}}</td>
                         <td class="text-center">{{ date('d-m-Y', strtotime($r->tanggalSelesai))}}</td>
                         <td class="text-center"><a type="button" class="btn btn-info light" href="{{ route('suncar.suncar', $r->idRundowns) }}">Detail</a></td>
+                        <td class="text-center"><a type="button" class="btn btn-info light" href="{{ route('absensi.absensi', $r->idRundowns) }}">Detail</a></td>
                         <td class="text-center">
                             <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editModalrundown{{ $r->idRundowns }}"><i class="fa fa-edit"></i></button>
                             <button class="btn btn-info" data-bs-toggle="modal" data-bs-target="#detailModalrundown{{ $r->idRundowns }}"><i class="fa fa-edit"></i></button>

@@ -7,6 +7,7 @@ use App\Models\Rundown;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
+USE Pdf;
 
 class AbsensiController extends Controller
 {
@@ -15,7 +16,7 @@ class AbsensiController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
         $visitor_lists = Absensi::orderBy('created_at', 'DESC')->get();
         $data = Absensi::latest()->paginate(10);
@@ -28,7 +29,8 @@ class AbsensiController extends Controller
             ->get(['nama', 'created_at']);
         $rundown = Rundown::all();
         $absensi = Absensi::all();
-        return view('absensi.absensi', compact('absensi','rundown','visitor_lists', 'data', 'current_date', 'current_week', 'current_month', 'datetime'))
+        $absensiDetail = Rundown::where('idRundowns', $id)->first();
+        return view('absensi.absensi', compact('absensi', 'absensiDetail', 'rundown','visitor_lists', 'data', 'current_date', 'current_week', 'current_month', 'datetime', 'id'))
             ->with('i', (request()->input('page', 1) - 1) * 10);
     }
 
@@ -147,5 +149,16 @@ class AbsensiController extends Controller
         Absensi::find($id)->delete();
         Alert::success('Success','Data Absensi berhasil dihapus');
         return redirect()->route('absensi.absensi');
+    }
+    // -- PDF Detail --
+    public function pdf($id)
+    {
+        // $absensi = Absensi::orderBy('tanggal')->orderBy('waktuMulai')->get();
+        $absensiDetail = Rundown::where('idRundowns', $id)->first();
+        $absensiKonten = Absensi::where('idRundowns', $id)->groupBy('tanggal')->get();
+        $absensiFirst = Absensi::groupBy('tanggal')->first();
+        $rundown = Rundown::all();
+        $pdf = PDF::loadview('index.dataabsensi', compact( 'absensiDetail', 'rundown', 'absensiKonten', 'absensiFirst'));
+        return $pdf->stream();
     }
 }

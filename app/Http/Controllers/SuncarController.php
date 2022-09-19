@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Rundown;
 use App\Models\Suncar;
-use App\Models\Absensi;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;

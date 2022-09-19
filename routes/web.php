@@ -38,10 +38,11 @@ Route::get('/house', [App\Http\Controllers\HouseController::class, 'index'])->na
 
 Route::group(['middleware'=>'auth'], function(){
     Route::get('/', [HomeController::class, 'index'])->name('index.index');
-    Route::get('/dataabsensi', [AbsensiController::class, 'index'])->name('absensi.absensi');
+    Route::get('/dataabsensi/{id}', [AbsensiController::class, 'index'])->name('absensi.absensi');
     Route::post('/dataabsensi', [AbsensiController::class, 'store'])->name('absensi.store');
     Route::delete('/dataabsensi/{idAbsensi}', [AbsensiController::class, 'destroy'])->name('absensi.destroy');
     Route::put('/dataabsensi/{idAbsensi}', [AbsensiController::class, 'update'])->name('Absensi.update');
+    Route::get('/absensi/pdf/{id}', [AbsensiController::class, 'pdf'])->name('absensi.pdf');
     Route::get('/admin/user/', [UserController::class, 'index'])->name('admin.user');
     Route::post('/admin/user/', [UserController::class, 'store'])->name('user.store');
     Route::delete('/admin/user/{id}', [UserController::class, 'destroy'])->name('user.destroy');
@@ -57,8 +58,8 @@ Route::group(['middleware'=>'auth'], function(){
     Route::post('/suncar/{id}', [SuncarController::class, 'update'])->name('suncar.update');
     Route::get('/suncar/{id}', [SuncarController::class, 'index'])->name('suncar.suncar');
     Route::get('/suncar/pdf/{id}', [SuncarController::class, 'pdf'])->name('suncar.pdf');
-    Route::get('absensi', [SignaturePadController::class, 'index']);
-    Route::post('absensi', [SignaturePadController::class, 'upload'])->name('signaturepad.upload');
+    Route::get('/absensi', [SignaturePadController::class, 'index']);
+    Route::post('/absensi', [SignaturePadController::class, 'upload'])->name('signaturepad.upload');
     // Route::get('/absensi', [UserabsensiController::class, 'index'])->name('absensiUser');
     // Route::post('/absensi', [UserabsensiController::class, 'store'])->name('userabsensi.store');
 });

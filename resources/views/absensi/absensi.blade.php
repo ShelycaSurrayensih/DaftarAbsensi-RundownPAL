@@ -45,6 +45,43 @@ Table Absensi
 			<div class="col-12">
 				<div class="card">
                     <div class="col-md-40 col-sm-12 text-right" style="text-align: right">
+                        <div style="text-align: left; padding-left: 50px"><br>
+                            <table class="display" style="border: 0px;color: black; font-size: 15pt">
+                                <tr>
+                                    <td>Kode Rundown</td>
+                                    <td>&nbsp;:</td>
+                                    <td>PAL-{{$absensiDetail->idRundowns}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Tahun</td>
+                                    <td>&nbsp;:</td>
+                                    <td>{{$absensiDetail->tahun}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Nama Acara</td>
+                                    <td>&nbsp;:</td>
+                                    <td>{{$absensiDetail->namaAcara}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Lokasi</td>
+                                    <td>&nbsp;:</td>
+                                    <td>{{$absensiDetail->lokasi}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Tanggal Mulai</td>
+                                    <td>&nbsp;:</td>
+                                    <td>{{date('d F Y', strtotime($absensiDetail->tanggalMulai))}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Tanggal Selesai</td>
+                                    <td>&nbsp;:&nbsp;</td>
+                                    <td>{{date('d F Y', strtotime($absensiDetail->tanggalSelesai))}}</td>
+                                </tr>
+                            </table>
+                        </div><hr style="height:4px;border-width:4;color:rgb(0, 0, 0);background-color:rgb(0, 0, 0)">
+                        <a href="{{ route('absensi.pdf', $absensiDetail->idRundowns) }}">
+                            <button type="onClick" class="btn btn-primary mb-2">Print All</button>
+                        </a>
                         <button type="button" class="btn btn-primary mb-2" data-bs-toggle="modal" data-bs-target="#addModalabsensi">Add Data</button>
                     </div>
                     @include('absensi.addabsensi')
@@ -54,7 +91,7 @@ Table Absensi
 								<thead>
 									<tr>
 										<th>No</th>
-										<th>Acara</th>
+										{{-- <th>Acara</th> --}}
 										<th>Nama</th>
 										<th>Jabatan</th>
 										<th>Instansi</th>
@@ -70,6 +107,7 @@ Table Absensi
 	Content body end
 ***********************************-->
                     @foreach($absensi as $a)
+                    @if($a->idRundowns == $absensiDetail->idRundowns)
                     <!--start modal edit-->
                     <div class="modal fade" id="editModalabsensi{{ $a->idAbsensi }}" tabindex="-1" role="dialog" aria-hidden="true">
                         <div class="modal-dialog" role="document">
@@ -206,7 +244,7 @@ Table Absensi
                     <!--End Modal Detail-->
                     <tr>
                         <td class="text-center">{{ $loop->iteration }}</td>
-                        <td class="text-center">{{ $a->idRundowns }}</td>
+                        {{-- <td class="text-center">{{ $a->idRundowns }}</td> --}}
                         <td class="text-center">{{ $a->nama }}</td>
                         <td class="text-center">{{ $a->jabatan}}</td>
                         <td class="text-center">{{ $a->instansi}}</td>
@@ -222,6 +260,7 @@ Table Absensi
                                                 </form>
                                             </td>
                                         </tr>
+                                        @endif
                                         @endforeach
                                     </tbody>
                                 </table>
