@@ -82,7 +82,11 @@ Table Absensi
                         <a href="{{ route('absensi.pdf', $absensiDetail->idRundowns) }}">
                             <button type="onClick" class="btn btn-primary mb-2">Print All</button>
                         </a>
-                        <button type="button" class="btn btn-primary mb-2" data-bs-toggle="modal" data-bs-target="#addModalabsensi">Add Data</button>
+                        <a href="{{ route('absensi.signature', $absensiDetail->idRundowns) }}">
+                            <button type="button" class="btn btn-primary mb-2">Add Data</button>
+                            {{-- <button type="button" class="btn btn-primary mb-2" data-bs-toggle="modal" data-bs-target="#addModalabsensi">Add Data</button> --}}
+                        </a>
+
                     </div>
                     @include('absensi.addabsensi')
 					<div class="card-body">

@@ -62,7 +62,7 @@ class AbsensiController extends Controller
             'tandatangan'=>'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
         if ($request->hasFile('tandatangan')) {
-            $image_name = $request->file('tandatangan')->store('images', 'public');
+            $image_name = $request->file('tandatan gan')->store('images', 'public');
         }
         // $input = $request->all();
         // $data = Absensi::create($input);
@@ -80,7 +80,7 @@ class AbsensiController extends Controller
         // $absensis->rundown()->associate($input);
         $absensis->save();
         Alert::success('Succes','Data Absensi Berhasil Ditambahkan');
-        return redirect()->route('absensi.absensi');
+        return redirect()->back();
     }
 
     /**

@@ -34,13 +34,13 @@
                         @csrf
                         <div class="row">
                             <div class="col-sm-12">
+                                <input id="idRundowns" type="text" name="idRundowns" class="form-control" value="{{$rundownDetail->idRundowns}}" hidden>
                                 <div class="form-group form-group-default">
                                     <label>Acara</label>
-                                    <select name="idRundowns" id="idRundowns">
-                                        @foreach ($rundown as $run)
+                                    {{-- <select name="idRundowns" id="idRundowns">
                                         <option value="{{ $run->idRundowns}}">{{ $run->namaAcara}}</option>
-                                        @endforeach
-                                    </select>
+                                    </select> --}}
+                                    <input id="" type="text" name="" class="form-control" value="{{$rundownDetail->namaAcara}}" readonly>
                                 </div>
                             </div>
                         {{-- <div class="col-sm-12">

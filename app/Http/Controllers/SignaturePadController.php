@@ -14,11 +14,12 @@ class SignaturePadController extends Controller
      *
      * @return response()
      */
-    public function index()
+    public function index($id)
     {
         $absensi = Absensi::all();
         $rundown = Rundown::all();
-        return view('absensiUser', compact('absensi','rundown'));
+        $rundownDetail = Rundown::where('idRundowns', $id)->first();
+        return view('absensiUser', compact('absensi','rundown', 'rundownDetail'));
     }
 
     /**
@@ -29,11 +30,18 @@ class SignaturePadController extends Controller
 
     public function upload(Request $request)
     {
-        $input = $request->all();
-        $data = Absensi::create($input);
+        //$input = $request->all();
+        $id = $request->idRundowns;
+        //$data = Absensi::create($input);
+        $data = new Absensi;
+        $data->idRundowns = $request->idRundowns;
+        $data->tanggal = '0000-00-00';
+        $data->nama = $request->get('nama');
+        $data->jabatan = $request->get('jabatan');
+        $data->instansi = $request->get('instansi');
+        $data->telp = $request->get('telp');
 
-        $folderPath = public_path('images/');
-
+        //$folderPath = public_path('images/');
         $image_parts = explode(";base64,", $request->tandatangan);
 
         $image_type_aux = explode("image/", $image_parts[0]);
@@ -42,10 +50,17 @@ class SignaturePadController extends Controller
 
         $image_base64 = base64_decode($image_parts[1]);
 
-        $file = $folderPath . uniqid() . '.'.$image_type;
+        $image_name = uniqid() . '.'.$image_type;
+        $file = 'storage/images/' . $image_name;
+        $data->tandatangan = 'images/' . $image_name;
+        //$file = $folderPath . uniqid() . '.'.$image_type;
+        // $data->tandatangan = $
+
         file_put_contents($file, $image_base64);
+        $data->save();
+        //dd($file);
         Alert::success('Succes','Data Rundown Berhasil Ditambahkan');
-        return redirect()->route('absensi.absensi');
+        return redirect()->route('absensi.absensi', $id);
 
     }
 }

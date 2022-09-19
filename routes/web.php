@@ -58,7 +58,7 @@ Route::group(['middleware'=>'auth'], function(){
     Route::post('/suncar/{id}', [SuncarController::class, 'update'])->name('suncar.update');
     Route::get('/suncar/{id}', [SuncarController::class, 'index'])->name('suncar.suncar');
     Route::get('/suncar/pdf/{id}', [SuncarController::class, 'pdf'])->name('suncar.pdf');
-    Route::get('/absensi', [SignaturePadController::class, 'index']);
+    Route::get('/absensi/{id}', [SignaturePadController::class, 'index'])->name('absensi.signature');
     Route::post('/absensi', [SignaturePadController::class, 'upload'])->name('signaturepad.upload');
     // Route::get('/absensi', [UserabsensiController::class, 'index'])->name('absensiUser');
     // Route::post('/absensi', [UserabsensiController::class, 'store'])->name('userabsensi.store');

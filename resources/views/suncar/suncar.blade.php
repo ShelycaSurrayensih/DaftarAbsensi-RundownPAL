@@ -135,7 +135,7 @@ Table Suncar
                                     <form action="{{ route('suncar.update', $s->idSuncar) }}"
                                         method="POST" enctype="multipart/form-data">
                                         @csrf
-                                        @method('PUT')
+                                        {{-- @method('PUT') --}}
                                         <div class="row">
                                             <div class="col-sm-12">
                                                 <div class="form-group form-group-default">
