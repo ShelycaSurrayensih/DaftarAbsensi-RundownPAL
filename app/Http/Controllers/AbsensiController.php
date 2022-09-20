@@ -62,7 +62,7 @@ class AbsensiController extends Controller
             'tandatangan'=>'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
         if ($request->hasFile('tandatangan')) {
-            $image_name = $request->file('tandatan gan')->store('images', 'public');
+            $image_name = $request->file('tandatangan')->store('images', 'public');
         }
         // $input = $request->all();
         // $data = Absensi::create($input);
@@ -113,9 +113,9 @@ class AbsensiController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $idAbsensi)
     {
-        Absensi::find($id)->update([
+        Absensi::find($idAbsensi)->update([
             'Nama'=>$request->nama,
             'Jabatan'=>$request->jabatan,
             'Instansi'=>$request->instansi,
@@ -131,7 +131,7 @@ class AbsensiController extends Controller
         } else {
             unset($input['tandatangan']);
         }
-        Absensi::find($id)->update($input);
+        $input = Absensi::where('idAbsensi', $idAbsensi)->update($request->except('_method', '_token'));
         Alert::success('Success', 'Data Absensi Berhasil Diupdate');
         return redirect()->route('absensi.absensi');
     }
@@ -142,23 +142,23 @@ class AbsensiController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($idAbsensi)
     {
-        $tandatangan = Absensi::find($id);
-        unlink("images/".$tandatangan->tandatangan);
-        Absensi::find($id)->delete();
+        // $tandatangan = Absensi::find($idAbsensi);
+        // unlink("images/".$tandatangan->tandatangan);
+        Absensi::where('idAbsensi', $idAbsensi)->delete();
         Alert::success('Success','Data Absensi berhasil dihapus');
-        return redirect()->route('absensi.absensi');
+        return redirect()->back();
     }
     // -- PDF Detail --
     public function pdf($id)
     {
-        // $absensi = Absensi::orderBy('tanggal')->orderBy('waktuMulai')->get();
+        $absensi = Absensi::all();
         $absensiDetail = Rundown::where('idRundowns', $id)->first();
         $absensiKonten = Absensi::where('idRundowns', $id)->groupBy('tanggal')->get();
         $absensiFirst = Absensi::groupBy('tanggal')->first();
         $rundown = Rundown::all();
-        $pdf = PDF::loadview('index.dataabsensi', compact( 'absensiDetail', 'rundown', 'absensiKonten', 'absensiFirst'));
+        $pdf = PDF::loadview('index.dataabsensi', compact( 'absensi', 'absensiDetail', 'rundown', 'absensiKonten', 'absensiFirst'));
         return $pdf->stream();
     }
 }

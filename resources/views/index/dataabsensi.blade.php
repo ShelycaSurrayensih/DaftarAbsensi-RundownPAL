@@ -236,7 +236,8 @@
                                     <td>{{ $a->jabatan }}</td>
                                     <td>{{ $a->instansi }}</td>
                                     <td>{{ $a->telp }}</td>
-                                    <td>{{ $a->tandatangan }}</td>
+                                    <td> <img src="{{ asset('storage/' . $a->tandatangan) }}"
+                                        width="100px"></td>
                                 </tr>
                                         <?php
                                         $count++;

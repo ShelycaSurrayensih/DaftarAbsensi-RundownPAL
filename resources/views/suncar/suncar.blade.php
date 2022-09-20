@@ -79,12 +79,6 @@ Table Suncar
                                     <td>{{date('d F Y', strtotime($rundownDetail->tanggalSelesai))}}</td>
                                 </tr>
                             </table>
-                            {{-- <h4>Kode Rundowns   : PAL-{{$rundownDetail->idRundowns}}</h4>
-                            <h4>Tahun           : {{$rundownDetail->tahun}}</h4>
-                            <h4>Nama Acara      : {{$rundownDetail->namaAcara}}</h4>
-                            <h4>Lokasi          : {{$rundownDetail->lokasi}}</h4>
-                            <h4>Tanggal Mulai   : {{$rundownDetail->tanggalMulai}}</h4>
-                            <h4>Tanggal Selesai : {{$rundownDetail->tanggalSelesai}}</h4> --}}
                         </div><hr style="height:4px;border-width:4;color:rgb(0, 0, 0);background-color:rgb(0, 0, 0)">
                         <a href="{{ route('suncar.pdf', $rundownDetail->idRundowns) }}">
                             <button type="onClick" class="btn btn-primary mb-2">Print All</button>
@@ -203,42 +197,63 @@ Table Suncar
                                             <div class="col-sm-12">
                                                 <div class="form-group form-group-default">
                                                     <label>Tanggal</label>
+                                                    <div class="row">
+                                                        <div class="col-sm-12">
                                                     {{ $s->tanggal }}
                                                 </div>
                                             </div>
-                                            <div class="form-group form-group-default">
-                                                <label>Kode Rundowns</label>
-                                                <div class="row">
-                                                    <div class="col-sm-12">
-                                                        PAL-{{ $s->idRundowns }}
+                                        </div>
+                                    </div>
+                                            <div class="col-sm-12">
+                                                <div class="form-group form-group-default">
+                                                    <label>Kode Rundowns</label>
+                                                    <div class="row">
+                                                        <div class="col-sm-12">
+                                                            PAL-{{ $s->idRundowns }}
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="col-sm-12">
-                                            <div class="form-group form-group-default">
-                                                <label>Nama Kegiatan</label>
-                                                {{ $s->namaKegiatan }}
+                                            <div class="col-sm-12">
+                                                <div class="form-group form-group-default">
+                                                    <label>Nama Kegiatan</label>
+                                                    <div class="row">
+                                                        <div class="col-sm-12">
+                                                            {{ $s->namaKegiatan }}
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="col-sm-12">
-                                            <div class="form-group form-group-default">
-                                                <label>PJ</label>
-                                                {{ $s->pj }}
+                                            <div class="col-sm-12">
+                                                <div class="form-group form-group-default">
+                                                    <label>PJ</label>
+                                                    <div class="row">
+                                                        <div class="col-sm-12">
+                                                            {{ $s->pj }}
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="col-sm-12">
-                                            <div class="form-group form-group-default">
-                                                <label>Waktu Mulai</label>
-                                                {{ $s->waktuMulai }}
+                                            <div class="col-sm-12">
+                                                <div class="form-group form-group-default">
+                                                    <label>Waktu Mulai</label>
+                                                    <div class="row">
+                                                        <div class="col-sm-12">
+                                                            {{ $s->waktuMulai }}
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="col-sm-12">
-                                            <div class="form-group form-group-default">
-                                                <label>Waktu Selesai</label>
-                                                {{ $s->waktuSelesai }}
+                                            <div class="col-sm-12">
+                                                <div class="form-group form-group-default">
+                                                    <label>Waktu Selesai</label>
+                                                    <div class="row">
+                                                        <div class="col-sm-12">
+                                                            {{ $s->waktuSelesai }}
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
-                                        </div>
                                     </div>
                                     <div class="modal-footer no-bd">
                                         <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">Close</button>

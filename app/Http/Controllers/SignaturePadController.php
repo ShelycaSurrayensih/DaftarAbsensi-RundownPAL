@@ -59,7 +59,7 @@ class SignaturePadController extends Controller
         file_put_contents($file, $image_base64);
         $data->save();
         //dd($file);
-        Alert::success('Succes','Data Rundown Berhasil Ditambahkan');
+        Alert::success('Succes','Data Absensi Berhasil Ditambahkan');
         return redirect()->route('absensi.absensi', $id);
 
     }

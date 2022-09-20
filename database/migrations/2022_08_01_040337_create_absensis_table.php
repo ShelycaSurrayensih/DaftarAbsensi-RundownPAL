@@ -22,7 +22,7 @@ class CreateAbsensisTable extends Migration
 			$table->string('telp', 20);
             $table->string('tandatangan',200);
             $table->unsignedBigInteger('idRundowns');
-            $table->foreign('idRundowns')->references('idRundowns')->on('rundowns')->ondelete('cascade');
+            $table->foreign('idRundowns')->references('idRundowns')->on('rundowns')->onDelete('cascade');
             $table->timestamps();
         });
     }
