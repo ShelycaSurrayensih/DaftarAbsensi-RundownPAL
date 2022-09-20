@@ -12,15 +12,15 @@ class RundownController extends Controller
 {
     public function index()
     {
-        $visitor_lists = Absensi::orderBy('created_at', 'DESC')->get();
-        $data = Absensi::latest()->paginate(10);
+        $visitor_lists = Rundown::orderBy('created_at', 'DESC')->get();
+        $data = Rundown::latest()->paginate(10);
 
         $datetime = Carbon::now();
-        $current_date = Absensi::whereDate('created_at', Carbon::today())->get(['nama', 'created_at']);
-        $current_week = Absensi::whereBetween('created_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])->get();
-        $current_month = Absensi::whereMonth('created_at', date('m'))
+        $current_date = Rundown::whereDate('created_at', Carbon::today())->get(['namaAcara', 'created_at']);
+        $current_week = Rundown::whereBetween('created_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])->get();
+        $current_month = Rundown::whereMonth('created_at', date('m'))
             ->whereYear('created_at', date('Y'))
-            ->get(['nama', 'created_at']);
+            ->get(['namaAcara', 'created_at']);
         $rundown = Rundown::all();
         return view('rundown.rundown', compact('rundown','visitor_lists', 'data', 'current_date', 'current_week', 'current_month', 'datetime'))
             ->with('i', (request()->input('page', 1) - 1) * 10);
