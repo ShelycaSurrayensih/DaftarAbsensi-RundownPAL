@@ -100,7 +100,7 @@ class AbsensiController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($idAbsensi)
     {
         $absensis = Absensi::all();
         return view('absensi.edit', compact('absensis'));

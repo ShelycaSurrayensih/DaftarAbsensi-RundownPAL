@@ -12,6 +12,7 @@ class Absensi extends Model
     protected $table = 'absensis';
     protected $primarykey = 'idAbsensi';
     protected $fillable = [
+        'tanggal',
         'nama',
         'jabatan',
         'instansi',

@@ -1,91 +1,94 @@
 @extends('layout.master')
 @section('judul')
-Table Absensi
+    Table Absensi
 @endsection
 @section('content')
-<div class="event-sidebar dz-scroll " id="eventSidebar">
-	<div class="card shadow-none rounded-0 bg-transparent h-auto mb-0">
-		<div class="card-body text-center event-calender pb-2">
-			<input type='text' class="form-control d-none" id='datetimepicker1' />
-		</div>
-	</div>
-	<div class="card shadow-none rounded-0 bg-transparent h-auto">
-		<div class="card-header border-0 pb-0">
-			<h4 class="text-black">Tamu Terkini</h4>
-		</div>
-		@foreach ($data as $g)
-        <div class="card-body">
-            <div class="media mb-5 align-items-center event-list">
-                <div class="p-3 text-center rounded me-3 date-bx bgl-primary">
-                    <h2 class="flaticon-381-user-7"></h2>
-                </div>
-                <div class="media-body px-0">
-                    <h6 class="mt-0 mb-3 fs-14"><a class="text-black">{{ $g->nama }}</a></h6>
-                    <ul class="fs-14 list-inline mb-2 d-flex justify-content-between">
-                        <li>{{ $g->created_at }}</li>
-                    </ul>
-                </div>
+    <div class="event-sidebar dz-scroll " id="eventSidebar">
+        <div class="card shadow-none rounded-0 bg-transparent h-auto mb-0">
+            <div class="card-body text-center event-calender pb-2">
+                <input type='text' class="form-control d-none" id='datetimepicker1' />
             </div>
         </div>
-    @endforeach
-</div>
+        <div class="card shadow-none rounded-0 bg-transparent h-auto">
+            <div class="card-header border-0 pb-0">
+                <h4 class="text-black">Tamu Terkini</h4>
+            </div>
+            @foreach ($data as $g)
+                <div class="card-body">
+                    <div class="media mb-5 align-items-center event-list">
+                        <div class="p-3 text-center rounded me-3 date-bx bgl-primary">
+                            <h2 class="flaticon-381-user-7"></h2>
+                        </div>
+                        <div class="media-body px-0">
+                            <h6 class="mt-0 mb-3 fs-14"><a class="text-black">{{ $g->nama }}</a></h6>
+                            <h6 class="mt-0 mb-3 fs-14"><a class="text-black">{{ $g->jabatan}}</a></h6>
+                            <ul class="fs-14 list-inline mb-2 d-flex justify-content-between">
+                                <li>{{ $g->created_at }}</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+        </div>
 
-</div>
+    </div>
 
-<!--**********************************
-	EventList END
-***********************************-->        <!--**********************************
-	Content body start
-***********************************-->
-<div class="content-body">
-	<div class="container-fluid">
-			<ol class="breadcrumb">
-			</ol>
-		</div>
-			<div class="col-12">
-				<div class="card">
-                    <div class="col-md-40 col-sm-12 text-right" style="text-align: right">
-                        <div style="text-align: left; padding-left: 50px"><br>
-                            <table class="display" style="border: 0px;color: black; font-size: 15pt">
-                                <tr>
-                                    <td>Kode Rundown</td>
-                                    <td>&nbsp;:</td>
-                                    <td>PAL-{{$absensiDetail->idRundowns}}</td>
-                                </tr>
-                                <tr>
-                                    <td>Tahun</td>
-                                    <td>&nbsp;:</td>
-                                    <td>{{$absensiDetail->tahun}}</td>
-                                </tr>
-                                <tr>
-                                    <td>Nama Acara</td>
-                                    <td>&nbsp;:</td>
-                                    <td>{{$absensiDetail->namaAcara}}</td>
-                                </tr>
-                                <tr>
-                                    <td>Lokasi</td>
-                                    <td>&nbsp;:</td>
-                                    <td>{{$absensiDetail->lokasi}}</td>
-                                </tr>
-                                <tr>
-                                    <td>Tanggal Mulai</td>
-                                    <td>&nbsp;:</td>
-                                    <td>{{date('d F Y', strtotime($absensiDetail->tanggalMulai))}}</td>
-                                </tr>
-                                <tr>
-                                    <td>Tanggal Selesai</td>
-                                    <td>&nbsp;:&nbsp;</td>
-                                    <td>{{date('d F Y', strtotime($absensiDetail->tanggalSelesai))}}</td>
-                                </tr>
-                            </table>
-                        </div><hr style="height:4px;border-width:4;color:rgb(0, 0, 0);background-color:rgb(0, 0, 0)">
-                        <a href="{{ route('absensi.pdf', $absensiDetail->idRundowns) }}">
-                            <button type="onClick" class="btn btn-primary mb-2">Print All</button>
-                        </a>
-                        <a href="{{ route('absensi.signature', $absensiDetail->idRundowns) }}">
-                            <button type="button" class="btn btn-primary mb-2">Add Data</button>
-                            {{-- <button type="button" class="btn btn-primary mb-2" data-bs-toggle="modal" data-bs-target="#addModalabsensi">Add Data</button> --}}
-                        </a>
+    <!--**********************************
+         EventList END
+        ***********************************-->
+    <!--**********************************
+         Content body start
+        ***********************************-->
+    <div class="content-body">
+        <div class="container-fluid">
+            <ol class="breadcrumb">
+            </ol>
+        </div>
+        <div class="col-12">
+            <div class="card">
+                <div class="col-md-40 col-sm-12 text-right" style="text-align: right">
+                    <div style="text-align: left; padding-left: 50px"><br>
+                        <table class="display" style="border: 0px;color: black; font-size: 15pt">
+                            <tr>
+                                <td>Kode Rundown</td>
+                                <td>&nbsp;:</td>
+                                <td>PAL-{{ $absensiDetail->idRundowns }}</td>
+                            </tr>
+                            <tr>
+                                <td>Tahun</td>
+                                <td>&nbsp;:</td>
+                                <td>{{ $absensiDetail->tahun }}</td>
+                            </tr>
+                            <tr>
+                                <td>Nama Acara</td>
+                                <td>&nbsp;:</td>
+                                <td>{{ $absensiDetail->namaAcara }}</td>
+                            </tr>
+                            <tr>
+                                <td>Lokasi</td>
+                                <td>&nbsp;:</td>
+                                <td>{{ $absensiDetail->lokasi }}</td>
+                            </tr>
+                            <tr>
+                                <td>Tanggal Mulai</td>
+                                <td>&nbsp;:</td>
+                                <td>{{ date('d F Y', strtotime($absensiDetail->tanggalMulai)) }}</td>
+                            </tr>
+                            <tr>
+                                <td>Tanggal Selesai</td>
+                                <td>&nbsp;:&nbsp;</td>
+                                <td>{{ date('d F Y', strtotime($absensiDetail->tanggalSelesai)) }}</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <hr style="height:4px;border-width:4;color:rgb(0, 0, 0);background-color:rgb(0, 0, 0)">
+                    <a href="{{ route('absensi.pdf', $absensiDetail->idRundowns) }}">
+                        <button type="onClick" class="btn btn-primary mb-2">Print All</button>
+                    </a>
+                    <a href="{{ route('absensi.signature', $absensiDetail->idRundowns) }}">
+                        <button type="button" class="btn btn-primary mb-2">Add Data</button>
+                        {{-- <button type="button" class="btn btn-primary mb-2" data-bs-toggle="modal" data-bs-target="#addModalabsensi">Add Data</button> --}}
+                    </a>
 
                 </div>
                 @include('absensi.addabsensi')
@@ -95,6 +98,7 @@ Table Absensi
                             <thead>
                                 <tr>
                                     <th>No</th>
+                                    <th>Tanggal</th>
                                     <th>Nama</th>
                                     <th>Jabatan</th>
                                     <th>Instansi</th>
@@ -107,8 +111,8 @@ Table Absensi
 
 
                                 <!--**********************************
-     Content body end
-    ***********************************-->
+             Content body end
+            ***********************************-->
                                 @foreach ($absensi as $a)
                                     @if ($a->idRundowns == $absensiDetail->idRundowns)
                                         <!--start modal edit-->
@@ -134,15 +138,20 @@ Table Absensi
                                                             <div class="row">
                                                                 <div class="col-sm-12">
                                                                     <div class="form-group form-group-default">
-                                                                        <label>Acara</label>
-                                                                        <select name="idRundowns" id="idRundowns">
-                                                                            @foreach ($rundown as $run)
-                                                                                <option value="{{ $run->idRundowns }}">
-                                                                                    {{ $run->namaAcara }}</option>
-                                                                            @endforeach
-                                                                        </select>
+                                                                        <label>Tanggal</label>
+                                                                        <input id="tanggal" type="date" name="tanggal"
+                                                                            class="form-control"
+                                                                            value="{{ $a->tanggal }}"
+                                                                            placeholder="Masukkan Tanggal">
                                                                     </div>
                                                                 </div>
+                                                                {{-- <div class="col-sm-12">
+                                                                    <input id="idRundowns" type="text" name="idRundowns" class="form-control" value="{{$a->idRundowns}}" hidden>
+                                                                    <div class="form-group form-group-default">
+                                                                        <label>Acara</label>
+                                                                        <input id="" type="text" name="" class="form-control" value="{{$a->namaAcara}}" readonly>
+                                                                    </div>
+                                                                </div> --}}
                                                                 <div class="col-sm-12">
                                                                     <div class="form-group form-group-default">
                                                                         <label>Nama</label>
@@ -173,8 +182,8 @@ Table Absensi
                                                                 <div class="col-sm-12">
                                                                     <div class="form-group form-group-default">
                                                                         <label>No Hp</label>
-                                                                        <input id="telp" type="text" name="telp"
-                                                                            value="{{ $a->telp }}"
+                                                                        <input id="telp" type="text"
+                                                                            name="telp" value="{{ $a->telp }}"
                                                                             class="form-control"
                                                                             placeholder="Masukkan No Hp">
                                                                     </div>
@@ -186,7 +195,8 @@ Table Absensi
                                                                             class="form-control"
                                                                             placeholder="Masukkan Tanda Tangan">
                                                                     </div>
-                                                                    <img src="{{ asset('storage/' . $a->tandatangan) }}" width="100px">
+                                                                    <img src="{{ asset('storage/' . $a->tandatangan) }}"
+                                                                        width="100px">
                                                                 </div>
                                                             </div>
                                                             <div class="modal-footer no-bd">
@@ -218,6 +228,16 @@ Table Absensi
                                                     <div class="modal-body">
                                                         <p class="small">Detail Data ID {{ $loop->iteration }}</p>
                                                         <div class="row">
+                                                            <div class="col-sm-12">
+                                                                <div class="form-group form-group-default">
+                                                                    <label>Tanggal</label>
+                                                                    <div class="row">
+                                                                        <div class="col-sm-12">
+                                                                            {{date('d-m-Y', strtotime($a->tanggal))}}
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
                                                             <div class="col-sm-12">
                                                                 <div class="form-group form-group-default">
                                                                     <label>Acara</label>
@@ -274,7 +294,8 @@ Table Absensi
                                                                     <div class="row">
                                                                         <div class="col-sm-12">
                                                                             {{ $a->tandatangan }} <br>
-                                                                            <img src="{{ asset('storage/' . $a->tandatangan) }}" width="400px"></td>
+                                                                            <img src="{{ asset('storage/' . $a->tandatangan) }}"
+                                                                                width="400px"></td>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -292,6 +313,7 @@ Table Absensi
                                         <tr>
                                             <td class="text-center">{{ $loop->iteration }}</td>
                                             {{-- <td class="text-center">{{ $a->idRundowns }}</td> --}}
+                                            <td class="text-center">{{date('d-m-Y', strtotime($a->tanggal))}}</td>
                                             <td class="text-center">{{ $a->nama }}</td>
                                             <td class="text-center">{{ $a->jabatan }}</td>
                                             <td class="text-center">{{ $a->instansi }}</td>
@@ -299,9 +321,9 @@ Table Absensi
                                             <td class="text-center"><img src="{{ asset('storage/' . $a->tandatangan) }}"
                                                     width="100px"></td>
                                             <td class="text-center">
-                                                <button class="btn btn-primary" data-bs-toggle="modal"
+                                                {{-- <button class="btn btn-primary" data-bs-toggle="modal"
                                                     data-bs-target="#editModalabsensi{{ $a->idAbsensi }}"><i
-                                                        class="fa fa-edit"></i></button>
+                                                        class="fa fa-edit"></i></button> --}}
                                                 <button class="btn btn-info" data-bs-toggle="modal"
                                                     data-bs-target="#detailModalabsensi{{ $a->idAbsensi }}"><i
                                                         class="fa fa-edit"></i></button>

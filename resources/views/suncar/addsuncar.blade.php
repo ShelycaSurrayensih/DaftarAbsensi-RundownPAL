@@ -11,13 +11,13 @@
                     <form action="{{ route('suncar.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="row">
-                            <div class="col-sm-12">
                                 <div class="col-sm-12">
                                     <div class="form-group form-group-default">
                                         <label>Tanggal</label>
                                         <input id="tanggal" type="date" name="tanggal" class="form-control" placeholder="Masukkan Tanggal">
                                     </div>
                                 </div>
+                                <div class="col-sm-12">
                                 <div class="form-group form-group-default">
                                     <label>Kode Rundown</label>
                                     <input id="idRundowns" type="text" name="idRundowns" class="form-control" value="{{$rundownDetail->idRundowns}}" readonly>

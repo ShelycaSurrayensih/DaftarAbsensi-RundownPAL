@@ -35,7 +35,7 @@ class SignaturePadController extends Controller
         //$data = Absensi::create($input);
         $data = new Absensi;
         $data->idRundowns = $request->idRundowns;
-        $data->tanggal = '0000-00-00';
+        $data->tanggal = $request->get('tanggal');
         $data->nama = $request->get('nama');
         $data->jabatan = $request->get('jabatan');
         $data->instansi = $request->get('instansi');

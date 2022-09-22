@@ -134,7 +134,7 @@ Table Suncar
                                             <div class="col-sm-12">
                                                 <div class="form-group form-group-default">
                                                     <label>Tanggal</label>
-                                                    <input id="tanggal" type="text" name="tanggal" class="form-control" value="{{ $s->tanggal }}" placeholder="Masukkan Tanggal">
+                                                    <input id="tanggal" type="date" name="tanggal" class="form-control" value="{{ $s->tanggal }}" placeholder="Masukkan Tanggal">
                                                 </div>
                                             </div>
                                             <div class="col-sm-12">

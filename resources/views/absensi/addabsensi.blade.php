@@ -29,6 +29,12 @@
                                     <button type="button" class="btn btn-info btn-secondary" data-bs-toggle="modal" data-bs-target="#myModal"><b>Cari Acara </b><span class="fa fa-search"></span></button>
                                 </div>
                             </div> --}}
+                            <div class="col-sm-12">
+                                <div class="form-group form-group-default">
+                                    <label>Tanggal</label>
+                                    <input id="tanggal" type="date" name="tanggal" class="form-control" placeholder="Masukkan Tanggal">
+                                </div>
+                            </div>
                         <div class="col-sm-12">
                             <div class="form-group form-group-default">
                                 <label>Nama</label>
