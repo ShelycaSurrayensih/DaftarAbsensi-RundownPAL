@@ -10,6 +10,7 @@ use App\Http\Controllers\SuncarController;
 use App\Http\Controllers\SignaturePadController;
 use App\Http\Controllers\UserabsensiController;
 use App\Http\Controllers\HouseController;
+use App\Http\Controllers\QrCodeGeneratorController;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -60,6 +61,7 @@ Route::group(['middleware'=>'auth'], function(){
     Route::get('/suncar/pdf/{id}', [SuncarController::class, 'pdf'])->name('suncar.pdf');
     Route::get('/absensi/{id}', [SignaturePadController::class, 'index'])->name('absensi.signature');
     Route::post('/absensi', [SignaturePadController::class, 'upload'])->name('signaturepad.upload');
+    Route::get('/qr-code', [QrCodeGeneratorController::class, 'index']);
     // Route::get('/absensi', [UserabsensiController::class, 'index'])->name('absensiUser');
     // Route::post('/absensi', [UserabsensiController::class, 'store'])->name('userabsensi.store');
 });
