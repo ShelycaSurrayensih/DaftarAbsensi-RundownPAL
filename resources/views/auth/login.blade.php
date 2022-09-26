@@ -10,9 +10,9 @@
                         <div class="col-xl-12">
                             <div class="auth-form">
                                 <div class="text-center mb-3">
-                                    <img src="{{asset('assets/images/logo-full.png')}}" alt="">
+                                    <img src="{{asset('assets/images/logo-4.png')}}" alt="" width="230px" height="50px">
                                 </div>
-                                <h4 class="text-center mb-4">Sign in your account</h4>
+                                <h4 class="text-center mb-3">LOGIN ADMIN RUNDOWN DAN DAFTAR ABSENSI</h4>
                                 <form method="POST" action="{{ route('login') }}">
                                     @csrf
                                     <div class="form-group">
@@ -37,15 +37,12 @@
                                         <div class="form-group">
                                            <div class="custom-control custom-checkbox ms-1">
                                                 <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-                                                <label class="form-check-label" for="remember">Remember my preference</label>
+                                                <label class="form-check-label" for="remember">Remember me</label>
                                             </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <a href="page_forgot_password.html">Forgot Password?</a>
                                         </div>
                                     </div>
                                     <div class="text-center">
-                                        <button type="submit" class="btn btn-primary btn-block">Sign Me In</button>
+                                        <button type="submit" class="btn btn-primary btn-block">Login</button>
                                         @if (Route::has('password.request'))
                                             <a class="btn btn-link" href="{{ route('password.request') }}">
                                                 {{ __('Forgot Your Password?') }}
