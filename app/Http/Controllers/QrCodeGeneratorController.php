@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Rundown;
 
 class QrCodeGeneratorController extends Controller
 {
@@ -13,7 +14,8 @@ class QrCodeGeneratorController extends Controller
      */
     public function index()
     {
-        return view('qrCode');
+        $rundown = Rundown::all();
+        return view('qrCode', compact('rundown'));
     }
 
     /**
