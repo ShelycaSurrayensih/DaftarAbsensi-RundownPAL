@@ -158,8 +158,8 @@ class AbsensiController extends Controller
         $absensiKonten = Absensi::where('idRundowns', $id)->groupBy('tanggal')->get();
         $absensiFirst = Absensi::groupBy('tanggal')->first();
         $rundown = Rundown::all();
-        return view('index.dataabsensi', compact( 'absensi', 'absensiDetail', 'rundown', 'absensiKonten', 'absensiFirst'));
-        // $pdf = PDF::loadview('index.dataabsensi', compact( 'absensi', 'absensiDetail', 'rundown', 'absensiKonten', 'absensiFirst'));
-        // return $pdf->stream();
+        // return view('index.dataabsensi', compact( 'absensi', 'absensiDetail', 'rundown', 'absensiKonten', 'absensiFirst'));
+        $pdf = PDF::loadview('index.dataabsensi', compact( 'absensi', 'absensiDetail', 'rundown', 'absensiKonten', 'absensiFirst'));
+        return $pdf->stream();
     }
 }
