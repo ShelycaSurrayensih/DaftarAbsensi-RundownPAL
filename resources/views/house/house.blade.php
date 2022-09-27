@@ -54,54 +54,43 @@
                         <div class="media mb-5 align-items-center event-list">
                             <div class="p-3 text-center rounded me-3 date-bx bgl-primary">
                                 <i class="fa fa-plus" style="font-size:25px;color:rgb(37, 37, 169)"></i>
-                                {{-- <a class="fa-sharp fa-solid fa-pen"></a> --}}
                             </div>
                             <div class="media-body px-0">
-                                <h6 class="mt-0 mb-3 fs-14"><a class="text-black" href="events.html">Live Concert Choir
-                                        Charity
-                                        Event 2020</a></h6>
+                                <h6 class="mt-0 mb-3 fs-14"><a class="text-black" href="events.html">Live Concert Choir Charity Event 2020</a></h6>
                                 <ul class="fs-14 list-inline mb-2 d-flex justify-content-between">
                                     <li>Ticket Sold</li>
                                     <li>561/650</li>
                                 </ul>
-                                <div class="progress mb-0" style="height:4px; width:100%;">
-                                    <div class="progress-bar bg-warning progress-animated"
-                                        style="width:85%; height:8px;" role="progressbar">
-                                        <span class="sr-only">60% Complete</span>
-                                    </div>
-                                </div>
                             </div>
                         </div>
 
                         <div class="media mb-0 align-items-center event-list">
                             <div class="p-3 text-center rounded me-3 date-bx bgl-success">
-                                <h2 class="mb-0 text-black">28</h2>
-                                <h5 class="mb-1 text-black">Fri</h5>
+                                <i class="fa fa-plus" style="font-size:25px;color:rgb(37, 37, 169)"></i>
                             </div>
                             <div class="media-body px-0">
-                                <h6 class="mt-0 mb-3 fs-14"><a class="text-black" href="events.html">The Story Of Danau
-                                        Toba
-                                        (Musical Drama)</a></h6>
+                                <h6 class="mt-0 mb-3 fs-14"><a class="text-black" href="events.html">The Story Of Danau Toba (Musical Drama)</a></h6>
                                 <ul class="fs-14 list-inline mb-2 d-flex justify-content-between">
                                     <li>Ticket Sold</li>
                                     <li>650/650</li>
                                 </ul>
-                                <div class="progress mb-0" style="height:4px; width:100%;">
-                                    <div class="progress-bar bg-success progress-animated"
-                                        style="width:100%; height:8px;" role="progressbar">
-                                        <span class="sr-only">60% Complete</span>
-                                    </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {{-- @foreach($rundown as $r)
+                    <div class="modal fade" id="detailModalrundown{{ $r->idRundowns }}" tabindex="-1" role="dialog" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="col-sm-12">
+                                    {{ $r->namaAcara }},
+                                    {{ $r->tanggalMulai }}
                                 </div>
                             </div>
                         </div>
                     </div>
-                    {{-- @foreach ($rundown as $r)
-                    <div class="modal fade" id="detailModalrundown{{ $r->idRundowns }}" tabindex="-1" role="dialog" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-
-
                     @endforeach --}}
+
                     <div class="card-footer justify-content-between border-0 d-flex fs-14">
                         <span>5 events more</span>
                         <a href="javascript:void(0);" class="text-primary">View more <i
@@ -158,7 +147,8 @@
                     ipsum fuga alias quae ratione a officiis id temporibus autem? Quod nemo facilis cupiditate. Ex, vel?
                 </p>
                 <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odit amet enim quod veritatis, nihil
-                    voluptas culpa! Neque consectetur obcaecati sapiente?</p>
+                    voluptas culpa! Neque consectetur obcaecati sapiente?
+                </p>
                 <a href="#" class="btn">learn more</a>
             </div>
 
