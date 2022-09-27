@@ -24,20 +24,6 @@
 
 <body>
 
-    <!-- home section starts  -->
-
-    <section class="home" id="home">
-
-        <div class="content">
-            <h3>List Acara-Acara</h3>
-            <h3>PT PAL Indonesia</h3>
-            <a href="#" class="btn">change now !</a>
-        </div>
-
-    </section>
-
-    <!-- home section ends -->
-
     <!-- review section starts  -->
 
     <section class="calender" id="calender">
@@ -69,11 +55,14 @@
                                 <i class="fa fa-plus" style="font-size:25px;color:rgb(37, 37, 169)"></i>
                             </div>
                             <div class="media-body px-0">
-                                <h6 class="mt-0 mb-3 fs-14"><a class="text-black" href="events.html">The Story Of Danau Toba (Musical Drama)</a></h6>
-                                <ul class="fs-14 list-inline mb-2 d-flex justify-content-between">
-                                    <li>Ticket Sold</li>
-                                    <li>650/650</li>
-                                </ul>
+                                <table class="display" style="border: 10px;color: black; font-size: 15pt">
+                                    <tr>
+                                        <p>Nama Acara : {{ $rundownDetail->namaAcara }}</p>
+                                    </tr>
+                                    <tr>
+                                        <p>Tanggal Mulai : {{ date('d F Y', strtotime($rundownDetail->tanggalMulai)) }}</p>
+                                    </tr>
+                                </table>
                             </div>
                         </div>
                     </div>

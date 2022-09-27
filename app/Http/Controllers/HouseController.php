@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Rundown;
+use App\Models\Suncar;
 use Illuminate\Http\Request;
 
 class HouseController extends Controller
@@ -11,9 +13,14 @@ class HouseController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
-        return view('house.house');
+        $data = Suncar::latest()->paginate(10);
+        $suncar = Suncar::orderBy('tanggal')->orderBy('waktuMulai')->get();
+        $rundownDetail = Rundown::where('idRundowns', $id)->first();
+        $rundown = Rundown::all();
+        return view('house.house', compact('rundownDetail','rundown','data'))
+        ->with('i', (request()->input('page', 1) - 1) * 10);
     }
 
     /**

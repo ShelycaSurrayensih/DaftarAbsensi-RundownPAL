@@ -36,7 +36,7 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/house', [App\Http\Controllers\HouseController::class, 'index'])->name('house');
+Route::get('/house/{id}', [App\Http\Controllers\HouseController::class, 'index'])->name('house');
 
 Route::get('/pengunjung/{id}', [PengunjungController::class, 'index'])->name('pengunjung.pengunjung');
 
