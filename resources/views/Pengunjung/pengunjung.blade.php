@@ -1,12 +1,12 @@
 @extends('layout.layout')
 
-<body class="vh-100">
+<body class="vh-100"><br>
     <div class="authincation h-100">
         <div class="container h-100">
             <div class="row justify-content-center h-100 align-items-center">
                 <div class="col-md-5">
                     <div class="form-input-content text-center error-page">
-                        <div class="card">
+                        <div class="card"><br><br>
                             <div style="text-align:center;">
                                 <svg viewBox="0 0 24 24" width="100" height="100" stroke="currentColor"
                                     stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
@@ -48,7 +48,7 @@
                                             <td>{{ date('d F Y', strtotime($rundownDetail->tanggalSelesai)) }}
                                             </td>
                                         </tr>
-                                    </table><br><br><br><br><br><br><br><br><br><br><br><br><br>
+                                    </table><br><br>
                                     <div style="text-align:center;">
                                         <a class="btn btn-primary"
                                             href="{{ route('suncar.pdf', $rundownDetail->idRundowns) }}">Download
