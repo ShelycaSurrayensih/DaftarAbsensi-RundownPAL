@@ -60,7 +60,7 @@ class SignaturePadController extends Controller
         $data->save();
         //dd($file);
         Alert::success('Succes','Data Absensi Berhasil Ditambahkan');
-        return redirect()->route('absensi.absensi', $id);
+        return redirect()->route('pengunjung.pengunjung', $id);
 
     }
 }
