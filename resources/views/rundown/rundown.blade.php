@@ -58,6 +58,7 @@ Table Rundown
 								<thead>
 									<tr>
 										<th>No</th>
+                                        <th>Qr-Code</th>
                                         <th>Kode Rundown</th>
                                         <th>Tahun</th>
 										<th>Nama Acara </th>
@@ -230,6 +231,7 @@ Table Rundown
 <!--End Modal Detail-->
                     <tr>
                         <td class="text-center">{{ $loop->iteration }}</td>
+                        <td class="text-center">{!! QrCode::size(50)->generate(url('absensi/'.$r->idRundowns)); !!}</td>
                         <td class="text-center">PAL-{{ $r->idRundowns }}</td>
                         <td class="text-center">{{ $r->tahun }}</td>
                         <td class="text-center">{{ $r->namaAcara}}</td>
