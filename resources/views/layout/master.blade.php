@@ -18,7 +18,7 @@
     <meta property="og:description" content="Tixia - Crypto Codeigniter Admin Dashboard" />
     <meta property="og:image" content="../social-image.png" />
     <meta name="format-detection" content="telephone=no">
-    <title>Absensi & Rundown </title>
+    <title>@yield('header') </title>
     <!-- Favicon icon -->
 
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/images/favicon.png') }}">
@@ -69,7 +69,7 @@
     </div>
     {{-- Alert --}}
     @include('sweetalert::alert')
-    
+
     <script src="{{ asset('assets/vendor/global/global.min.js') }}"></script>
     <script src="{{ asset('assets/vendor/bootstrap-select/dist/js/bootstrap-select.min.js') }}"></script>
     <script src="{{ asset('assets/vendor/bootstrap-datetimepicker/js/moment.js') }}"></script>

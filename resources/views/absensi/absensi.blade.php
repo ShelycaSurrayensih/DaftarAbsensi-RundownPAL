@@ -1,4 +1,7 @@
 @extends('layout.master')
+@section('header')
+    Data Absensi
+@endsection
 @section('judul')
     Table Absensi
 @endsection

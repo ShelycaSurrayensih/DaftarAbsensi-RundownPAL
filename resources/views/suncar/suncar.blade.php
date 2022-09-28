@@ -1,4 +1,7 @@
 @extends('layout.master')
+@section('header')
+    Data Suncar
+@endsection
 @section('judul')
 Table Suncar
 @endsection

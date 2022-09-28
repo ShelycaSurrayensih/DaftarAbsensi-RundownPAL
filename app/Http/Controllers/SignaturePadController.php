@@ -42,6 +42,7 @@ class SignaturePadController extends Controller
         $data->telp = $request->get('telp');
 
         //$folderPath = public_path('images/');
+
         $image_parts = explode(";base64,", $request->tandatangan);
 
         $image_type_aux = explode("image/", $image_parts[0]);

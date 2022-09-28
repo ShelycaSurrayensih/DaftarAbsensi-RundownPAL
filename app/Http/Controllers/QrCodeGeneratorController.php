@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Rundown;
+use App\Models\Suncar;
+use Illuminate\Support\Facades\DB;
+
 
 class QrCodeGeneratorController extends Controller
 {
@@ -14,8 +17,9 @@ class QrCodeGeneratorController extends Controller
      */
     public function index()
     {
+        $suncar = Suncar::all();
         $rundown = Rundown::all();
-        return view('qrCode', compact('rundown'));
+        return view('qrCode', compact('rundown', 'suncar'));
     }
 
     /**

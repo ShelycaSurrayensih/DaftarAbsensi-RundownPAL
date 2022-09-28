@@ -1,4 +1,7 @@
 @extends('layout.master')
+@section('header')
+    Admin
+@endsection
 @section('judul')
 Table User
 @endsection

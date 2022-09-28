@@ -1,4 +1,7 @@
 @extends('layout.master')
+@section('header')
+    Data Rundowns
+@endsection
 @section('judul')
 Table Rundown
 @endsection

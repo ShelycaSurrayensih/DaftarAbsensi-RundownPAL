@@ -16,6 +16,7 @@
             height: auto;
         }
     </style>
+    <title>Form Absensi</title>
 
 </head>
 <body class="bg-dark">
