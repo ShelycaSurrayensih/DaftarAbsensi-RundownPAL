@@ -7,7 +7,7 @@ use App\Models\Rundown;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
-USE Pdf;
+use PDF;
 
 class AbsensiController extends Controller
 {
@@ -158,6 +158,7 @@ class AbsensiController extends Controller
         $absensiKonten = Absensi::where('idRundowns', $id)->groupBy('tanggal')->get();
         $absensiFirst = Absensi::groupBy('tanggal')->first();
         $rundown = Rundown::all();
+        // return view('index.dataabsensi', compact( 'absensi', 'absensiDetail', 'rundown', 'absensiKonten', 'absensiFirst'));
         $pdf = PDF::loadview('index.dataabsensi', compact( 'absensi', 'absensiDetail', 'rundown', 'absensiKonten', 'absensiFirst'));
         return $pdf->stream();
     }

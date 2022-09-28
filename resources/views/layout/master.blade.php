@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 
@@ -38,6 +39,9 @@
 
 
 </head>
+=======
+@include('layout.layout')
+>>>>>>> f254c3f875057753820046047ee02288795fb2c2
 
 <body data-typography="poppins" data-theme-version="light" data-layout="vertical" data-nav-headerbg="color_1" data-headerbg="color_14" data-sidebar-style="overlay" data-sibebarbg="color_1" data-sidebar-position="static" data-header-position="fixed" data-container="wide" direction="ltr" data-primary="color_14" class="">
 

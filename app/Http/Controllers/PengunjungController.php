@@ -1,12 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Models\Rundown;
 use App\Models\Suncar;
 use Illuminate\Http\Request;
+use PDF;
 
-class HouseController extends Controller
+class PengunjungController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,8 +19,8 @@ class HouseController extends Controller
         $suncar = Suncar::orderBy('tanggal')->orderBy('waktuMulai')->get();
         $rundownDetail = Rundown::where('idRundowns', $id)->first();
         $rundown = Rundown::all();
-        return view('house.house', compact('rundownDetail','rundown','data'))
-        ->with('i', (request()->input('page', 1) - 1) * 10);
+        return view('pengunjung.pengunjung', compact('suncar','id', 'rundownDetail','rundown','data'))
+            ->with('i', (request()->input('page', 1) - 1) * 10);
     }
 
     /**
@@ -87,5 +87,15 @@ class HouseController extends Controller
     public function destroy($id)
     {
         //
+    }
+    //-- PDF Detail --//
+    public function pdf($id)
+    {
+        $suncar = Suncar::orderBy('tanggal')->orderBy('waktuMulai')->get();
+        $suncarKonten = Suncar::where('idRundowns', $id)->groupBy('tanggal')->get();
+        $suncarFirst = Suncar::groupBy('tanggal')->first();
+        $rundown = Rundown::all();
+        $pdf = PDF::loadview('index.pdf', compact('suncar', 'rundownDetail', 'rundown', 'suncarKonten', 'suncarFirst'));
+        return $pdf->stream();
     }
 }

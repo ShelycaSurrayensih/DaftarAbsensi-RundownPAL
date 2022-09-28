@@ -11,6 +11,7 @@ use App\Http\Controllers\SignaturePadController;
 use App\Http\Controllers\UserabsensiController;
 use App\Http\Controllers\HouseController;
 use App\Http\Controllers\QrCodeGeneratorController;
+use App\Http\Controllers\PengunjungController;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -35,7 +36,9 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/house', [App\Http\Controllers\HouseController::class, 'index'])->name('house');
+Route::get('/house/{id}', [App\Http\Controllers\HouseController::class, 'index'])->name('house');
+
+Route::get('/pengunjung/{id}', [PengunjungController::class, 'index'])->name('pengunjung.pengunjung');
 
 Route::group(['middleware'=>'auth'], function(){
     Route::get('/', [HomeController::class, 'index'])->name('index.index');

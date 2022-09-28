@@ -53,7 +53,7 @@
                         <div class="col-sm-12">
                             <div class="form-group form-group-default">
                                 <label>Tanggal</label>
-                                <input id="tanggal" type="date" name="tanggal" class="form-control" value="{{ date('Y-m-d', strtotime(Carbon\Carbon::today()->toDateString())) }}" readonly>
+                                <input id="tanggal" type="date" name="tanggal" class="form-control" value="{{ date('Y-m-d', strtotime(Carbon\Carbon::today()->toDateString())) }}" >
                             </div>
                         </div>
                         <div class="col-sm-12">
