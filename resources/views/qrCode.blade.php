@@ -143,14 +143,12 @@ List Rundowns
                                         <h4 style="color: black; font-style: bold">{{ date('d F', strtotime($r->tanggalMulai)) }} - {{ date('d F Y', strtotime($r->tanggalSelesai)) }}</h4>
                                     @endif
                                     @foreach ($suncar as $s)
-                                        @if ($r->idRundowns == $s->idRundowns)
-                                            @if ($s->idSuncar)
+                                        @if ($s->idSuncar)
+                                            @if ($s->idRundowns == $r->idRundowns)
                                                 <h4 style="color: black; font-style: bold">{{ date('H:i', strtotime($s->waktuMulai)) }} - Selesai</h4>
                                                 @break
                                             @endif
                                         @endif
-                                    @endforeach
-
                                 </div>
                             </div>
                         </div>

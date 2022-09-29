@@ -188,7 +188,7 @@
             var signature = signaturePad.toDataURL();
 
             $.ajax({
-                url: url('route('signaturepad.upload')'),
+                url: "",
                 data: {
                     foto: signature,
                 },
