@@ -1,4 +1,7 @@
 @extends('layout.master')
+@section('header')
+    Dashboard
+@endsection
 @section('judul')
     Dashboard
 @endsection

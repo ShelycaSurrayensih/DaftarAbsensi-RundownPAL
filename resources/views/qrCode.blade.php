@@ -130,7 +130,7 @@ List Rundowns
                     <div class="card">
                         <div class="card-body">
                             <div class="new-arrival-product">
-                                <div class="new-arrivals-img-contnent">
+                                <div class="new-arrivals-img-contnent" style="text-align: center">
                                     {!! QrCode::size(200)->generate(url('absensi/'.$r->idRundowns)); !!}
                                 </div>
                                 <div class="new-arrival-content text-center mt-3">
@@ -144,8 +144,10 @@ List Rundowns
                                     @endif
                                     @foreach ($suncar as $s)
                                         @if ($r->idRundowns == $s->idRundowns)
-                                            <h4 style="color: black; font-style: bold">{{ date('H:i', strtotime($s->waktuMulai)) }} - Selesai</h4>
-                                            @break
+                                            @if ($s->idSuncar)
+                                                <h4 style="color: black; font-style: bold">{{ date('H:i', strtotime($s->waktuMulai)) }} - Selesai</h4>
+                                                @break
+                                            @endif
                                         @endif
                                     @endforeach
 

@@ -1,9 +1,9 @@
 @extends('layout.master')
 @section('header')
-    Admin
+    Data User
 @endsection
 @section('judul')
-Table User
+    Table User
 @endsection
 @section('content')
 <div class="event-sidebar dz-scroll " id="eventSidebar">
