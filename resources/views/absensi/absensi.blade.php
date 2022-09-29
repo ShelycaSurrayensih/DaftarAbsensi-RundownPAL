@@ -88,10 +88,9 @@
                     <a href="{{ route('absensi.pdf', $absensiDetail->idRundowns) }}">
                         <button type="onClick" class="btn btn-primary mb-2">Print All</button>
                     </a>
-                    <a href="{{ route('absensi.signature', $absensiDetail->idRundowns) }}">
+                    {{-- <a href="{{ route('absensi.signature', $absensiDetail->idRundowns) }}">
                         <button type="button" class="btn btn-primary mb-2">Add Data</button>
-                        {{-- <button type="button" class="btn btn-primary mb-2" data-bs-toggle="modal" data-bs-target="#addModalabsensi">Add Data</button> --}}
-                    </a>
+                    </a> --}}
 
                 </div>
                 @include('absensi.addabsensi')
@@ -107,7 +106,7 @@
                                     <th>Instansi</th>
                                     <th>Nomer Hp</th>
                                     <th>Tanda Tangan</th>
-                                    <th>Action</th>
+                                    {{-- <th>Action</th> --}}
                                 </tr>
                             </thead>
                             <tbody>
@@ -323,11 +322,7 @@
                                             <td class="text-center">{{ $a->telp }}</td>
                                             <td class="text-center"><img src="{{ asset('storage/' . $a->tandatangan) }}"
                                                     width="100px"></td>
-                                            <td class="text-center">
-                                                {{-- <button class="btn btn-primary" data-bs-toggle="modal"
-                                                    data-bs-target="#editModalabsensi{{ $a->idAbsensi }}"><i
-                                                        class="fa fa-edit"></i></button> --}}
-                                                <button class="btn btn-info" data-bs-toggle="modal"
+                                                {{-- <button class="btn btn-info" data-bs-toggle="modal"
                                                     data-bs-target="#detailModalabsensi{{ $a->idAbsensi }}"><i
                                                         class="fa fa-edit"></i></button>
                                                 <form action="{{ route('absensi.destroy', $a->idAbsensi) }}"
@@ -337,7 +332,7 @@
                                                     <button type="submit" class="btn btn-danger"
                                                         onclick="return confirm('Apa anda yakin menghapus data tersebut?')"><i
                                                             class="fa fa-trash"></i></a>
-                                                </form>
+                                                </form> --}}
                                             </td>
                                         </tr>
                                     @endif

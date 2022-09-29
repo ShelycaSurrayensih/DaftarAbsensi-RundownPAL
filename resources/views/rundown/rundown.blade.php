@@ -58,12 +58,13 @@ Table Rundown
 								<thead>
 									<tr>
 										<th>No</th>
+                                        <th>Qr-Code</th>
                                         <th>Kode Rundown</th>
                                         <th>Tahun</th>
 										<th>Nama Acara </th>
 										<th>Lokasi</th>
-										<th>Tanggal Mulai</th>
-                                        <th>Tanggal Selesai</th>
+										<th>Tanggal </th>
+                                        {{-- <th>Tanggal Selesai</th> --}}
                                         <th>Suncar</th>
                                         <th>Data Absensi</th>
 										<th>Action</th>
@@ -230,12 +231,13 @@ Table Rundown
 <!--End Modal Detail-->
                     <tr>
                         <td class="text-center">{{ $loop->iteration }}</td>
+                        <td class="text-center">{!! QrCode::size(50)->generate(url('absensi/'.$r->idRundowns)); !!}</td>
                         <td class="text-center">PAL-{{ $r->idRundowns }}</td>
                         <td class="text-center">{{ $r->tahun }}</td>
                         <td class="text-center">{{ $r->namaAcara}}</td>
                         <td class="text-center">{{ $r->lokasi}}</td>
-                        <td class="text-center">{{ date('d-m-Y', strtotime($r->tanggalMulai))}}</td>
-                        <td class="text-center">{{ date('d-m-Y', strtotime($r->tanggalSelesai))}}</td>
+                        <td class="text-center">{{ date('d/m/Y', strtotime($r->tanggalMulai))}} - {{ date('d/m/Y', strtotime($r->tanggalSelesai))}}</td>
+                        {{-- <td class="text-center">{{ date('d-m-Y', strtotime($r->tanggalSelesai))}}</td> --}}
                         <td class="text-center"><a type="button" class="btn btn-info light" href="{{ route('suncar.suncar', $r->idRundowns) }}">Detail</a></td>
                         <td class="text-center"><a type="button" class="btn btn-info light" href="{{ route('absensi.absensi', $r->idRundowns) }}">Detail</a></td>
                         <td class="text-center">
