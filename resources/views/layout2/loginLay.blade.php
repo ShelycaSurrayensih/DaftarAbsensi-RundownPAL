@@ -22,7 +22,7 @@
     <title>Tixia - Crypto Codeigniter Admin Dashboard </title>
     <!-- Favicon icon -->
 
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/images/favicon-pal.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/images/favicon.png') }}">
 
     <link href="{{asset('assets/vendor/datatables/css/jquery.dataTables.min.css')}}" rel="stylesheet" type="text/css"/>
 

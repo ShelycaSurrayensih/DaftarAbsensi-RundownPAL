@@ -40,7 +40,8 @@
     <!--**********************************  Content body start ***********************************-->
     <div class="content-body rightside-event">
         <!-- row -->
-        < <!--Total Visitor-->
+        <!--Total Visitor-->
+        <br>
             <div class="row">
                 <div class="col-xl-4 col-sm-4">
                     <div class="widget-stat card">
@@ -136,7 +137,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-6 col-xxxl-12 col-lg-6">
+                {{-- <div class="col-xl-6 col-xxxl-12 col-lg-6">
                     <div class="card">
                         <div class="card-header border-0 pb-3 d-sm-flex d-block ">
                             <h4 class="card-title">Latest Sales</h4>
@@ -299,7 +300,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> --}}
             </div>
     </div>
     </div>

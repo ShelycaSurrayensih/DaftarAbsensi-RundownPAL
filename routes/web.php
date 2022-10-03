@@ -40,6 +40,12 @@ Route::get('/house/{id}', [App\Http\Controllers\HouseController::class, 'index']
 
 Route::get('/pengunjung/{id}', [PengunjungController::class, 'index'])->name('pengunjung.pengunjung');
 
+Route::get('/qr-code', [QrCodeGeneratorController::class, 'index']);
+
+Route::get('/absensi/{id}', [SignaturePadController::class, 'index'])->name('absensi.signature');
+Route::post('/absensi', [SignaturePadController::class, 'upload'])->name('signaturepad.upload');
+
+
 Route::group(['middleware'=>'auth'], function(){
     Route::get('/', [HomeController::class, 'index'])->name('index.index');
     Route::get('/dataabsensi/{id}', [AbsensiController::class, 'index'])->name('absensi.absensi');
@@ -62,9 +68,8 @@ Route::group(['middleware'=>'auth'], function(){
     Route::put('/suncar/{id}', [SuncarController::class, 'update'])->name('suncar.update');
     Route::get('/suncar/{id}', [SuncarController::class, 'index'])->name('suncar.suncar');
     Route::get('/suncar/pdf/{id}', [SuncarController::class, 'pdf'])->name('suncar.pdf');
-    Route::get('/absensi/{id}', [SignaturePadController::class, 'index'])->name('absensi.signature');
-    Route::post('/absensi', [SignaturePadController::class, 'upload'])->name('signaturepad.upload');
-    Route::get('/qr-code', [QrCodeGeneratorController::class, 'index']);
+
+    // Route::get('/qr-code', [QrCodeGeneratorController::class, 'index']);
     // Route::get('/absensi', [UserabsensiController::class, 'index'])->name('absensiUser');
     // Route::post('/absensi', [UserabsensiController::class, 'store'])->name('userabsensi.store');
 });

@@ -7,7 +7,9 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Login') }}</title>
+    <title>Login</title>
+
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/images/favicon-pal.png') }}">
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>

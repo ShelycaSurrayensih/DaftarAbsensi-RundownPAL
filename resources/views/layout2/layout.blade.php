@@ -33,8 +33,19 @@
 
     <link href="{{asset('assets/vendor/fullcalendar/css/fullcalendar.min.css')}}" rel="stylesheet" type="text/css"/>
 
-    <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('assets/css/style3.css') }}" rel="stylesheet" type="text/css" />
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
+    <style>
+        /* mengatur ukuran canvas tanda tangan  */
+        canvas {
+            border: 1px solid #ccc;
+            border-radius: 0.5rem;
+            width: 100%;
+            height: 400px;
+        }
+    </style>
 
 </head>

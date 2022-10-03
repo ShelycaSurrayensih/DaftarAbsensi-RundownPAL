@@ -22,7 +22,7 @@
     <title>Tixia - Crypto Codeigniter Admin Dashboard </title>
     <!-- Favicon icon -->
 
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/images/favicon-pal.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/images/favicon.png') }}">
 
     <link href="{{asset('assets/vendor/datatables/css/jquery.dataTables.min.css')}}" rel="stylesheet" type="text/css"/>
 
@@ -54,6 +54,13 @@
 
     <!--********************************** Main wrapper start ***********************************-->
     <div id="main-wrapper">
+
+        <!--**********************************  Nav header start ***********************************-->
+        @include('layout.header')
+        <!--**********************************  Header end ti-comment-alt ***********************************-->
+        <!--**********************************  Sidebar start ***********************************-->
+        @include('layout.sidebar')
+        <!--**********************************  Sidebar end ***********************************-->
         <!--**********************************  EventList ***********************************-->
         @yield('content')
         <!--********************************** Content body end ***********************************-->

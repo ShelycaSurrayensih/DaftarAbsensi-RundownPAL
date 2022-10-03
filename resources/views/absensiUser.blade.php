@@ -1,131 +1,110 @@
-<html>
-
-<head>
-    {{-- <link rel="stylesheet" type="text/css"
-        href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.css">
-
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <link type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/south-street/jquery-ui.css"
-        rel="stylesheet">
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-    <script type="text/javascript" src="http://keith-wood.name/js/jquery.signature.js"></script>
-
-    <link rel="stylesheet" type="text/css" href="http://keith-wood.name/css/jquery.signature.css"> --}}
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-
-    <style>
-        /* mengatur ukuran canvas tanda tangan  */
-        canvas {
-            border: 1px solid #ccc;
-            border-radius: 0.5rem;
-            width: 100%;
-            height: 400px;
-        }
-    </style>
-    <title>Form Absensi</title>
-
-</head>
-
-<body class="bg-dark">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6 offset-md-3 mt-5">
-                <div class="card">
-                    <div class="card-body">
-                        @if ($message = Session::get('success'))
-                            <div class="alert alert-success  alert-dismissible">
-                                <button type="button" class="close" data-dismiss="alert">×</button>
-                                <strong>{{ $message }}</strong>
-                            </div>
-                        @endif
-                        <form method="POST" action="{{ route('signaturepad.upload') }}">
-                            @csrf
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <input id="idRundowns" type="text" name="idRundowns" class="form-control"
-                                        value="{{ $rundownDetail->idRundowns }}" hidden>
-                                    <div class="form-group form-group-default">
-                                        <label>Acara</label>
-                                        <input id="" type="text" name="" class="form-control"
-                                            value="{{ $rundownDetail->namaAcara }}" readonly>
-                                    </div>
+@extends('layout2.master')
+@section('header')
+    Absensi
+@endsection
+@section('judul')
+    Absensi
+@endsection
+@section('content')
+    <div class="content-body">
+        <div class="container-fluid" style="padding-top: 0px">
+            <div class="row">
+                <div class="col-md-6 offset-md-3 mt-5">
+                    <div class="card">
+                        <div class="card-body">
+                            @if ($message = Session::get('success'))
+                                <div class="alert alert-success  alert-dismissible">
+                                    <button type="button" class="close" data-dismiss="alert">×</button>
+                                    <strong>{{ $message }}</strong>
                                 </div>
-                                <div class="col-sm-12">
-                                    <div class="form-group form-group-default">
-                                        <label>Tanggal</label>
-                                        <input id="tanggal" type="date" name="tanggal" class="form-control"
-                                            value="{{ date('Y-m-d', strtotime(Carbon\Carbon::today()->toDateString())) }}"
-                                            readonly>
+                            @endif
+                            <form method="POST" action="{{ route('signaturepad.upload') }}">
+                                @csrf
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <input id="idRundowns" type="text" name="idRundowns" class="form-control"
+                                            value="{{ $rundownDetail->idRundowns }}" hidden>
+                                        <div class="form-group form-group-default">
+                                            <label>Acara</label>
+                                            <input id="" type="text" name="" class="form-control"
+                                                value="{{ $rundownDetail->namaAcara }}" readonly>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-sm-12">
-                                    <div class="form-group form-group-default">
-                                        <label>Nama</label>
-                                        <input id="nama" type="text" name="nama" class="form-control"
-                                            placeholder="Masukkan Nama">
+                                    <div class="col-sm-12">
+                                        <div class="form-group form-group-default">
+                                            <label>Tanggal</label>
+                                            <input id="tanggal" type="date" name="tanggal" class="form-control"
+                                                value="{{ date('Y-m-d', strtotime(Carbon\Carbon::today()->toDateString())) }}"
+                                                readonly>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-sm-12">
-                                    <div class="form-group form-group-default">
-                                        <label>Jabatan</label>
-                                        <input id="jabatan" type="text" name="jabatan" class="form-control"
-                                            placeholder="Masukkan Jabatan">
+                                    <div class="col-sm-12">
+                                        <div class="form-group form-group-default">
+                                            <label>Nama</label>
+                                            <input id="nama" type="text" name="nama" class="form-control"
+                                                placeholder="Masukkan Nama">
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-sm-12">
-                                    <div class="form-group form-group-default">
-                                        <label>Instansi</label>
-                                        <input id="instansi" type="text" name="instansi" class="form-control"
-                                            placeholder="Masukkan instansi">
+                                    <div class="col-sm-12">
+                                        <div class="form-group form-group-default">
+                                            <label>Jabatan</label>
+                                            <input id="jabatan" type="text" name="jabatan" class="form-control"
+                                                placeholder="Masukkan Jabatan">
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-sm-12">
-                                    <div class="form-group form-group-default">
-                                        <label>No Hp</label>
-                                        <input id="telp" type="text" name="telp" class="form-control"
-                                            placeholder="Masukkan No Hp">
+                                    <div class="col-sm-12">
+                                        <div class="form-group form-group-default">
+                                            <label>Instansi</label>
+                                            <input id="instansi" type="text" name="instansi" class="form-control"
+                                                placeholder="Masukkan instansi">
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-md-12">
-                                    <label class="" for="">Signature:</label>
-                                    <canvas id="tandatangan" class="signature-pad" name="tandatangan"></canvas>
-                                    <!-- tombol submit  -->
-                                    <div style="float: left;">
-                                        <button id="btn-submit" class="btn btn-primary">
-                                            Submit
-                                        </button>
+                                    <div class="col-sm-12">
+                                        <div class="form-group form-group-default">
+                                            <label>No Hp</label>
+                                            <input id="telp" type="number" name="telp" class="form-control"
+                                                placeholder="Masukkan No Hp">
+                                        </div>
                                     </div>
+                                    <div class="col-md-12">
+                                        <label class="" for="">Signature:</label>
+                                        <canvas id="tandatangan" class="signature-pad"></canvas>
+                                        <!-- tombol submit  -->
+                                        <div style="float: left;">
+                                            <button id="btn-submit" class="btn btn-primary">
+                                                Submit
+                                            </button>
+                                        </div>
 
-                                    <div style="float: right;">
-                                        <!-- tombol ganti warna  -->
-                                        <button type="button" class="btn btn-success" id="change-color">
-                                            Change Color
-                                        </button>
+                                        <div style="float: right;">
+                                            <!-- tombol ganti warna  -->
+                                            {{-- <button type="button" class="btn btn-success" id="change-color">
+                                                Change Color
+                                            </button> --}}
 
-                                        <!-- tombol undo  -->
-                                        <button type="button" class="btn btn-dark" id="undo">
-                                            <span class="fas fa-undo"></span>
-                                            Undo
-                                        </button>
+                                            <!-- tombol undo  -->
+                                            <button type="button" class="btn btn-dark" id="undo">
+                                                <span class="fas fa-undo"></span>
+                                                Undo
+                                            </button>
 
-                                        <!-- tombol hapus tanda tangan  -->
-                                        <button type="button" class="btn btn-danger" id="clear">
-                                            <span class="fas fa-eraser"></span>
-                                            Clear
-                                        </button>
+                                            <!-- tombol hapus tanda tangan  -->
+                                            <button type="button" class="btn btn-danger" id="clear">
+                                                <span class="fas fa-eraser"></span>
+                                                Clear
+                                            </button>
+                                        </div>
+                                        {{-- <br />
+                                        <div id="sig"></div>
+                                        <br />
+                                        <button id="clear" class="btn btn-danger btn-sm">Clear Signature</button>
+                                        <textarea id="tandatangan" name="tandatangan" style="display: none"></textarea> --}}
                                     </div>
                                     {{-- <br />
-                                    <div id="sig"></div>
-                                    <br />
-                                    <button id="clear" class="btn btn-danger btn-sm">Clear Signature</button>
-                                    <textarea id="tandatangan" name="tandatangan" style="display: none"></textarea> --}}
+                                    <button class="btn btn-success">Save</button> --}}
                                 </div>
-                                {{-- <br />
-                                <button class="btn btn-success">Save</button> --}}
-                            </div>
-                        </form>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -201,6 +180,6 @@
             })
         })
     </script>
-</body>
+@endsection
 
-</html>
+
