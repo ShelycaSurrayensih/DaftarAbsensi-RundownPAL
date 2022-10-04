@@ -17,7 +17,7 @@ Table Suncar
 		<div class="card-header border-0 pb-0">
 			<h4 class="text-black">Susunan Acara Terkini</h4>
 		</div>
-		@foreach ($data as $g)
+		{{-- @foreach ($data as $g)
         <div class="card-body">
             <div class="media mb-5 align-items-center event-list">
                 <div class="p-3 text-center rounded me-3 date-bx bgl-primary">
@@ -31,7 +31,7 @@ Table Suncar
                 </div>
             </div>
         </div>
-    @endforeach
+    @endforeach --}}
 </div>
 
 </div>
@@ -83,6 +83,14 @@ Table Suncar
                                 </tr>
                             </table>
                         </div><hr style="height:4px;border-width:4;color:rgb(0, 0, 0);background-color:rgb(0, 0, 0)">
+                        <div class="row g-3 align-items-center">
+                            <div class="col-auto">
+                                <form action="/suncar" method="GET">
+                                    <input type="search" id="inputPassword6" name="search" class="form-control"
+                                        aria-describedby="passwordHelpInline" placeholder="Search here...">
+                                </form>
+                            </div>
+                        </div>
                         <a href="{{ route('suncar.pdf', $rundownDetail->idRundowns) }}">
                             <button type="onClick" class="btn btn-primary mb-2">Print All</button>
                         </a>

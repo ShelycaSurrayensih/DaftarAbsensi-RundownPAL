@@ -10,10 +10,26 @@ use RealRashid\SweetAlert\Facades\Alert;
 
 class RundownController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
+        if ($request->has('search')) {
+
+            $visitor_lists = Rundown::orderBy('created_at', 'DESC')->get();
+            $datetime = Carbon::now();
+            $current_date = Rundown::whereDate('created_at', Carbon::today())->get(['namaAcara', 'created_at']);
+            $current_week = Rundown::whereBetween('created_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])->get();
+            $current_month = Rundown::whereMonth('created_at', date('m'))
+                ->whereYear('created_at', date('Y'))
+                ->get(['namaAcara', 'created_at']);
+            // $rundown = Rundown::all();
+            $rundown = Rundown::where('namaAcara', 'LIKE', '%' . $request->search . '%')->paginate(10);
+            return view('rundown.rundown', compact('rundown', 'visitor_lists', 'current_date', 'current_week', 'current_month', 'datetime'))
+                ->with('i', (request()->input('page', 1) - 1) * 10);
+        } else {
+            $data = Rundown::latest()->paginate(10);
+        }
+
         $visitor_lists = Rundown::orderBy('created_at', 'DESC')->get();
-        $data = Rundown::latest()->paginate(10);
 
         $datetime = Carbon::now();
         $current_date = Rundown::whereDate('created_at', Carbon::today())->get(['namaAcara', 'created_at']);
@@ -22,7 +38,7 @@ class RundownController extends Controller
             ->whereYear('created_at', date('Y'))
             ->get(['namaAcara', 'created_at']);
         $rundown = Rundown::all();
-        return view('rundown.rundown', compact('rundown','visitor_lists', 'data', 'current_date', 'current_week', 'current_month', 'datetime'))
+        return view('rundown.rundown', compact('rundown', 'visitor_lists', 'data', 'current_date', 'current_week', 'current_month', 'datetime'))
             ->with('i', (request()->input('page', 1) - 1) * 10);
     }
 
