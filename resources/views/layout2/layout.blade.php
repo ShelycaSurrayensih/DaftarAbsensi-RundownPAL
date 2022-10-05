@@ -35,17 +35,11 @@
 
     <link href="{{ asset('assets/css/style3.css') }}" rel="stylesheet" type="text/css" />
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" integrity="sha512-aOG0c6nPNzGk+5zjwyJaoRUgCdOrfSDhmMID2u4+OIslr0GjpLKo7Xm0Ao3xmpM4T8AmIouRkqwj1nrdVsLKEQ==" crossorigin="anonymous" />
+    <link rel="stylesheet" type="text/css" href="http://keith-wood.name/css/jquery.signature.css">
     <style>
-        /* mengatur ukuran canvas tanda tangan  */
-        canvas {
-            border: 1px solid #ccc;
-            border-radius: 0.5rem;
-            width: 100%;
-            height: 400px;
-        }
+        .kbw-signature { width: 100%; height: 200px;}
+        #sig canvas{ width: 100% !important; height: auto;}
     </style>
-
 </head>

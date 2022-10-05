@@ -16,7 +16,7 @@ class CreateRundownsTable extends Migration
         Schema::create('rundowns', function (Blueprint $table) {
             $table->id('idRundowns');
             $table->string('tahun');
-            $table->string('namaAcara');
+            $table->text('namaAcara');
             $table->string('lokasi');
             $table->date('tanggalMulai');
             $table->date('tanggalSelesai');

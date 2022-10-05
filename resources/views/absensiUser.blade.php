@@ -6,180 +6,89 @@
     Absensi
 @endsection
 @section('content')
-    <div class="content-body">
-        <div class="container-fluid" style="padding-top: 0px">
-            <div class="row">
-                <div class="col-md-6 offset-md-3 mt-5">
-                    <div class="card">
-                        <div class="card-body">
-                            @if ($message = Session::get('success'))
-                                <div class="alert alert-success  alert-dismissible">
-                                    <button type="button" class="close" data-dismiss="alert">×</button>
-                                    <strong>{{ $message }}</strong>
+<div class="content-body">
+    <div class="container-fluid" style="padding-top: 0px">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                         @if ($message = Session::get('success'))
+                             <div class="alert alert-success  alert-dismissible">
+                                 <button type="button" class="close" data-dismiss="alert">×</button>
+                                 <strong>{{ $message }}</strong>
+                             </div>
+                         @endif
+                         <form method="POST" action="{{ route('signaturepad.upload') }}">
+                             @csrf
+                             <div class="col-md-12">
+                                <input type="text" id="idRundowns" name="idRundowns" class="form-control" value="{{$rundownDetail->idRundowns}}" hidden>
+                                <div class="form-group form-group-default">
+                                    <label>Acara</label>
+                                    <input type="text" id="" name="" class="form-control" value="{{ $rundownDetail->namaAcara }}" readonly>
                                 </div>
-                            @endif
-                            <form method="POST" action="{{ route('signaturepad.upload') }}">
-                                @csrf
-                                <div class="row">
-                                    <div class="col-sm-12">
-                                        <input id="idRundowns" type="text" name="idRundowns" class="form-control"
-                                            value="{{ $rundownDetail->idRundowns }}" hidden>
-                                        <div class="form-group form-group-default">
-                                            <label>Acara</label>
-                                            <input id="" type="text" name="" class="form-control"
-                                                value="{{ $rundownDetail->namaAcara }}" readonly>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-12">
-                                        <div class="form-group form-group-default">
-                                            <label>Tanggal</label>
-                                            <input id="tanggal" type="date" name="tanggal" class="form-control"
-                                                value="{{ date('Y-m-d', strtotime(Carbon\Carbon::today()->toDateString())) }}"
-                                                readonly>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-12">
-                                        <div class="form-group form-group-default">
-                                            <label>Nama</label>
-                                            <input id="nama" type="text" name="nama" class="form-control"
-                                                placeholder="Masukkan Nama">
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-12">
-                                        <div class="form-group form-group-default">
-                                            <label>Jabatan</label>
-                                            <input id="jabatan" type="text" name="jabatan" class="form-control"
-                                                placeholder="Masukkan Jabatan">
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-12">
-                                        <div class="form-group form-group-default">
-                                            <label>Instansi</label>
-                                            <input id="instansi" type="text" name="instansi" class="form-control"
-                                                placeholder="Masukkan instansi">
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-12">
-                                        <div class="form-group form-group-default">
-                                            <label>No Hp</label>
-                                            <input id="telp" type="number" name="telp" class="form-control"
-                                                placeholder="Masukkan No Hp">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-12">
-                                        <label class="" for="">Signature:</label>
-                                        <canvas id="tandatangan" class="signature-pad"></canvas>
-                                        <!-- tombol submit  -->
-                                        <div style="float: left;">
-                                            <button id="btn-submit" class="btn btn-primary">
-                                                Submit
-                                            </button>
-                                        </div>
-
-                                        <div style="float: right;">
-                                            <!-- tombol ganti warna  -->
-                                            {{-- <button type="button" class="btn btn-success" id="change-color">
-                                                Change Color
-                                            </button> --}}
-
-                                            <!-- tombol undo  -->
-                                            <button type="button" class="btn btn-dark" id="undo">
-                                                <span class="fas fa-undo"></span>
-                                                Undo
-                                            </button>
-
-                                            <!-- tombol hapus tanda tangan  -->
-                                            <button type="button" class="btn btn-danger" id="clear">
-                                                <span class="fas fa-eraser"></span>
-                                                Clear
-                                            </button>
-                                        </div>
-                                        {{-- <br />
-                                        <div id="sig"></div>
-                                        <br />
-                                        <button id="clear" class="btn btn-danger btn-sm">Clear Signature</button>
-                                        <textarea id="tandatangan" name="tandatangan" style="display: none"></textarea> --}}
-                                    </div>
-                                    {{-- <br />
-                                    <button class="btn btn-success">Save</button> --}}
+                             </div>
+                             <div class="col-sm-12">
+                                <div class="form-group form-group-default">
+                                    <label>Tanggal</label>
+                                    <input id="tanggal" type="date" name="tanggal" class="form-control"
+                                        value="{{ date('Y-m-d', strtotime(Carbon\Carbon::today()->toDateString())) }}"
+                                        readonly>
                                 </div>
-                            </form>
-                        </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="form-group form-group-default">
+                                    <label>Nama</label>
+                                    <input id="nama" type="text" name="nama" class="form-control"
+                                        placeholder="Masukkan Nama">
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="form-group form-group-default">
+                                    <label>Jabatan</label>
+                                    <input id="jabatan" type="text" name="jabatan" class="form-control"
+                                        placeholder="Masukkan Jabatan">
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="form-group form-group-default">
+                                    <label>Instansi</label>
+                                    <input id="instansi" type="text" name="instansi" class="form-control"
+                                        placeholder="Masukkan instansi">
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="form-group form-group-default">
+                                    <label>No Hp</label>
+                                    <input id="telp" type="number" name="telp" class="form-control"
+                                        placeholder="Masukkan No Hp">
+                                </div>
+                            </div>
+                             <div class="col-md-12">
+                                 <label class="" for="">Tanda Tangan</label>
+                                 <br/>
+                                 <div id="sig"></div>
+                                 <br><br>
+                                 <button id="clear" class="btn btn-danger">Clear Signature</button>
+                                 <button class="btn btn-success">Save</button>
+                                 <textarea id="tandatangan" name="tandatangan" style="display: none"></textarea>
+                             </div>
+                         </form>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/signature_pad@2.3.2/dist/signature_pad.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/js/bootstrap.min.js"></script>
-    <script>
-        // script di dalam ini akan dijalankan pertama kali saat dokumen dimuat
-        document.addEventListener('DOMContentLoaded', function () {
-            resizeCanvas();
-        })
-
-        //script ini berfungsi untuk menyesuaikan tanda tangan dengan ukuran canvas
-        function resizeCanvas() {
-            var ratio = Math.max(window.devicePixelRatio || 1, 1);
-            canvas.width = canvas.offsetWidth * ratio;
-            canvas.height = canvas.offsetHeight * ratio;
-            canvas.getContext("2d").scale(ratio, ratio);
-        }
-
-
-        var canvas = document.getElementById('tandatangan');
-
-        //warna dasar signaturepad
-        var signaturePad = new SignaturePad(canvas, {
-            backgroundColor: 'rgb(255, 255, 255)'
-        });
-
-        //saat tombol clear diklik maka akan menghilangkan seluruh tanda tangan
-        document.getElementById('clear').addEventListener('click', function () {
-            signaturePad.clear();
-        });
-
-        //saat tombol undo diklik maka akan mengembalikan tanda tangan sebelumnya
-        document.getElementById('undo').addEventListener('click', function () {
-            var data = signaturePad.toData();
-            if (data) {
-                data.pop(); // remove the last dot or line
-                signaturePad.fromData(data);
-            }
-        });
-
-        //saat tombol change color diklik maka akan merubah warna pena
-        document.getElementById('change-color').addEventListener('click', function () {
-
-            //jika warna pena biru maka buat menjadi hitam dan sebaliknya
-            if(signaturePad.penColor == "rgba(0, 0, 255, 1)"){
-
-                signaturePad.penColor = "rgba(0, 0, 0, 1)";
-            }else{
-                signaturePad.penColor = "rgba(0, 0, 255, 1)";
-            }
-        })
-
-        //fungsi untuk menyimpan tanda tangan dengan metode ajax
-        $(document).on('click', '#btn-submit', function () {
-            var signature = signaturePad.toDataURL();
-
-            $.ajax({
-                url: "",
-                data: {
-                    foto: signature,
-                },
-                method: "POST",
-                success: function () {
-                    location.reload();
-                    alert('Tanda Tangan Berhasil Disimpan');
-                }
-
-            })
-        })
-    </script>
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="http://keith-wood.name/js/jquery.signature.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js" ></script>
+<script type="text/javascript">
+    var sig = $('#sig').signature({syncField: '#tandatangan', syncFormat: 'PNG'});
+    $('#clear').click(function(e) {
+        e.preventDefault();
+        sig.signature('clear');
+        $("#tandatangan").val('');
+    });
+</script>
 @endsection
-
-
