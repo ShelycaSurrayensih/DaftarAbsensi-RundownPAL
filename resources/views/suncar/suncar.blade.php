@@ -3,7 +3,21 @@
     Data Suncar
 @endsection
 @section('judul')
-Table Suncar
+    Table Suncar
+@endsection
+@section('pencarian')
+    <form action="{{route('suncar.suncar', $rundownDetail->idRundowns)}}" class="form" method="GET">
+        <li class="nav-item dropdown notification_dropdown">
+            <div class="input-group search-area">
+                <input type="text" class="form-control" name="search" id="search" placeholder="Search here...">
+                <span class="input-group-text">
+                    <button class="btn" type="submit">
+                        <i class="flaticon-381-search-2"></i>
+                    </button>
+                </span>
+            </div>
+        </li>
+    </form>
 @endsection
 @section('content')
 
@@ -83,14 +97,14 @@ Table Suncar
                                 </tr>
                             </table>
                         </div><hr style="height:4px;border-width:4;color:rgb(0, 0, 0);background-color:rgb(0, 0, 0)">
-                        <div class="row g-3 align-items-center">
+                        {{-- <div class="row g-3 align-items-center">
                             <div class="col-auto">
                                 <form action="/suncar" method="GET">
                                     <input type="search" id="inputPassword6" name="search" class="form-control"
                                         aria-describedby="passwordHelpInline" placeholder="Search here...">
                                 </form>
                             </div>
-                        </div>
+                        </div> --}}
                         <a href="{{ route('suncar.pdf', $rundownDetail->idRundowns) }}">
                             <button type="onClick" class="btn btn-primary mb-2">Print All</button>
                         </a>

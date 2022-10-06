@@ -3,7 +3,21 @@
     Data Absensi
 @endsection
 @section('judul')
-    Table Absensi
+    Data Absensi
+@endsection
+@section('pencarian')
+    <form action="{{route('absensi.absensi', $absensiDetail->idRundowns)}}" class="form" method="GET">
+        <li class="nav-item dropdown notification_dropdown">
+            <div class="input-group search-area">
+                <input type="text" class="form-control" name="search" id="search" placeholder="Search here...">
+                <span class="input-group-text">
+                    <button class="btn" type="submit">
+                        <i class="flaticon-381-search-2"></i>
+                    </button>
+                </span>
+            </div>
+        </li>
+    </form>
 @endsection
 @section('content')
     <div class="event-sidebar dz-scroll " id="eventSidebar">
@@ -85,12 +99,12 @@
                         </table>
                     </div>
                     <hr style="height:4px;border-width:4;color:rgb(0, 0, 0);background-color:rgb(0, 0, 0)">
-                    <div class="row g-3 align-items-center">
+                    {{-- <div class="row g-3 align-items-center">
                         <div class="col-auto">
                             <input type="search" id="inputPassword6" class="form-control"
                                 aria-describedby="passwordHelpInline" placeholder="Search here..."  >
                         </div>
-                    </div>
+                    </div> --}}
                     <a href="{{ route('absensi.pdf', $absensiDetail->idRundowns) }}">
                         <button type="onClick" class="btn btn-primary mb-2">Print All</button>
                     </a>

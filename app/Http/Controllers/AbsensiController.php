@@ -16,8 +16,27 @@ class AbsensiController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($id)
+    public function index($id, Request $request)
     {
+        if ($request->has('search')) {
+            $visitor_lists = Absensi::orderBy('created_at', 'DESC')->get();
+            $data = Absensi::latest()->paginate(10);
+
+            $datetime = Carbon::now();
+            $current_date = Absensi::whereDate('created_at', Carbon::today())->get(['nama', 'created_at']);
+            $current_week = Absensi::whereBetween('created_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])->get();
+            $current_month = Absensi::whereMonth('created_at', date('m'))
+                ->whereYear('created_at', date('Y'))
+                ->get(['nama', 'created_at']);
+            $rundown = Rundown::all();
+            $absensi = Absensi::where('nama', 'LIKE', '%'. $request->search. '%')
+                                ->orWhere('jabatan', 'LIKE', '%'. $request->search. '%')
+                                ->orWhere('instansi', 'LIKE', '%'. $request->search. '%')
+                                ->paginate(10);
+            $absensiDetail = Rundown::where('idRundowns', $id)->first();
+            return view('absensi.absensi', compact('absensi', 'absensiDetail', 'rundown','visitor_lists', 'data', 'current_date', 'current_week', 'current_month', 'datetime', 'id'))
+                ->with('i', (request()->input('page', 1) - 1) * 10);
+        }
         $visitor_lists = Absensi::orderBy('created_at', 'DESC')->get();
         $data = Absensi::latest()->paginate(10);
 

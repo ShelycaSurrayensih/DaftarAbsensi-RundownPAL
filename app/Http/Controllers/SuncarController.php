@@ -16,8 +16,29 @@ class SuncarController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($id)
+    public function index($id, Request $request)
     {
+        if ($request->has('search')) {
+
+            $visitor_lists = Rundown::orderBy('created_at', 'DESC')->get();
+            $datetime = Carbon::now();
+            $current_date = Rundown::whereDate('created_at', Carbon::today())->get(['namaAcara', 'created_at']);
+            $current_week = Rundown::whereBetween('created_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])->get();
+            $current_month = Rundown::whereMonth('created_at', date('m'))
+                ->whereYear('created_at', date('Y'))
+                ->get(['namaAcara', 'created_at']);
+            // $rundown = Rundown::all();
+            $rundown = Rundown::all();
+
+            $rundownDetail = Rundown::where('idRundowns', $id)->first();
+            $suncar = Suncar::orderBy('tanggal')->orderBy('waktuMulai')
+                    ->where('namaKegiatan', 'LIKE', '%' . $request->search . '%')
+                    ->orWhere('pj', 'LIKE', '%'.$request->search.'%')
+                    ->paginate(10);
+            return view('suncar.suncar', compact('suncar','id', 'rundownDetail','rundown','visitor_lists', 'current_date', 'current_week', 'current_month', 'datetime'))
+            ->with('i', (request()->input('page', 1) - 1) * 10);
+        }
+
         $visitor_lists = Suncar::orderBy('created_at', 'DESC')->get();
         $data = Suncar::latest()->paginate(10);
 

@@ -5,6 +5,20 @@
 @section('judul')
     Table Rundown
 @endsection
+@section('pencarian')
+    <form action="{{route('rundown.rundown')}}" class="form" method="GET">
+        <li class="nav-item dropdown notification_dropdown">
+            <div class="input-group search-area">
+                <input type="text" class="form-control" name="search" id="search" placeholder="Search here..." value="{{request('search')}}">
+                <span class="input-group-text">
+                    <button class="btn" type="submit">
+                        <i class="flaticon-381-search-2"></i>
+                    </button>
+                </span>
+            </div>
+        </li>
+    </form>
+@endsection
 @section('content')
     <div class="event-sidebar dz-scroll " id="eventSidebar">
         <div class="card shadow-none rounded-0 bg-transparent h-auto mb-0">
@@ -49,14 +63,14 @@
         </div>
         <div class="col-12">
             <div class="card">
-                <div class="row g-3 align-items-center">
+                {{-- <div class="row g-3 align-items-center">
                     <div class="col-auto">
                         <form action="/rundown" method="GET">
                             <input type="search" id="inputPassword6" name="search" class="form-control"
                                 aria-describedby="passwordHelpInline" placeholder="Search here...">
                         </form>
                     </div>
-                </div>
+                </div> --}}
                 <div class="col-md-40 col-sm-12 text-right" style="text-align: right">
                     <button type="button" class="btn btn-primary mb-2" data-bs-toggle="modal"
                         data-bs-target="#addModalrundown">Add Data</button>

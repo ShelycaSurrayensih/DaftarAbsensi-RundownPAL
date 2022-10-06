@@ -659,13 +659,7 @@
                 </div>
 
                 <ul class="navbar-nav header-right">
-                    {{-- <li class="nav-item dropdown notification_dropdown">
-                        <div class="input-group search-area">
-                            <input type="text" class="form-control" placeholder="Search here...">
-                            <span class="input-group-text"><a href="javascript:void(0)"><i
-                                        class="flaticon-381-search-2"></i></a></span>
-                        </div>
-                    </li> --}}
+                    @yield('pencarian')
                     {{-- <li class="row g-3 align-items-center">
                         <div class="col-auto">
                             <input type="search" id="inputPassword6" class="form-control"

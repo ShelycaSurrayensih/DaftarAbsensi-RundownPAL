@@ -22,7 +22,10 @@ class RundownController extends Controller
                 ->whereYear('created_at', date('Y'))
                 ->get(['namaAcara', 'created_at']);
             // $rundown = Rundown::all();
-            $rundown = Rundown::where('namaAcara', 'LIKE', '%' . $request->search . '%')->paginate(10);
+            $rundown = Rundown::where('namaAcara', 'LIKE', '%' . $request->search . '%')
+                                ->orWhere('tahun', 'LIKE', '%'.$request->search.'%')
+                                ->orWhere('lokasi', 'LIKE', '%'.$request->search.'%')
+                                ->paginate(10);
             return view('rundown.rundown', compact('rundown', 'visitor_lists', 'current_date', 'current_week', 'current_month', 'datetime'))
                 ->with('i', (request()->input('page', 1) - 1) * 10);
         } else {
