@@ -6,10 +6,11 @@
     Table Rundown
 @endsection
 @section('pencarian')
-    <form action="{{route('rundown.rundown')}}" class="form" method="GET">
+    <form action="{{ route('rundown.rundown') }}" class="form" method="GET">
         <li class="nav-item dropdown notification_dropdown">
             <div class="input-group search-area">
-                <input type="text" class="form-control" name="search" id="search" placeholder="Search here..." value="{{request('search')}}">
+                <input type="text" class="form-control" name="search" id="search" placeholder="Search here..."
+                    value="{{ request('search') }}">
                 <span class="input-group-text">
                     <button class="btn" type="submit">
                         <i class="flaticon-381-search-2"></i>
@@ -51,11 +52,11 @@
     </div>
 
     <!--**********************************
-     EventList END
-    ***********************************-->
+         EventList END
+        ***********************************-->
     <!--**********************************
-     Content body start
-    ***********************************-->
+         Content body start
+        ***********************************-->
     <div class="content-body">
         <div class="container-fluid">
             <ol class="breadcrumb">
@@ -98,8 +99,8 @@
 
 
                                 <!--**********************************
-     Content body end
-    ***********************************-->
+         Content body end
+        ***********************************-->
                                 @foreach ($rundown as $r)
                                     <!--start modal edit-->
                                     <div class="modal fade" id="editModalrundown{{ $r->idRundowns }}" tabindex="-1"
@@ -158,9 +159,8 @@
                                                         <div class="col-sm-4">
                                                             <div class="form-group form-group-default">
                                                                 <label>Tanggal Mulai</label>
-                                                                <input id="tanggalMulai" type="date"
-                                                                    name="tanggalMulai" value="{{ $r->tanggalMulai }}"
-                                                                    class="form-control"
+                                                                <input id="tanggalMulai" type="date" name="tanggalMulai"
+                                                                    value="{{ $r->tanggalMulai }}" class="form-control"
                                                                     placeholder="Masukkan Tanggal Mulai">
                                                             </div>
                                                         </div>
@@ -276,7 +276,41 @@
                                         <tr>
                                             <td class="text-center">{{ $loop->iteration }}</td>
                                             {{-- <td class="text-center">{!! QrCode::size(50)->generate(url('absensi/' . $r->idRundowns)) !!}</td> --}}
-                                            <td class="text-center"><img src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(50)->generate(url('absensi/'.$r->idRundowns))) !!} "></td>
+                                            {{-- <td class="text-center"><img src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(50)->generate(url('absensi/'.$r->idRundowns))) !!} "></td> --}}
+                                            <td class="text-center">
+                                                <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal"
+                                                    data-bs-target="#qrCode{{ $r->idRundowns }}">
+                                                    Lihat Qr Code
+                                                </button>
+
+                                                <!-- Modal -->
+                                                <div class="modal fade" id="qrCode{{ $r->idRundowns }}" tabindex="-1"
+                                                    role="dialog" aria-labelledby="exampleModalCenterTitle"
+                                                    aria-hidden="true">
+                                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title" id="exampleModalLongTitle" style="font-weight: bold">Qr Code Acara {{$r->namaAcara}}</h5>
+                                                                <button type="button" class="close"
+                                                                    data-bs-dismiss="modal" aria-label="Close">
+                                                                    <span aria-hidden="true">&times;</span>
+                                                                </button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <img src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(300)->generate(url('absensi/'.$r->idRundowns))) !!} ">
+                                                                <br><br>
+                                                                <a href="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(500)->generate(url('absensi/'.$r->idRundowns))) !!}" download="Qr Code Acara {{$r->namaAcara}}">Download Qr Code</a>
+                                                            </div>
+                                                            {{-- <div class="modal-footer">
+                                                                <button type="button" class="btn btn-secondary"
+                                                                    data-bs-dismiss="modal">Close</button>
+                                                                <button type="button" class="btn btn-primary">Save
+                                                                    changes</button>
+                                                            </div> --}}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </td>
                                             <td class="text-center">PAL-{{ $r->idRundowns }}</td>
                                             <td class="text-center">{{ $r->tahun }}</td>
                                             <td class="text-center">{{ $r->namaAcara }}</td>
