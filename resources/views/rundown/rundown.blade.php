@@ -280,7 +280,7 @@
                                             <td class="text-center">
                                                 <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal"
                                                     data-bs-target="#qrCode{{ $r->idRundowns }}">
-                                                    Lihat Qr Code
+                                                    Lihat Qr
                                                 </button>
 
                                                 <!-- Modal -->
