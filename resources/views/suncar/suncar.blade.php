@@ -56,47 +56,49 @@
 	Content body start
 ***********************************-->
 <div class="content-body">
-	<div class="container-fluid">
-			<ol class="breadcrumb">
-			</ol>
-		</div>
-			<div class="col-12">
-				<div class="card">
-                    <div class="col-lg-6 col-sm-12 text-right" style="text-align: right">
-                        <div style="text-align: left; padding-left: 50px"><br>
-                            <table class="display" style="border: 0px;color: black; font-size: 15pt">
-                                <tr>
-                                    <td style="font-weight: bold">Kode Rundown</td>
-                                    <td>&nbsp;:</td>
-                                    <td>PAL-{{$rundownDetail->idRundowns}}</td>
-                                </tr>
-                                <tr>
-                                    <td style="font-weight: bold">Tahun</td>
-                                    <td>&nbsp;:</td>
-                                    <td>{{$rundownDetail->tahun}}</td>
-                                </tr>
-                                <tr>
-                                    <td style="font-weight: bold">Nama Acara</td>
-                                    <td>&nbsp;:</td>
-                                    <td>{{$rundownDetail->namaAcara}}</td>
-                                </tr>
-                                <tr>
-                                    <td style="font-weight: bold">Lokasi</td>
-                                    <td>&nbsp;:</td>
-                                    <td>{{$rundownDetail->lokasi}}</td>
-                                </tr>
-                                <tr>
-                                    <td style="font-weight: bold">Tanggal Mulai</td>
-                                    <td>&nbsp;:</td>
-                                    <td>{{date('d F Y', strtotime($rundownDetail->tanggalMulai))}}</td>
-                                </tr>
-                                <tr>
-                                    <td style="font-weight: bold">Tanggal Selesai</td>
-                                    <td>&nbsp;:&nbsp;</td>
-                                    <td>{{date('d F Y', strtotime($rundownDetail->tanggalSelesai))}}</td>
-                                </tr>
-                            </table>
-                        </div><hr style="height:4px;border-width:4;color:rgb(0, 0, 0);background-color:rgb(0, 0, 0)">
+    <div class="container-fluid">
+        <div class="row page-titles">
+            <ol class="breadcrumb">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="col-md-40 col-sm-12 text-right" style="text-align: right">
+                            <div style="text-align: left; padding-left: 50px"><br>
+                                <table class="display" style="border: 0px;color: black; font-size: 15pt">
+                                    <tr>
+                                        <td style="font-weight: bold">Kode Rundown</td>
+                                        <td>&nbsp;:</td>
+                                        <td>PAL-{{$rundownDetail->idRundowns}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="font-weight: bold">Tahun</td>
+                                        <td>&nbsp;:</td>
+                                        <td>{{$rundownDetail->tahun}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="font-weight: bold">Nama Acara</td>
+                                        <td>&nbsp;:</td>
+                                        <td>{{$rundownDetail->namaAcara}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="font-weight: bold">Lokasi</td>
+                                        <td>&nbsp;:</td>
+                                        <td>{{$rundownDetail->lokasi}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="font-weight: bold">Tanggal Mulai</td>
+                                        <td>&nbsp;:</td>
+                                        <td>{{date('d F Y', strtotime($rundownDetail->tanggalMulai))}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="font-weight: bold">Tanggal Selesai</td>
+                                        <td>&nbsp;:&nbsp;</td>
+                                        <td>{{date('d F Y', strtotime($rundownDetail->tanggalSelesai))}}</td>
+                                    </tr>
+                                </table>
+                            </div>
+            </ol>
+        </div>
+
                         {{-- <div class="row g-3 align-items-center">
                             <div class="col-auto">
                                 <form action="/suncar" method="GET">
@@ -105,14 +107,21 @@
                                 </form>
                             </div>
                         </div> --}}
-                        <a href="{{ route('suncar.pdf', $rundownDetail->idRundowns) }}">
-                            <button type="onClick" class="btn btn-primary mb-2">Print All</button>
-                        </a>
-                        {{-- <button type="button" class="btn btn-primary mb-2" data-bs-toggle="modal" data-bs-target="#addModalsuncar">Print All</button> --}}
-                        <button type="button" class="btn btn-primary mb-2" data-bs-toggle="modal" data-bs-target="#addModalsuncar">Add Data</button>
-                    </div>
+
 
                     @include('suncar.addsuncar')
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <div class="col-md-40 col-sm-12 text-right" style="text-align: right">
+                                    <a href="{{ route('suncar.pdf', $rundownDetail->idRundowns) }}">
+                                        <button type="onClick" class="btn btn-primary mb-2">Print All</button>
+                                    </a>
+                                    {{-- <button type="button" class="btn btn-primary mb-2" data-bs-toggle="modal" data-bs-target="#addModalsuncar">Print All</button> --}}
+                                    <button type="button" class="btn btn-primary mb-2" data-bs-toggle="modal" data-bs-target="#addModalsuncar">Add Data</button>
+                                </div>
+                                </div>
 					<div class="card-body">
 						<div class="table-responsive">
 							<table id="example3" class="display" style="min-width: 845px">
@@ -317,4 +326,10 @@
             </div>
          </div>
     </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
  @endsection

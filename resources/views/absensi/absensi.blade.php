@@ -56,64 +56,74 @@
     <!--**********************************
          Content body start
         ***********************************-->
-    <div class="content-body">
-        <div class="container-fluid">
-            <ol class="breadcrumb">
-            </ol>
-        </div>
-        <div class="col-12">
-            <div class="card">
-                <div class="col-md-40 col-sm-12 text-right" style="text-align: right">
-                    <div style="text-align: left; padding-left: 50px"><br>
-                        <table class="display" style="border: 0px;color: black; font-size: 15pt">
-                            <tr>
-                                <td>Kode Rundown</td>
-                                <td>&nbsp;:</td>
-                                <td>PAL-{{ $absensiDetail->idRundowns }}</td>
-                            </tr>
-                            <tr>
-                                <td>Tahun</td>
-                                <td>&nbsp;:</td>
-                                <td>{{ $absensiDetail->tahun }}</td>
-                            </tr>
-                            <tr>
-                                <td>Nama Acara</td>
-                                <td>&nbsp;:</td>
-                                <td>{{ $absensiDetail->namaAcara }}</td>
-                            </tr>
-                            <tr>
-                                <td>Lokasi</td>
-                                <td>&nbsp;:</td>
-                                <td>{{ $absensiDetail->lokasi }}</td>
-                            </tr>
-                            <tr>
-                                <td>Tanggal Mulai</td>
-                                <td>&nbsp;:</td>
-                                <td>{{ date('d F Y', strtotime($absensiDetail->tanggalMulai)) }}</td>
-                            </tr>
-                            <tr>
-                                <td>Tanggal Selesai</td>
-                                <td>&nbsp;:&nbsp;</td>
-                                <td>{{ date('d F Y', strtotime($absensiDetail->tanggalSelesai)) }}</td>
-                            </tr>
-                        </table>
-                    </div>
-                    <hr style="height:4px;border-width:4;color:rgb(0, 0, 0);background-color:rgb(0, 0, 0)">
+        <div class="content-body">
+            <div class="container-fluid">
+                <div class="row page-titles">
+                    <ol class="breadcrumb">
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="col-md-40 col-sm-12 text-right" style="text-align: right">
+                                    <div style="text-align: left; padding-left: 50px"><br>
+                                        <table class="display" style="border: 0px;color: black; font-size: 15pt">
+                                            <tr>
+                                                <td>Kode Rundown</td>
+                                                <td>&nbsp;:</td>
+                                                <td>PAL-{{ $absensiDetail->idRundowns }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Tahun</td>
+                                                <td>&nbsp;:</td>
+                                                <td>{{ $absensiDetail->tahun }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Nama Acara</td>
+                                                <td>&nbsp;:</td>
+                                                <td>{{ $absensiDetail->namaAcara }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Lokasi</td>
+                                                <td>&nbsp;:</td>
+                                                <td>{{ $absensiDetail->lokasi }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Tanggal Mulai</td>
+                                                <td>&nbsp;:</td>
+                                                <td>{{ date('d F Y', strtotime($absensiDetail->tanggalMulai)) }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Tanggal Selesai</td>
+                                                <td>&nbsp;:&nbsp;</td>
+                                                <td>{{ date('d F Y', strtotime($absensiDetail->tanggalSelesai)) }}</td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                    </ol>
+                </div>
+
+                    {{-- <hr style="height:4px;border-width:4;color:rgb(0, 0, 0);background-color:rgb(0, 0, 0)"> --}}
                     {{-- <div class="row g-3 align-items-center">
                         <div class="col-auto">
                             <input type="search" id="inputPassword6" class="form-control"
                                 aria-describedby="passwordHelpInline" placeholder="Search here..."  >
                         </div>
                     </div> --}}
-                    <a href="{{ route('absensi.pdf', $absensiDetail->idRundowns) }}">
-                        <button type="onClick" class="btn btn-primary mb-2">Print All</button>
-                    </a>
+
                     {{-- <a href="{{ route('absensi.signature', $absensiDetail->idRundowns) }}">
                         <button type="button" class="btn btn-primary mb-2">Add Data</button>
                     </a> --}}
 
-                </div>
+                {{-- </div> --}}
                 @include('absensi.addabsensi')
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="col-md-40 col-sm-12 text-right" style="text-align: right">
+                                <a href="{{ route('absensi.pdf', $absensiDetail->idRundowns) }}">
+                                    <button type="onClick" class="btn btn-primary mb-2">Print All</button>
+                                </a>
+                            </div>
+                            </div>
                 <div class="card-body">
                     <div class="table-responsive">
                         <table id="example3" class="display" style="min-width: 845px">
@@ -366,4 +376,9 @@
     </div>
     </div>
     </div>
+</div>
+</div>
+</div>
+</div>
+</div>
 @endsection
