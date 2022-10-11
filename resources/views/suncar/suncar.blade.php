@@ -62,36 +62,36 @@
 		</div>
 			<div class="col-12">
 				<div class="card">
-                    <div class="col-md-40 col-sm-12 text-right" style="text-align: right">
+                    <div class="col-lg-6 col-sm-12 text-right" style="text-align: right">
                         <div style="text-align: left; padding-left: 50px"><br>
                             <table class="display" style="border: 0px;color: black; font-size: 15pt">
                                 <tr>
-                                    <td>Kode Rundown</td>
+                                    <td style="font-weight: bold">Kode Rundown</td>
                                     <td>&nbsp;:</td>
                                     <td>PAL-{{$rundownDetail->idRundowns}}</td>
                                 </tr>
                                 <tr>
-                                    <td>Tahun</td>
+                                    <td style="font-weight: bold">Tahun</td>
                                     <td>&nbsp;:</td>
                                     <td>{{$rundownDetail->tahun}}</td>
                                 </tr>
                                 <tr>
-                                    <td>Nama Acara</td>
+                                    <td style="font-weight: bold">Nama Acara</td>
                                     <td>&nbsp;:</td>
                                     <td>{{$rundownDetail->namaAcara}}</td>
                                 </tr>
                                 <tr>
-                                    <td>Lokasi</td>
+                                    <td style="font-weight: bold">Lokasi</td>
                                     <td>&nbsp;:</td>
                                     <td>{{$rundownDetail->lokasi}}</td>
                                 </tr>
                                 <tr>
-                                    <td>Tanggal Mulai</td>
+                                    <td style="font-weight: bold">Tanggal Mulai</td>
                                     <td>&nbsp;:</td>
                                     <td>{{date('d F Y', strtotime($rundownDetail->tanggalMulai))}}</td>
                                 </tr>
                                 <tr>
-                                    <td>Tanggal Selesai</td>
+                                    <td style="font-weight: bold">Tanggal Selesai</td>
                                     <td>&nbsp;:&nbsp;</td>
                                     <td>{{date('d F Y', strtotime($rundownDetail->tanggalSelesai))}}</td>
                                 </tr>

@@ -1,6 +1,6 @@
 @include('layout.layout')
 
-<body data-typography="poppins" data-theme-version="light" data-layout="vertical" data-nav-headerbg="color_1" data-headerbg="color_14" data-sidebar-style="overlay" data-sibebarbg="color_1" data-sidebar-position="static" data-header-position="fixed" data-container="wide" direction="ltr" data-primary="color_14" class="">
+<body data-typography="poppins" data-theme-version="light" data-layout="vertical" data-nav-headerbg="color_3" data-headerbg="color_8" data-sidebar-style="full" data-sibebarbg="color_3" data-sidebar-position="fixed" data-header-position="fixed" data-container="wide" direction="ltr" data-primary="color_1" class="" style="">
 
     <!--******************* Preloader start ********************-->
     <div id="preloader">

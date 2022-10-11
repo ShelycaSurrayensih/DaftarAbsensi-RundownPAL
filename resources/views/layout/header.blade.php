@@ -659,7 +659,7 @@
                 </div>
 
                 <ul class="navbar-nav header-right">
-                    @yield('pencarian')
+                    {{-- @yield('pencarian') --}}
                     {{-- <li class="row g-3 align-items-center">
                         <div class="col-auto">
                             <input type="search" id="inputPassword6" class="form-control"
