@@ -30,22 +30,6 @@
             <div class="card-header border-0 pb-0">
                 <h4 class="text-black">Tamu Terkini</h4>
             </div>
-            {{-- @foreach ($data as $g)
-                <div class="card-body">
-                    <div class="media mb-5 align-items-center event-list">
-                        <div class="p-3 text-center rounded me-3 date-bx bgl-primary">
-                            <h2 class="flaticon-381-user-7"></h2>
-                        </div>
-                        <div class="media-body px-0">
-                            <h6 class="mt-0 mb-3 fs-14"><a class="text-black">{{ $g->nama }}</a></h6>
-                            <h6 class="mt-0 mb-3 fs-14"><a class="text-black">{{ $g->jabatan}}</a></h6>
-                            <ul class="fs-14 list-inline mb-2 d-flex justify-content-between">
-                                <li>{{ $g->created_at }}</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            @endforeach --}}
         </div>
 
     </div>
@@ -60,65 +44,61 @@
             <div class="container-fluid">
                 <div class="row page-titles">
                     <ol class="breadcrumb">
-                        <div class="col-12">
-                            <div class="card">
-                                <div class="col-md-40 col-sm-12 text-right" style="text-align: right">
-                                    <div style="text-align: left; padding-left: 50px"><br>
-                                        <table class="display" style="border: 0px;color: black; font-size: 15pt">
-                                            <tr>
-                                                <td>Kode Rundown</td>
-                                                <td>&nbsp;:</td>
-                                                <td>PAL-{{ $absensiDetail->idRundowns }}</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Tahun</td>
-                                                <td>&nbsp;:</td>
-                                                <td>{{ $absensiDetail->tahun }}</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Nama Acara</td>
-                                                <td>&nbsp;:</td>
-                                                <td>{{ $absensiDetail->namaAcara }}</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Lokasi</td>
-                                                <td>&nbsp;:</td>
-                                                <td>{{ $absensiDetail->lokasi }}</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Tanggal Mulai</td>
-                                                <td>&nbsp;:</td>
-                                                <td>{{ date('d F Y', strtotime($absensiDetail->tanggalMulai)) }}</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Tanggal Selesai</td>
-                                                <td>&nbsp;:&nbsp;</td>
-                                                <td>{{ date('d F Y', strtotime($absensiDetail->tanggalSelesai)) }}</td>
-                                            </tr>
-                                        </table>
-                                    </div>
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                            <div class="card-end">
+                                <div style="text-align: left; padding-left: 50px">
+                                    <table class="display" style="border: 0px;color: black; font-size: 15pt">
+                                        <tr>
+                                            <td style="font-weight: bold">Kode Rundown</td>
+                                            <td>&nbsp;:</td>
+                                            <td>PAL-{{$absensiDetail->idRundowns}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="font-weight: bold">Tahun</td>
+                                            <td>&nbsp;:</td>
+                                            <td>{{$absensiDetail->tahun}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="font-weight: bold">Nama Acara</td>
+                                            <td>&nbsp;:</td>
+                                            <td>{{$absensiDetail->namaAcara}}</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 text-right">
+                            <div class="card-end">
+                                <div style="text-align: left; padding-left: 50px">
+                                    <table class="display " style="border: 0px;color: black; font-size: 15pt">
+                                        <tr>
+                                            <td style="font-weight: bold">Lokasi</td>
+                                            <td>&nbsp;:</td>
+                                            <td>{{$absensiDetail->lokasi}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="font-weight: bold">Tanggal Mulai</td>
+                                            <td>&nbsp;:</td>
+                                            <td>{{date('d F Y', strtotime($absensiDetail->tanggalMulai))}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="font-weight: bold">Tanggal Selesai</td>
+                                            <td>&nbsp;:</td>
+                                            <td>{{date('d F Y', strtotime($absensiDetail->tanggalSelesai))}}</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
                     </ol>
                 </div>
 
-                    {{-- <hr style="height:4px;border-width:4;color:rgb(0, 0, 0);background-color:rgb(0, 0, 0)"> --}}
-                    {{-- <div class="row g-3 align-items-center">
-                        <div class="col-auto">
-                            <input type="search" id="inputPassword6" class="form-control"
-                                aria-describedby="passwordHelpInline" placeholder="Search here..."  >
-                        </div>
-                    </div> --}}
-
-                    {{-- <a href="{{ route('absensi.signature', $absensiDetail->idRundowns) }}">
-                        <button type="button" class="btn btn-primary mb-2">Add Data</button>
-                    </a> --}}
-
-                {{-- </div> --}}
                 @include('absensi.addabsensi')
                 <div class="row">
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <div class="col-md-40 col-sm-12 text-right" style="text-align: right">
+                                <div class="col-md-40 col-sm-12 text-right" style="text-align: left">
                                 <a href="{{ route('absensi.pdf', $absensiDetail->idRundowns) }}">
                                     <button type="onClick" class="btn btn-primary mb-2">Print All</button>
                                 </a>
@@ -126,7 +106,7 @@
                             </div>
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table id="example3" class="display" style="min-width: 845px">
+                        <table id="example" class="display" style="min-width: 845px">
                             <thead>
                                 <tr>
                                     <th>No</th>
