@@ -64,7 +64,7 @@
                                 <i class="flaticon-381-user-7"></i>
                             </span>
                             <div class="media-body ms-1">
-                                <p class="mb-2">Tamu Hari Ini</p>
+                                <p class="mb-2">Acara Hari Ini</p>
                                 <h3 class="mb-0 text-black font-w600">{{ $current_date->count() }} </h3>
                             </div>
                         </div>
@@ -79,7 +79,7 @@
                                 <i class="flaticon-381-user-7"></i>
                             </span>
                             <div class="media-body ms-1">
-                                <p class="mb-2">Tamu Minggu Ini</p>
+                                <p class="mb-2">Acara Minggu Ini</p>
                                 <h3 class="mb-0 text-black font-w600">{{ $current_week->count() }}</h3>
                             </div>
                         </div>
@@ -94,7 +94,7 @@
                                 <i class="flaticon-381-user-7"></i>
                             </span>
                             <div class="media-body ms-1">
-                                <p class="mb-2">Tamu Bulan Ini</p>
+                                <p class="mb-2">Acara Bulan Ini</p>
                                 <h3 class="mb-0 text-black font-w600">{{ $current_month->count() }} </h3>
                             </div>
                         </div>

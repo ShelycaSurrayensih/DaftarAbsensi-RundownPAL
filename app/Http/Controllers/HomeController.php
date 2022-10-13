@@ -32,13 +32,13 @@ class HomeController extends Controller
         $data = Absensi::latest()->paginate(10);
 
         $datetime = Carbon::now();
-        $current_date = Absensi::whereDate('created_at', Carbon::today())->get(['nama', 'created_at']);
-        $current_week = Absensi::whereBetween('created_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])->get();
-        $current_month = Absensi::whereMonth('created_at', date('m'))
+        $current_date = Rundown::whereDate('created_at', Carbon::today())->get(['namaAcara', 'created_at']);
+        $current_week = Rundown::whereBetween('created_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])->get();
+        $current_month = Rundown::whereMonth('created_at', date('m'))
             ->whereYear('created_at', date('Y'))
-            ->get(['nama', 'created_at']);
+            ->get(['namaAcara', 'created_at']);
         $user = Auth::user();
-        $record = Absensi::select(DB::raw("COUNT(*) as total"), DB::raw("DATE(created_at) as day_name"))
+        $record = Rundown::select(DB::raw("COUNT(*) as total"), DB::raw("DATE(created_at) as day_name"))
                     ->whereMonth('created_at', date('m'))
                     ->groupBy(DB::raw('Date(created_at)'))
                     ->get();
