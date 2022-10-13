@@ -3,7 +3,7 @@
     Data Suncar
 @endsection
 @section('judul')
-    Table Suncar
+    Data Suncar
 @endsection
 
 @section('content')
@@ -32,46 +32,48 @@
     <div class="container-fluid">
         <div class="row page-titles">
             <ol class="breadcrumb">
-                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
                     <div class="card-end">
-                        <div style="text-align: left; padding-left: 50px">
+                        <div style="text-align: left; padding-left: 0px">
                             <table class="display" style="border: 0px;color: black; font-size: 15pt">
                                 <tr>
                                     <td style="font-weight: bold">Kode Rundown</td>
-                                    <td>&nbsp;:</td>
+                                    <td>&nbsp;&nbsp;&nbsp;:&nbsp;</td>
                                     <td>PAL-{{$rundownDetail->idRundowns}}</td>
                                 </tr>
                                 <tr>
                                     <td style="font-weight: bold">Tahun</td>
-                                    <td>&nbsp;:</td>
+                                    <td>&nbsp;&nbsp;&nbsp;:&nbsp;</td>
                                     <td>{{$rundownDetail->tahun}}</td>
                                 </tr>
                                 <tr>
                                     <td style="font-weight: bold">Nama Acara</td>
-                                    <td>&nbsp;:</td>
+                                    <td>&nbsp;&nbsp;&nbsp;:&nbsp;</td>
                                     <td>{{$rundownDetail->namaAcara}}</td>
                                 </tr>
                             </table>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 text-right">
+                <div class="col-lg-4 ">
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 text-right">
                     <div class="card-end">
-                        <div style="text-align: left; padding-left: 50px">
+                        <div style="text-align: left; padding-left: 0px">
                             <table class="display " style="border: 0px;color: black; font-size: 15pt">
                                 <tr>
                                     <td style="font-weight: bold">Lokasi</td>
-                                    <td>&nbsp;:</td>
+                                    <td>&nbsp;:&nbsp;</td>
                                     <td>{{$rundownDetail->lokasi}}</td>
                                 </tr>
                                 <tr>
                                     <td style="font-weight: bold">Tanggal Mulai</td>
-                                    <td>&nbsp;:</td>
+                                    <td>&nbsp;:&nbsp;</td>
                                     <td>{{date('d F Y', strtotime($rundownDetail->tanggalMulai))}}</td>
                                 </tr>
                                 <tr>
                                     <td style="font-weight: bold">Tanggal Selesai</td>
-                                    <td>&nbsp;:</td>
+                                    <td>&nbsp;:&nbsp;</td>
                                     <td>{{date('d F Y', strtotime($rundownDetail->tanggalSelesai))}}</td>
                                 </tr>
                             </table>

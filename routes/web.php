@@ -40,7 +40,7 @@ Route::get('/house/{id}', [App\Http\Controllers\HouseController::class, 'index']
 
 Route::get('/pengunjung/{id}', [PengunjungController::class, 'index'])->name('pengunjung.pengunjung');
 
-Route::get('/qr-code', [QrCodeGeneratorController::class, 'index']);
+Route::get('/list-rundowns', [QrCodeGeneratorController::class, 'index'])->name('qrCode');
 
 Route::get('/absensi/{id}', [SignaturePadController::class, 'index'])->name('absensi.signature');
 Route::post('/absensi', [SignaturePadController::class, 'upload'])->name('signaturepad.upload');

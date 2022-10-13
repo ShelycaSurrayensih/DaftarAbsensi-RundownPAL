@@ -18,7 +18,7 @@
                         <div class="card-body">
                             <div class="new-arrival-product">
                                 <div class="new-arrivals-img-contnent" style="text-align: center">
-                                    {!! QrCode::size(200)->generate(url('absensi/'.$r->idRundowns)); !!}
+                                    {!! QrCode::size(300)->generate(url('absensi/'.$r->idRundowns)); !!}
                                 </div>
                                 <div class="new-arrival-content text-center mt-3">
                                     <h4 style="color: black; font-style: bold">{{$r->namaAcara}}</h4>

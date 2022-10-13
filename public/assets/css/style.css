@@ -18514,7 +18514,7 @@ html[dir="rtl"] [direction="rtl"][data-sidebar-style="compact"]:not([data-layout
 
 @media only screen and (max-width: 1023px) {
     .nav-header {
-        width: 5rem;
+        width: 9rem;
     }
 }
 
@@ -18925,7 +18925,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 }
 
 [data-sidebar-style="full"][data-layout="vertical"] .menu-toggle .nav-header {
-    width: 7.5rem;
+    width: 8.5rem;
     z-index: 999;
 }
 
@@ -18960,7 +18960,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 }
 
 [data-sidebar-style="full"][data-layout="vertical"] .menu-toggle .deznav {
-    width: 7.5rem;
+    width: 8.5rem;
     overflow: visible;
     position: absolute;
 }
