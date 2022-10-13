@@ -8675,7 +8675,7 @@ a {
     transform: scale(1); } }
 
 .footer {
-  padding-left: 21.563rem;
+  padding-left: 0rem;
   background-color: #f1f1f1; }
   @media only screen and (min-width: 1200px) and (max-width: 1600px) {
     .footer {
