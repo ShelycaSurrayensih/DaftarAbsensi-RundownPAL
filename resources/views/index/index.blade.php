@@ -52,6 +52,8 @@
     <!--**********************************  EventList END ***********************************-->
     <!--**********************************  Content body start ***********************************-->
     <div class="content-body rightside-event">
+        <div class="row">
+
         <!-- row -->
         <!--Total Visitor-->
         <br>
@@ -113,6 +115,8 @@
                     </div>
                 </div>
             </div>
+        </div>
+
             <!--End Chart-->
             <script src="{{ asset('assets/vendor/global/global.min.js') }}"></script>
             <script src="{{ asset('assets/vendor/bootstrap-select/dist/js/bootstrap-select.min.js') }}"></script>

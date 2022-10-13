@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Models\Absensi;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
@@ -60,9 +61,8 @@ class UserController extends Controller
         $datauser->email = $request->get('email');
         $datauser->password = Hash::make($request->get('password'));
         $datauser->save();
-        // $input = $request->all();
-        // User::create($input);
-        return redirect()->route('admin.user')->with('success', 'Data Berhasil Ditambahkan');
+        Alert::success('Succes','Data User Berhasil Ditambahkan');
+        return redirect()->route('admin.user');
     }
 
     /**
@@ -107,12 +107,8 @@ class UserController extends Controller
         $user->email = $request->get('email');
         $user->password = Hash::make($request->get('password'));
         $user->save();
-        // User::find($id)->update([
-        //     'name'=>'required',
-        //     'email'=>'required',
-        //     'password'=>'required',
-        // ]);
-        return redirect()->route('admin.user')->with('success', 'Data Berhasil Diedit');
+        Alert::success('Success', 'Data User Berhasil Diupdate');
+        return redirect()->route('admin.user');
     }
 
     /**
@@ -124,7 +120,7 @@ class UserController extends Controller
     public function destroy($id)
     {
         User::find($id)->delete();
-        // Alert::toast('Product berhasil dihapus.', 'success');
+        Alert::success('Success','Data User berhasil dihapus');
         return redirect()->route('admin.user')->with('success','Data berhasil Dihapus');
     }
 }

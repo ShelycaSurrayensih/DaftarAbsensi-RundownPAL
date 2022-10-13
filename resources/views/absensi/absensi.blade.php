@@ -26,12 +26,6 @@
                 <input type='text' class="form-control d-none" id='datetimepicker1' />
             </div>
         </div>
-        <div class="card shadow-none rounded-0 bg-transparent h-auto">
-            <div class="card-header border-0 pb-0">
-                <h4 class="text-black">Tamu Terkini</h4>
-            </div>
-        </div>
-
     </div>
 
     <!--**********************************
