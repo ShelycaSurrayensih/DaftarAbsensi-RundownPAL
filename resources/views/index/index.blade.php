@@ -1,22 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<link href="{{ asset('/assets/vendor/bootstrap-daterangepicker/daterangepicker.css') }}" rel="stylesheet"
-    type="text/css" />
-
-<link href="{{ asset('/assets/vendor/pickadate/themes/default.css') }}" rel="stylesheet" type="text/css" />
-
-<link href="{{ asset('/assets/vendor/pickadate/themes/default.date.css') }}" rel="stylesheet" type="text/css" />
-
-<link href="{{ asset('/assets/vendor/bootstrap-select/dist/css/bootstrap-select.min.css') }}" rel="stylesheet"
-    type="text/css" />
-<link href="{{ asset('/assets/vendor/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css') }}"
-    rel="stylesheet" type="text/css" />
 @extends('layout.master')
 @section('header')
     Dashboard
 @endsection
 @section('judul')
     Dashboard
+@endsection
+@section('calender')
+    <li class="dropdown schedule-event-inner primary">
+        <a href="javascript:void(0)" class="btn btn-primary btn-rounded event-btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="scale5 me-0 mb-0 me-sm-2 mb-sm-1"><path d="M19 4H5C3.89543 4 3 4.89543 3 6V20C3 21.1046 3.89543 22 5 22H19C20.1046 22 21 21.1046 21 20V6C21 4.89543 20.1046 4 19 4Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 2V6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 2V6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 10H21" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="d-none d-xl-inline-block">Kalender</span> <span class="d-none d-lg-inline-block"> & Tamu Terkini</span>
+            <i class="fa fa-caret-right scale3 ms-2 d-none d-sm-inline-block"></i>
+        </a>
+    </li>
 @endsection
 @section('content')
     <div class="event-sidebar dz-scroll active" id="eventSidebar">
@@ -52,70 +48,74 @@
     <!--**********************************  EventList END ***********************************-->
     <!--**********************************  Content body start ***********************************-->
     <div class="content-body rightside-event">
-        <div class="row">
-
-        <!-- row -->
-        <!--Total Visitor-->
-        <br>
-        <div class="row">
-            <div class="col-xl-4 col-sm-4">
-                <div class="widget-stat card">
-                    <div class="card-body">
-                        <div class="media align-items-center">
-                            <span class="me-4">
-                                <i class="flaticon-381-user-7"></i>
-                            </span>
-                            <div class="media-body ms-1">
-                                <p class="mb-2">Acara Hari Ini</p>
-                                <h3 class="mb-0 text-black font-w600">{{ $current_date->count() }} </h3>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xl-4 col-sm-4">
+                    <div class="widget-stat card">
+                        <div class="card-body">
+                            <div class="media align-items-center">
+                                <span class="me-4">
+                                    <i class="flaticon-381-user-7"></i>
+                                </span>
+                                <div class="media-body ms-1">
+                                    <p class="mb-2">Acara Hari Ini</p>
+                                    <h3 class="mb-0 text-black font-w600">{{ $current_date->count() }}</h3>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-xl-4 col-sm-4">
-                <div class="widget-stat card">
-                    <div class="card-body">
-                        <div class="media align-items-center">
-                            <span class="me-4">
-                                <i class="flaticon-381-user-7"></i>
-                            </span>
-                            <div class="media-body ms-1">
-                                <p class="mb-2">Acara Minggu Ini</p>
-                                <h3 class="mb-0 text-black font-w600">{{ $current_week->count() }}</h3>
+                <div class="col-xl-4 col-sm-4">
+                    <div class="widget-stat card">
+                        <div class="card-body">
+                            <div class="media align-items-center">
+                                <span class="me-2">
+                                    <i class="flaticon-381-user-7"></i>
+                                </span>
+                                <div class="media-body ms-1">
+                                    <p class="mb-2">Acara Minggu Ini</p>
+                                    <h3 class="mb-0 text-black font-w600">{{ $current_week->count() }}</h3>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-xl-4 col-sm-4">
-                <div class="widget-stat card">
-                    <div class="card-body">
-                        <div class="media align-items-center">
-                            <span class="me-4">
-                                <i class="flaticon-381-user-7"></i>
-                            </span>
-                            <div class="media-body ms-1">
-                                <p class="mb-2">Acara Bulan Ini</p>
-                                <h3 class="mb-0 text-black font-w600">{{ $current_month->count() }} </h3>
+                <div class="col-xl-4 col-sm-4">
+                    <div class="widget-stat card">
+                        <div class="card-body">
+                            <div class="media align-items-center">
+                                <span class="me-2">
+                                    <i class="flaticon-381-user-7"></i>
+                                </span>
+                                <div class="media-body ms-1">
+                                    <p class="mb-2">Acara Bulan Ini</p>
+                                    <h3 class="mb-0 text-black font-w600">{{ $current_month->count() }} </h3>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <!--Total Visitor-->
-            <!--Chart-->
-            <div class="col-12">
-                <div class="card">
-                    <div class="card-header">
-                        <h4 class="card-title">Basic Bar Chart</h4>
-                    </div>
-                    <div class="card-body">
-                        <canvas id="barChart_1"></canvas>
+                <div class="col-xl-12">
+                    <div class="card">
+                        <div class="card-header border-0 pb-0 d-sm-flex d-block">
+                            <div>
+                                <h4 class="card-title mb-1">
+                                    Chart Acara Per Bulan
+                                </h4>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="tab-content" id="myTabContent">
+                                <div class="tab-pane fade active show" id="user" role="tabpanel"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
+								    <canvas id="barChart_1" ></canvas>
+							    </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 
             <!--End Chart-->
             <script src="{{ asset('assets/vendor/global/global.min.js') }}"></script>

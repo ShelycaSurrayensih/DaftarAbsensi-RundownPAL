@@ -39,28 +39,28 @@
                                 <div class="form-group form-group-default">
                                     <label>Nama</label>
                                     <input id="nama" type="text" name="nama" class="form-control"
-                                        placeholder="Masukkan Nama">
+                                        placeholder="Masukkan Nama" required>
                                 </div>
                             </div>
                             <div class="col-sm-12">
                                 <div class="form-group form-group-default">
                                     <label>Jabatan</label>
                                     <input id="jabatan" type="text" name="jabatan" class="form-control"
-                                        placeholder="Masukkan Jabatan">
+                                        placeholder="Masukkan Jabatan" required>
                                 </div>
                             </div>
                             <div class="col-sm-12">
                                 <div class="form-group form-group-default">
                                     <label>Instansi</label>
                                     <input id="instansi" type="text" name="instansi" class="form-control"
-                                        placeholder="Masukkan instansi">
+                                        placeholder="Masukkan instansi" required>
                                 </div>
                             </div>
                             <div class="col-sm-12">
                                 <div class="form-group form-group-default">
                                     <label>No Hp</label>
                                     <input id="telp" type="number" name="telp" class="form-control"
-                                        placeholder="Masukkan No Hp">
+                                        placeholder="Masukkan No Hp" required>
                                 </div>
                             </div>
                              <div class="col-md-12">
@@ -70,7 +70,7 @@
                                  <br><br>
                                  <button id="clear" class="btn btn-danger">Clear Signature</button>
                                  <button class="btn btn-success">Save</button>
-                                 <textarea id="tandatangan" name="tandatangan" style="display: none"></textarea>
+                                 <textarea id="tandatangan" name="tandatangan" style="display: none" required></textarea>
                              </div>
                          </form>
                     </div>

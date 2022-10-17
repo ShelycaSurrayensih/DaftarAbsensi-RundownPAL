@@ -18960,7 +18960,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 }
 
 [data-sidebar-style="full"][data-layout="vertical"] .menu-toggle .deznav {
-    width: 8.5rem;
+    width: .5rem;
     overflow: visible;
     position: absolute;
 }

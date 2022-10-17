@@ -1,9 +1,9 @@
 @extends('layout.master')
 @section('header')
-    Data Suncar
+    Suncar
 @endsection
 @section('judul')
-    Data Suncar
+    Suncar
 @endsection
 
 @section('content')

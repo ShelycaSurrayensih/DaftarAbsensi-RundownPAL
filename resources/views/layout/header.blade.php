@@ -659,13 +659,7 @@
                 </div>
 
                 <ul class="navbar-nav header-right">
-                    {{-- @yield('pencarian') --}}
-                    {{-- <li class="row g-3 align-items-center">
-                        <div class="col-auto">
-                            <input type="search" id="inputPassword6" class="form-control"
-                                aria-describedby="passwordHelpInline" placeholder="Search here..."  >
-                        </div>
-                    </li> --}}
+                    @yield('calender')
                     <li class="nav-item dropdown header-profile">
                         @if (Auth::check())
                             <a href="{{ route('logout') }}" class="dropdown-item ai-icon"
@@ -686,6 +680,7 @@
                             </form>
                         @endif
                     </li>
+
                 </ul>
             </div>
         </nav>

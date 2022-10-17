@@ -1,9 +1,9 @@
 @extends('layout.master')
 @section('header')
-    Data User
+    User
 @endsection
 @section('judul')
-    Table User
+    User
 @endsection
 @section('content')
 <div class="event-sidebar dz-scroll " id="eventSidebar">
@@ -74,34 +74,21 @@
                                             <div class="col-sm-12">
                                                 <div class="form-group form-group-default">
                                                     <label>Nama</label>
-                                                    <input id="nama" type="text" name="name" value="{{ $du->name }}" class="form-control" placeholder="Masukkan Nama">
+                                                    <input id="nama" type="text" name="name" value="{{ $du->name }}" class="form-control" placeholder="Masukkan Nama" required>
                                                 </div>
                                             </div>
                                             <div class="col-sm-12">
                                                 <div class="form-group form-group-default">
                                                     <label>Email</label>
-                                                    <input id="email" type="text" name="email" value="{{ $du->email }}" class="form-control" placeholder="Masukkan Email">
+                                                    <input id="email" type="text" name="email" value="{{ $du->email }}" class="form-control" placeholder="Masukkan Email" required>
                                                 </div>
                                             </div>
                                             <div class="col-sm-12">
                                                 <div class="form-group form-group-default">
                                                     <label>Password</label>
-                                                    <input id="password" type="text" name="password" value="{{ $du->password }}" class="form-control" placeholder="Masukkan password">
+                                                    <input id="password" type="text" name="password" value="" class="form-control" placeholder="Masukkan password" required>
                                                 </div>
                                             </div>
-                                            {{-- <div class="col-sm-12">
-                                                <div class="form-group form-group-default">
-                                                    <label>No Hp</label>
-                                                    <input id="telp" type="text" name="telp" value="{{ $du->telp }}" class="form-control" placeholder="Masukkan No Hp">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="form-group form-group-default">
-                                                    <label>Tanda Tangan</label>
-                                                    <input type="file" name="tandatangan" class="form-control" placeholder="Masukkan Tanda Tangan">
-                                                </div>
-                                                <img src="{{asset('images/'.$du->gambar)}}"  width="100px" alt="">
-                                            </div> --}}
                                         </div>
                                         <div class="modal-footer no-bd">
                                             <button type="submit" id="addModaluser" class="btn btn-primary">Save</button>

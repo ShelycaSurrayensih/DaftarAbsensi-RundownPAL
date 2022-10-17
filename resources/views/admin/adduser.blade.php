@@ -14,33 +14,21 @@
                         <div class="col-sm-12">
                             <div class="form-group form-group-default">
                                 <label>Nama</label>
-                                <input id="nama" type="text" name="name" class="form-control" placeholder="Masukkan Nama">
+                                <input id="nama" type="text" name="name" class="form-control" placeholder="Masukkan Nama" required>
                             </div>
                         </div>
                         <div class="col-sm-12">
                             <div class="form-group form-group-default">
                                 <label>Email</label>
-                                <input id="email" type="text" name="email" class="form-control" placeholder="Masukkan Email">
+                                <input id="email" type="text" name="email" class="form-control" placeholder="Masukkan Email" required>
                             </div>
                         </div>
                         <div class="col-sm-12">
                             <div class="form-group form-group-default">
                                 <label>Password</label>
-                                <input id="password" type="text" name="password" class="form-control" placeholder="Masukkan password">
+                                <input id="password" type="text" name="password" class="form-control" placeholder="Masukkan password" required>
                             </div>
                         </div>
-                        {{-- <div class="col-sm-12">
-                            <div class="form-group form-group-default">
-                                <label>No Hp</label>
-                                <input id="telp" type="text" name="telp" class="form-control" placeholder="Masukkan No Hp">
-                            </div>
-                        </div>
-                        <div class="col-sm-12">
-                            <div class="form-group form-group-default">
-                                <label>Tanda Tangan</label>
-                                <input id="tandatangan" type="file" name="tandatangan" class="form-control" placeholder="Masukkan tandatangan">
-                            </div>
-                        </div> --}}
                         <div class="modal-footer no-bd">
                             <button type="submit" id="addModaluser" class="btn btn-primary">Save</button>
                             <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">Close</button>

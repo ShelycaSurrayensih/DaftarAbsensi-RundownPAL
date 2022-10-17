@@ -11,41 +11,34 @@
                 <form action="{{ route('rundown.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="row">
-                        {{-- <div class="col-sm-12">
-                            <div class="form-group form-group-default">
-                                <label>Kode Rundowns</label>
-                                <input id="idRundowns" type="text" name="idRundowns" class="form-control" placeholder="Masukkan kode" value="{{ $r->idRundowns }}" placeholder readonly="">
-                            </div>
-                        </div> --}}
-
                         <div class="col-sm-12">
                             <div class="form-group form-group-default">
                                 <label>Tahun</label>
-                                <input id="tahun" type="text" name="tahun" class="form-control" placeholder="Masukkan Tahun">
+                                <input id="tahun" type="text" name="tahun" class="form-control" placeholder="Masukkan Tahun" required>
                             </div>
                         </div>
                         <div class="col-sm-12">
                             <div class="form-group form-group-default">
                                 <label>Nama Acara</label>
-                                <input id="namaAcara" type="text" name="namaAcara" class="form-control" placeholder="Masukkan Nama Acara">
+                                <input id="namaAcara" type="text" name="namaAcara" class="form-control" placeholder="Masukkan Nama Acara" required>
                             </div>
                         </div>
                         <div class="col-sm-12">
                             <div class="form-group form-group-default">
                                 <label>Lokasi</label>
-                                <input id="lokasi" type="text" name="lokasi" class="form-control" placeholder="Masukkan Lokasi">
+                                <input id="lokasi" type="text" name="lokasi" class="form-control" placeholder="Masukkan Lokasi" required>
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group form-group-default">
                                 <label>Tanggal Mulai</label>
-                                <input id="tanggalMulai" type="date" name="tanggalMulai" class="form-control" value="{{ date('d-m-y', strtotime(Carbon\Carbon::today()->toDateString())) }}" placeholder="">
+                                <input id="tanggalMulai" type="date" name="tanggalMulai" class="form-control" value="{{ date('d-m-y', strtotime(Carbon\Carbon::today()->toDateString())) }}" placeholder="" required>
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group form-group-default">
                                 <label>Tanggal Selesai</label>
-                                <input id="tanggalSelesai" type="date" name="tanggalSelesai" class="form-control" value="{{ date('d-m-y', strtotime(Carbon\Carbon::today()->toDateString())) }}" placeholder="">
+                                <input id="tanggalSelesai" type="date" name="tanggalSelesai" class="form-control" value="{{ date('d-m-y', strtotime(Carbon\Carbon::today()->toDateString())) }}" placeholder="" required>
                             </div>
                         </div>
                         <div class="modal-footer no-bd">

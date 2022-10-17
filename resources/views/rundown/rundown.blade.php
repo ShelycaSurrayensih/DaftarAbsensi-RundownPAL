@@ -1,25 +1,11 @@
 @extends('layout.master')
 @section('header')
-    Data Rundowns
+    Rundowns
 @endsection
 @section('judul')
-    Table Rundown
+    Rundown
 @endsection
-@section('pencarian')
-    <form action="{{ route('rundown.rundown') }}" class="form" method="GET">
-        <li class="nav-item dropdown notification_dropdown">
-            <div class="input-group search-area">
-                <input type="text" class="form-control" name="search" id="search" placeholder="Search here..."
-                    value="{{ request('search') }}">
-                <span class="input-group-text">
-                    <button class="btn" type="submit">
-                        <i class="flaticon-381-search-2"></i>
-                    </button>
-                </span>
-            </div>
-        </li>
-    </form>
-@endsection
+
 @section('content')
     <div class="event-sidebar dz-scroll " id="eventSidebar">
         <div class="card shadow-none rounded-0 bg-transparent h-auto mb-0">
@@ -107,7 +93,7 @@
                                                                         <label>Tahun</label>
                                                                         <input id="tahun" type="text" name="tahun"
                                                                             value="{{ $r->tahun }}" class="form-control"
-                                                                            placeholder="Masukkan Tahun">
+                                                                            placeholder="Masukkan Tahun" required>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-sm-12">
@@ -115,7 +101,7 @@
                                                                         <label>Nama Acara</label>
                                                                         <input id="namaAcara" type="text" name="namaAcara"
                                                                             value="{{ $r->namaAcara }}" class="form-control"
-                                                                            placeholder="Masukkan Nama Acara">
+                                                                            placeholder="Masukkan Nama Acara" required>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-sm-12">
@@ -123,7 +109,7 @@
                                                                         <label>Lokasi</label>
                                                                         <input id="lokasi" type="text" name="lokasi"
                                                                             value="{{ $r->lokasi }}" class="form-control"
-                                                                            placeholder="Masukkan Lokasi">
+                                                                            placeholder="Masukkan Lokasi" required>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-sm-4">
@@ -131,7 +117,7 @@
                                                                         <label>Tanggal Mulai</label>
                                                                         <input id="tanggalMulai" type="date" name="tanggalMulai"
                                                                             value="{{ $r->tanggalMulai }}" class="form-control"
-                                                                            placeholder="Masukkan Tanggal Mulai">
+                                                                            placeholder="Masukkan Tanggal Mulai" required>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-md-4">
@@ -140,7 +126,7 @@
                                                                         <input id="tanggalSelesai" type="date"
                                                                             name="tanggalSelesai"
                                                                             value="{{ $r->tanggalSelesai }}" class="form-control"
-                                                                            placeholder="Masukkan Tanggal Selesai">
+                                                                            placeholder="Masukkan Tanggal Selesai" required>
                                                                     </div>
                                                                 </div>
                                                                 <div class="modal-footer no-bd">

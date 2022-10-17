@@ -14,7 +14,7 @@
                                 <div class="col-sm-12">
                                     <div class="form-group form-group-default">
                                         <label>Tanggal</label>
-                                        <input id="tanggal" type="date" name="tanggal" class="form-control" placeholder="Masukkan Tanggal">
+                                        <input id="tanggal" type="date" name="tanggal" class="form-control" placeholder="Masukkan Tanggal" required>
                                     </div>
                                 </div>
                                 <div class="col-sm-12">
@@ -26,25 +26,25 @@
                             <div class="col-sm-12">
                                 <div class="form-group form-group-default">
                                     <label>Nama Kegiatan</label>
-                                    <input id="namaKegiatan" type="text" name="namaKegiatan" class="form-control" placeholder="Masukkan Nama Kegiatan">
+                                    <input id="namaKegiatan" type="text" name="namaKegiatan" class="form-control" placeholder="Masukkan Nama Kegiatan" required>
                                 </div>
                             </div>
                             <div class="col-sm-12">
                                 <div class="form-group form-group-default">
                                     <label>Penanggung Jawab</label>
-                                    <input id="pj" type="text" name="pj" class="form-control" placeholder="Masukkan pj">
+                                    <input id="pj" type="text" name="pj" class="form-control" placeholder="Masukkan pj" required>
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group form-group-default">
                                     <label>Waktu Mulai</label>
-                                    <input id="waktuMulai" type="time" name="waktuMulai" class="form-control" placeholder="Masukkan Waktu Mulai">
+                                    <input id="waktuMulai" type="time" name="waktuMulai" class="form-control" placeholder="Masukkan Waktu Mulai" required>
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group form-group-default">
                                     <label>Waktu Selesai</label>
-                                    <input id="waktuSelesai" type="time" name="waktuSelesai" class="form-control" placeholder="Masukkan Waktu Selesai">
+                                    <input id="waktuSelesai" type="time" name="waktuSelesai" class="form-control" placeholder="Masukkan Waktu Selesai" required>
                                 </div>
                             </div>
                             <div class="modal-footer no-bd">
