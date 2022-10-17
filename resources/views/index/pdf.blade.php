@@ -154,53 +154,39 @@
         <img src="assets/images/logo-4.png" class="topright">
     </header>
     <h2 style="text-decoration: underline;">SUSUNAN ACARA</h2>
-    <p>Kode Rundowns : PAL-{{ $rundownDetail->idRundowns }}</p>
-    <p>Tahun : {{ $rundownDetail->tahun }}</p>
-    <p>Nama Acara : {{ $rundownDetail->namaAcara }}</p>
-    <p>Lokasi : {{ $rundownDetail->lokasi }}</p>
-    <p>Tanggal Mulai : {{ date('d F Y', strtotime($rundownDetail->tanggalMulai)) }}</p>
-    <p>Tanggal Selesai : {{ date('d F Y', strtotime($rundownDetail->tanggalSelesai)) }}</p>
+    <table style="border: 0; margin-top: 0; margin: 0; width: 30%; font-size: 13px">
+        <tr style="border: 0; text-align: left">
+            <td style="padding: 0; text-align: left; font-weight: bold">Kode Rundowns</td>
+            <td style="padding: 0; text-align: left">&nbsp;:</td>
+            <td style="padding: 0; text-align: left">&nbsp;PAL-{{ $rundownDetail->idRundowns }}</td>
+        </tr>
+        <tr style="border: 0; text-align: left">
+            <td style="padding: 0; text-align: left; font-weight: bold">Tahun</td>
+            <td style="padding: 0; text-align: left">&nbsp;:</td>
+            <td style="padding: 0; text-align: left">&nbsp;{{ $rundownDetail->tahun }}</td>
+        </tr>
+        <tr style="border: 0; text-align: left">
+            <td style="padding: 0; text-align: left; font-weight: bold">Nama Acara</td>
+            <td style="padding: 0; text-align: left">&nbsp;:</td>
+            <td style="padding: 0; text-align: left">&nbsp;{{ $rundownDetail->namaAcara }}</td>
+        </tr>
+        <tr style="border: 0; text-align: left">
+            <td style="padding: 0; text-align: left; font-weight: bold">Lokasi</td>
+            <td style="padding: 0; text-align: left">&nbsp;:</td>
+            <td style="padding: 0; text-align: left">&nbsp;{{ $rundownDetail->lokasi }}</td>
+        </tr>
+        <tr style="border: 0; text-align: left">
+            <td style="padding: 0; text-align: left; font-weight: bold">Tanggal Mulai</td>
+            <td style="padding: 0; text-align: left">&nbsp;:</td>
+            <td style="padding: 0; text-align: left">&nbsp;{{ date('d F Y', strtotime($rundownDetail->tanggalMulai)) }}</td>
+        </tr>
+        <tr style="border: 0; text-align: left">
+            <td style="padding: 0; text-align: left; font-weight: bold">Tanggal Selesai</td>
+            <td style="padding: 0; text-align: left">&nbsp;:</td>
+            <td style="padding: 0; text-align: left">&nbsp;{{ date('d F Y', strtotime($rundownDetail->tanggalSelesai)) }}</td>
+        </tr>
+    </table>
     <main>
-        {{-- <div class="col-12">
-            <div class="card">
-                <div class="col-md-40 col-sm-12 text-right" style="text-align: right">
-                    <div style="text-align: left; padding-left: 50px"><br>
-                        <table class="display" style="border: 0px;color: black; font-size: 15pt">
-                            <tr>
-                                <td>Kode Rundown</td>
-                                <td>&nbsp;:</td>
-                                <td>PAL-{{$rundownDetail->idRundowns}}</td>
-                            </tr>
-                            <tr>
-                                <td>Tahun</td>
-                                <td>&nbsp;:</td>
-                                <td>{{$rundownDetail->tahun}}</td>
-                            </tr>
-                            <tr>
-                                <td>Nama Acara</td>
-                                <td>&nbsp;:</td>
-                                <td>{{$rundownDetail->namaAcara}}</td>
-                            </tr>
-                            <tr>
-                                <td>Lokasi</td>
-                                <td>&nbsp;:</td>
-                                <td>{{$rundownDetail->lokasi}}</td>
-                            </tr>
-                            <tr>
-                                <td>Tanggal Mulai</td>
-                                <td>&nbsp;:</td>
-                                <td>{{$rundownDetail->tanggalMulai}}</td>
-                            </tr>
-                            <tr>
-                                <td>Tanggal Selesai</td>
-                                <td>&nbsp;:&nbsp;</td>
-                                <td>{{$rundownDetail->tanggalSelesai}}</td>
-                            </tr>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div> --}}
         <div class="table-responsive" style="overflow-x:auto"><br>
             <?php
             $tanggalPertama = $suncarFirst->tanggal;
