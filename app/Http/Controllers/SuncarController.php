@@ -73,6 +73,7 @@ class SuncarController extends Controller
      */
     public function store(Request $request)
     {
+        $rundown = new Rundown;
         $real = new Suncar;
         $real->idSuncar = $request->idSuncar;
         $real->tanggal = $request->tanggal;
@@ -81,9 +82,16 @@ class SuncarController extends Controller
         $real->pj = $request->pj;
         $real->waktuMulai = $request->waktuMulai;
         $real->waktuSelesai = $request->waktuSelesai;
-        $real->save();
-        Alert::success('Succes','Data Suncar Berhasil Ditambahkan');
-        return redirect()->back();
+
+        if ($real->tanggal > $rundown->tanggalSelesai) {
+            Alert::error('Tanggal Tidak Sesuai', 'Sesuaikan dengan tanggal selesai rundown');
+            return redirect()->back();
+        } else {
+            $real->save();
+            Alert::success('Succes','Data Suncar Berhasil Ditambahkan');
+            return redirect()->back();
+        }
+
     }
 
     /**
