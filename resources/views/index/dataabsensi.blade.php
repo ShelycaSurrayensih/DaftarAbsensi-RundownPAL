@@ -158,32 +158,32 @@
         <tr style="border: 0; text-align: left">
             <td style="padding: 0; text-align: left; font-weight: bold">Kode Rundowns</td>
             <td style="padding: 0; text-align: left">&nbsp;:</td>
-            <td style="padding: 0; text-align: left">&nbsp;PAL-{{ $rundownDetail->idRundowns }}</td>
+            <td style="padding: 0; text-align: left">&nbsp;PAL-{{ $absensiDetail->idRundowns }}</td>
         </tr>
         <tr style="border: 0; text-align: left">
             <td style="padding: 0; text-align: left; font-weight: bold">Tahun</td>
             <td style="padding: 0; text-align: left">&nbsp;:</td>
-            <td style="padding: 0; text-align: left">&nbsp;{{ $rundownDetail->tahun }}</td>
+            <td style="padding: 0; text-align: left">&nbsp;{{ $absensiDetail->tahun }}</td>
         </tr>
         <tr style="border: 0; text-align: left">
             <td style="padding: 0; text-align: left; font-weight: bold">Nama Acara</td>
             <td style="padding: 0; text-align: left">&nbsp;:</td>
-            <td style="padding: 0; text-align: left">&nbsp;{{ $rundownDetail->namaAcara }}</td>
+            <td style="padding: 0; text-align: left">&nbsp;{{ $absensiDetail->namaAcara }}</td>
         </tr>
         <tr style="border: 0; text-align: left">
             <td style="padding: 0; text-align: left; font-weight: bold">Lokasi</td>
             <td style="padding: 0; text-align: left">&nbsp;:</td>
-            <td style="padding: 0; text-align: left">&nbsp;{{ $rundownDetail->lokasi }}</td>
+            <td style="padding: 0; text-align: left">&nbsp;{{ $absensiDetail->lokasi }}</td>
         </tr>
         <tr style="border: 0; text-align: left">
             <td style="padding: 0; text-align: left; font-weight: bold">Tanggal Mulai</td>
             <td style="padding: 0; text-align: left">&nbsp;:</td>
-            <td style="padding: 0; text-align: left">&nbsp;{{ date('d F Y', strtotime($rundownDetail->tanggalMulai)) }}</td>
+            <td style="padding: 0; text-align: left">&nbsp;{{ date('d F Y', strtotime($absensiDetail->tanggalMulai)) }}</td>
         </tr>
         <tr style="border: 0; text-align: left">
             <td style="padding: 0; text-align: left; font-weight: bold">Tanggal Selesai</td>
             <td style="padding: 0; text-align: left">&nbsp;:</td>
-            <td style="padding: 0; text-align: left">&nbsp;{{ date('d F Y', strtotime($rundownDetail->tanggalSelesai)) }}</td>
+            <td style="padding: 0; text-align: left">&nbsp;{{ date('d F Y', strtotime($absensiDetail->tanggalSelesai)) }}</td>
         </tr>
     </table>
     <main>

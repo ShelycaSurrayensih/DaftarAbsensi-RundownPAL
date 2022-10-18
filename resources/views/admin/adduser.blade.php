@@ -12,6 +12,10 @@
                     @csrf
                     <div class="row">
                         <div class="col-sm-12">
+                            <label>Username</label>
+                            <input type="text" id="username" name="username" class="form-control" placeholder="Masukkan Username" required>
+                        </div>
+                        <div class="col-sm-12">
                             <div class="form-group form-group-default">
                                 <label>Nama</label>
                                 <input id="nama" type="text" name="name" class="form-control" placeholder="Masukkan Nama" required>

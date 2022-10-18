@@ -38,6 +38,7 @@
 								<thead>
 									<tr>
 										<th>No</th>
+                                        <th>Username</th>
 										<th>Nama</th>
 										<th>Email</th>
 										<th>Password</th>
@@ -71,6 +72,12 @@
                                         @csrf
                                         @method('PUT')
                                         <div class="row">
+                                            <div class="col-sm-12">
+                                                <div class="form-group form-group-default">
+                                                    <label>Username</label>
+                                                    <input id="username" type="text" name="username" value="{{ $du->username }}" class="form-control" placeholder="Masukkan Username" required>
+                                                </div>
+                                            </div>
                                             <div class="col-sm-12">
                                                 <div class="form-group form-group-default">
                                                     <label>Nama</label>
@@ -118,6 +125,16 @@
                                     <div class="row">
                                         <div class="col-sm-12">
                                             <div class="form-group form-group-default">
+                                                <label>Username</label>
+                                                <div class="row">
+                                                    <div class="col-sm-12">
+                                                        {{ $du->username }}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <div class="form-group form-group-default">
                                                 <label>Nama</label>
                                                 <div class="row">
                                                     <div class="col-sm-12">
@@ -157,6 +174,7 @@
                     <!--End Modal Detail-->
                     <tr>
                         <td class="text-center">{{ $loop->iteration }}</td>
+                        <td class="text-center">{{ $du->username }}</td>
                         <td class="text-center">{{ $du->name }}</td>
                         <td class="text-center">{{ $du->email}}</td>
                         <td class="text-center">{{ $du->password}}</td>
