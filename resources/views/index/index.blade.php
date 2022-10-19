@@ -138,8 +138,7 @@
             <script src="{{ asset('assets/vendor/jquery-asColor/jquery-asColor.min.js') }}"></script>
             <script src="{{ asset('assets/vendor/jquery-asGradient/jquery-asGradient.min.js') }}"></script>
             <script src="{{ asset('assets/vendor/jquery-asColorPicker/js/jquery-asColorPicker.min.js') }}"></script>
-            <script src="{{ asset('assets/vendor/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js') }}">
-            </script>
+            <script src="{{ asset('assets/vendor/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js') }}"></script>
             <script src="{{ asset('assets/vendor/pickadate/picker.js') }}"></script>
             <script src="{{ asset('assets/vendor/pickadate/picker.time.js') }}"></script>
             <script src="{{ asset('assets/vendor/pickadate/picker.date.js') }}"></script>

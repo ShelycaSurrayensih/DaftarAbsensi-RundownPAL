@@ -92,7 +92,7 @@
 					<div class="card-body">
 						<div class="table-responsive">
 							<table id="example" class="display" style="min-width: 845px">
-								<thead>
+								<thead class="text-center">
 									<tr>
 										<th>No</th>
                                         <th>Tanggal</th>
@@ -178,92 +178,6 @@
                         </div>
                     </div>
                     <!--End Modal Edit-->
-
-                   <!-- Modal Detail Data -->
-                    <div class="modal fade" id="detailModalsuncar{{ $s->idSuncar }}" tabindex="-1" role="dialog" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header no-bd">
-                                    <h5 class="modal-title">
-                                        <span class="fw-mediumbold">
-                                            Details Data
-                                        </span>
-                                    </h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal">
-                                </div>
-                                <div class="modal-body">
-                                    <p class="small">Detail Data ID {{ $loop->iteration }}</p>
-                                    <div class="row">
-                                        <div class="col-sm-12">
-                                            <div class="col-sm-12">
-                                                <div class="form-group form-group-default">
-                                                    <label>Tanggal</label>
-                                                    <div class="row">
-                                                        <div class="col-sm-12">
-                                                    {{ $s->tanggal }}
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                            <div class="col-sm-12">
-                                                <div class="form-group form-group-default">
-                                                    <label>Kode Rundowns</label>
-                                                    <div class="row">
-                                                        <div class="col-sm-12">
-                                                            PAL-{{ $s->idRundowns }}
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-12">
-                                                <div class="form-group form-group-default">
-                                                    <label>Nama Kegiatan</label>
-                                                    <div class="row">
-                                                        <div class="col-sm-12">
-                                                            {{ $s->namaKegiatan }}
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-12">
-                                                <div class="form-group form-group-default">
-                                                    <label>PJ</label>
-                                                    <div class="row">
-                                                        <div class="col-sm-12">
-                                                            {{ $s->pj }}
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-12">
-                                                <div class="form-group form-group-default">
-                                                    <label>Waktu Mulai</label>
-                                                    <div class="row">
-                                                        <div class="col-sm-12">
-                                                            {{ $s->waktuMulai }}
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-12">
-                                                <div class="form-group form-group-default">
-                                                    <label>Waktu Selesai</label>
-                                                    <div class="row">
-                                                        <div class="col-sm-12">
-                                                            {{ $s->waktuSelesai }}
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                    </div>
-                                    <div class="modal-footer no-bd">
-                                        <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">Close</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--End Modal Detail-->
                     <tr>
                         <td class="text-center">{{ $loop->iteration }}</td>
                         <td class="text-center">{{date('d-m-Y', strtotime($s->tanggal))}}</td>
@@ -274,7 +188,6 @@
                         <td class="text-center">{{ $s->waktuSelesai}}</td>
                         <td class="text-center">
                             <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editModalsuncar{{ $s->idSuncar }}"><i class="fa fa-edit"></i></button>
-                            <button class="btn btn-info" data-bs-toggle="modal" data-bs-target="#detailModalsuncar{{ $s->idSuncar }}"><i class="fa fa-edit"></i></button>
                             <form action="{{ route('suncar.destroy', $s->idSuncar) }}" method="POST" class="d-inline">
                                 @csrf
                                 @method('DELETE')

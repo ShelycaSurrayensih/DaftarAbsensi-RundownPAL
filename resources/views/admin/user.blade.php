@@ -26,10 +26,13 @@
 			<ol class="breadcrumb">
 			</ol>
 		</div>
+
 			<div class="col-12">
 				<div class="card">
-                    <div class="col-md-40 col-sm-12 text-right" style="text-align: left">
-                        <button type="button" class="btn btn-primary mb-2" data-bs-toggle="modal" data-bs-target="#addModaluser">Add Data</button>
+                    <div class="card-header">
+                        <div class="col-md-40 col-sm-12 text-right" style="text-align: left">
+                            <button type="button" class="btn btn-primary mb-2" data-bs-toggle="modal" data-bs-target="#addModaluser">Add Data</button>
+                        </div>
                     </div>
                     @include('admin.adduser')
 					<div class="card-body">

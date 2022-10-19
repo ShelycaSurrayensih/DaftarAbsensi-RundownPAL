@@ -16,7 +16,7 @@
 
 <!--**********************************  Chat box End ***********************************-->
 <!--**********************************  Header start ***********************************-->
-<div class="header" style="background: #3695EB">
+<div class="header">
     <div class="header-content">
         <nav class="navbar navbar-expand">
             <div class="collapse navbar-collapse justify-content-between">
