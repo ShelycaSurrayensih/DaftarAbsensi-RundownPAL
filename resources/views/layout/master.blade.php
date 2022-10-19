@@ -53,7 +53,7 @@
     <script src="{{ asset('assets/js/custom.js') }}"></script>
     <script src="{{ asset('assets/js/deznav-init.js') }}"></script>
     <script src="{{ asset('assets/js/demo.js') }}"></script>
-    <script src="{{ asset('assets/js/styleSwitcher.js') }}"></script>
+    {{-- <script src="{{ asset('assets/js/styleSwitcher.js') }}"></script> --}}
 
     <script src="{{asset('assets/js/sweetalert2.min.js')}}"></script>
 

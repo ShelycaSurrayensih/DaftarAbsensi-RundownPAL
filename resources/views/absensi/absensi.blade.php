@@ -203,8 +203,7 @@
                                                                             class="form-control"
                                                                             placeholder="Masukkan Tanda Tangan">
                                                                     </div>
-                                                                    <img src="{{ asset('storage/' . $a->tandatangan) }}"
-                                                                        width="100px">
+                                                                    <img src="{{ asset('storage/' . $a->tandatangan) }}" width="100px">
                                                                 </div>
                                                             </div>
                                                             <div class="modal-footer no-bd">
@@ -326,19 +325,7 @@
                                             <td class="text-center">{{ $a->jabatan }}</td>
                                             <td class="text-center">{{ $a->instansi }}</td>
                                             <td class="text-center">{{ $a->telp }}</td>
-                                            <td class="text-center"><img src="{{ asset('storage/' . $a->tandatangan) }}"
-                                                    width="100px"></td>
-                                                {{-- <button class="btn btn-info" data-bs-toggle="modal"
-                                                    data-bs-target="#detailModalabsensi{{ $a->idAbsensi }}"><i
-                                                        class="fa fa-edit"></i></button>
-                                                <form action="{{ route('absensi.destroy', $a->idAbsensi) }}"
-                                                    method="POST" class="d-inline">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger"
-                                                        onclick="return confirm('Apa anda yakin menghapus data tersebut?')"><i
-                                                            class="fa fa-trash"></i></a>
-                                                </form> --}}
+                                            <td class="text-center"><img src="{{ asset('storage/' . $a->tandatangan) }}" width="200" height="50"></td>
                                             </td>
                                         </tr>
                                     @endif
